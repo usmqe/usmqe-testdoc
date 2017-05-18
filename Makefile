@@ -44,6 +44,7 @@ help:
 	@echo "  linkcheck   to check all external links for integrity"
 	@echo "  doctest     to run all doctests embedded in the documentation (if enabled)"
 	@echo "  coverage    to run coverage check of the documentation (if enabled)"
+	@echo "  xmlexport   to make XML Export files for ci-ops-tools importer"
 	@echo "  dummy       to check syntax errors of document sources"
 
 .PHONY: clean
@@ -233,6 +234,12 @@ pseudoxml:
 	$(SPHINXBUILD) -b pseudoxml $(ALLSPHINXOPTS) $(BUILDDIR)/pseudoxml
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
+
+.PHONY: xmlexport
+xmlexport:
+	$(SPHINXBUILD) -b xmlexport $(ALLSPHINXOPTS) $(BUILDDIR)/xmlexport
+	@echo
+	@echo "Build finished; now you can process xmlexport files."
 
 .PHONY: dummy
 dummy:
