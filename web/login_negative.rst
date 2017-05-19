@@ -1,0 +1,43 @@
+Negative login
+****************
+
+:authors: 
+          - mkudlej@redhat.com
+
+.. _Design document for login: https://redhat.invisionapp.com/share/6T900V2ZX#/screens/198042643
+
+Description
+===========
+
+Try to login not valid user into Tendrl. 
+During testing `Design document for login`_ should be considered.
+
+Setup
+=====
+
+#. Install Tendrl according installation instruction written in *Test Plan*
+
+Test Steps
+==========
+
+.. test_step:: 1
+
+    Go to login page 
+
+.. test_result:: 1
+
+    Page should loaded properly. Especially it should contain ``Username`` and ``Password`` inputs and ``Log In`` button.
+    
+.. test_step:: 2
+
+    Enter ``negative`` to ``Username`` input and ``negative`` to ``Password`` input. Click on ``Log In`` button.
+
+.. test_result:: 2
+
+    User should not log into Tendrl. Proper error message should appear.
+
+
+Teardown
+========
+
+#. Close browser
