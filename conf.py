@@ -41,6 +41,13 @@ extensions = ['pylatest',
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
+# A string of reStructuredText that will be included at the end of every source
+# file that is read. This is the right place to add substitutions that should
+# be available in every file.
+rst_epilog = """
+.. include:: /references.rst
+"""
+
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
