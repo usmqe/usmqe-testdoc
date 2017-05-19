@@ -7,6 +7,7 @@
 .. Tendrl Upstream Documentation
 
 .. _`Tendrl Package Installation Reference`: https://github.com/Tendrl/documentation/wiki/Tendrl-Package-Installation-Reference
+.. _`Design document for Gluster file shares list`: https://redhat.invisionapp.com/share/BR8JDCGSQ#/screens/198417117
 
 .. Upstream Documentation for Related Projects
 
