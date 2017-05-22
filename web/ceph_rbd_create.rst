@@ -219,14 +219,14 @@ Test Steps
 
     And provided details matches what has been specified via web gui::
 
-		# rbd -c /etc/ceph/alpha.conf -p rbd_pool info rbd0
-		rbd image 'rbd0':
-			size 1024 MB in 256 objects
-			order 22 (4096 kB objects)
-			block_name_prefix: rbd_data.135582ae8944a
-			format: 2
-			features: layering, exclusive-lock, object-map, fast-diff, deep-flatten
-			flags:
+        # rbd -c /etc/ceph/alpha.conf -p rbd_pool info rbd0
+        rbd image 'rbd0':
+            size 1024 MB in 256 objects
+            order 22 (4096 kB objects)
+            block_name_prefix: rbd_data.135582ae8944a
+            format: 2
+            features: layering, exclusive-lock, object-map, fast-diff, deep-flatten
+            flags:
 
 Teardown
 ========

@@ -134,7 +134,7 @@ Test Steps
 
     Just created RBD is shown in the list, there are no errors reported.
 
-	Information shown for the new RBD matches the desired parameters.
+    Information shown for the new RBD matches the desired parameters.
 
     (There is another RBD in the list as expected by Setup section)
 
@@ -167,7 +167,7 @@ Test Steps
             features: layering, exclusive-lock, object-map, fast-diff, deep-flatten
             flags: 
 
-	(compare with data checked during test step 7)
+    (compare with data checked during test step 7)
 
 Teardown
 ========
