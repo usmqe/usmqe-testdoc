@@ -19,21 +19,17 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
-  
-    Set different log level as default one.
-  
-.. test_result:: 1
-   
-    Check if there are log entries in log only for set level.
+.. test_action::
+   :step:
+       Set different log level as default one.
+   :result:
+       Check if there are log entries in log only for set level.
 
-.. test_step:: 2
-
-    Go to main Dashboard.
-
-.. test_result:: 2
-
-    Chekc if there is all required information on Dashboard.
+.. test_action::
+   :step:
+       Go to main Dashboard.
+   :result:
+       Chekc if there is all required information on Dashboard.
 
 Teardown
 ========

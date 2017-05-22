@@ -75,185 +75,163 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Click on *Dashboard* link in the left menu bar.
+   :result:
+       The *Main Dashboard* page is shown (at this point the page is not empty).
 
-    Click on *Dashboard* link in the left menu bar.
+.. test_action::
+   :step:
+       Find *Clusters* card in *Main Dashboard* page.
+   :result:
+       Such item exists and reports:
 
-.. test_result:: 1
+       * total number of clusters
+       * overall status
+         
+       The status may be one of (depends on the actuall cluster state): 
 
-    The *Main Dashboard* page is shown (at this point the page is not empty).
+       * green icon which means that everything is ok
+       * or the following details are provided in case of some error/failure:
+           * number of clusters in an error/fail state
+           * number of clusters in a warning state
+           * number of active alerts (if any)
 
-.. test_step:: 2
+.. test_action::
+   :step:
+       Find *Hosts* card in *Main Dashboard* page.
+   :result:
+       Such item exists and reports:
 
-    Find *Clusters* card in *Main Dashboard* page.
+       * total number of hosts
+       * overall status
 
-.. test_result:: 2
+       The status may be one of (depends on the actuall cluster state): 
 
-    Such item exists and reports:
+       * green icon which means that everything is ok
+       * or the following details are provided in case of some error/failure:
+           * number of hosts in an error/fail state
+           * number of hosts in a warning state
 
-    * total number of clusters
-    * overall status
+.. test_action::
+   :step:
+       Find *Monitors* card in *Main Dashboard* page.
+   :result:
+       Such item exists and reports:
+
+       * total number of Monitors
+       * overall status
+
+       The status may be one of (depends on the actuall cluster state): 
+
+       * green icon which means that everything is ok
+       * or the following details are provided in case of some error/failure:
+           * number of monitors in an error/fail state
+           * number of monitors in a warning state
+
+.. test_action::
+   :step:
+       Find *PGs* card in *Main Dashboard* page.
+   :result:
+       Such item exists and reports:
+
+       * total number of PGs
+       * overall status
+
+       The status may be one of (depends on the actuall cluster state): 
+
+       * green icon which means that everything is ok
+       * or the following details are provided in case of some error/failure:
+           * number of PGs in an error/fail state
+           * number of PGs in a warning state
+
+.. test_action::
+   :step:
+       Find *Pools* card in *Main Dashboard* page.
+   :result:
+       Such item exists and reports:
+
+       * total number of pools
+       * overall status
+
+       The status may be one of (depends on the actuall cluster state): 
+
+       * green icon which means that everything is ok
+       * or the following details are provided in case of some error/failure:
+           * number of pools in an error/fail state
+           * number of pools in a warning state
+
+.. test_action::
+   :step:
+       Find *OSDs* card in *Main Dashboard* page.
+   :result:
+       Such item exists and reports:
+
+       * total number of OSDs
+       * overall status
+
+       The status may be one of (depends on the actuall cluster state): 
+
+       * green icon which means that everything is ok
+       * or the following details are provided in case of some error/failure:
+           * number of OSDs in an error/fail state
+           * number of OSDs in a warning state
+
+.. test_action::
+   :step:
+       Find *Objects* card in *Main Dashboard* page.
+   :result:
+       Such item exists and reports:
+
+       * total number of objects
+       * overall status
+
+       The status may be one of (depends on the actuall cluster state): 
+
+       * green icon which means that everything is ok
+       * or the following details are provided in case of some error/failure:
+           * number of objects in an error/fail state
+           * number of objects in a warning state
+
+.. test_action::
+   :step:
+       Find *System Performance* card in *Main Dashboard* page.
+   :result:
+       Such item exists and contains:
+
+       * CPU utilization graph
+       * Memory ulitization graph
+       * IOPS graph
+       * Throughput graph
+       * Latency graph
+
+       Data there are computed based on status of all clusters.
+
+.. test_action::
+   :step:
+       Find *Most Used Storage Profiles* card in *Main Dashboard* page.
+   :result:
+       Such item exists and contains list of utilization bars of 3 most utilized
+       storage profiles.
       
-    The status may be one of (depends on the actuall cluster state): 
+       If more are defined, there should be a item called Others aggregating
+       utilization of the rest of storage profiles.
 
-    * green icon which means that everything is ok
-    * or the following details are provided in case of some error/failure:
-        * number of clusters in an error/fail state
-        * number of clusters in a warning state
-        * number of active alerts (if any)
+       Data there are agregated based on status of all clusters.
 
-.. test_step:: 3
+.. test_action::
+   :step:
+       Find *Most Used Pools* card in *Main Dashboard* page.
+   :result:
+       Such item exists and contains list of utilization bars, one for each
+       ceph pool.
 
-    Find *Hosts* card in *Main Dashboard* page.
+       Utilization and maximum capacity is correct for each pool shown there.
 
-.. test_result:: 3
+       TODO: what about a limit there? How many pools is a maximum?
 
-    Such item exists and reports:
-
-    * total number of hosts
-    * overall status
-
-    The status may be one of (depends on the actuall cluster state): 
-
-    * green icon which means that everything is ok
-    * or the following details are provided in case of some error/failure:
-        * number of hosts in an error/fail state
-        * number of hosts in a warning state
-
-.. test_step:: 4
-
-    Find *Monitors* card in *Main Dashboard* page.
-
-.. test_result:: 4
-
-    Such item exists and reports:
-
-    * total number of Monitors
-    * overall status
-
-    The status may be one of (depends on the actuall cluster state): 
-
-    * green icon which means that everything is ok
-    * or the following details are provided in case of some error/failure:
-        * number of monitors in an error/fail state
-        * number of monitors in a warning state
-
-.. test_step:: 5
-
-    Find *PGs* card in *Main Dashboard* page.
-
-.. test_result:: 5
-
-    Such item exists and reports:
-
-    * total number of PGs
-    * overall status
-
-    The status may be one of (depends on the actuall cluster state): 
-
-    * green icon which means that everything is ok
-    * or the following details are provided in case of some error/failure:
-        * number of PGs in an error/fail state
-        * number of PGs in a warning state
-
-.. test_step:: 6
-
-    Find *Pools* card in *Main Dashboard* page.
-
-.. test_result:: 6
-
-    Such item exists and reports:
-
-    * total number of pools
-    * overall status
-
-    The status may be one of (depends on the actuall cluster state): 
-
-    * green icon which means that everything is ok
-    * or the following details are provided in case of some error/failure:
-        * number of pools in an error/fail state
-        * number of pools in a warning state
-
-.. test_step:: 7
-
-    Find *OSDs* card in *Main Dashboard* page.
-
-.. test_result:: 7
-
-    Such item exists and reports:
-
-    * total number of OSDs
-    * overall status
-
-    The status may be one of (depends on the actuall cluster state): 
-
-    * green icon which means that everything is ok
-    * or the following details are provided in case of some error/failure:
-        * number of OSDs in an error/fail state
-        * number of OSDs in a warning state
-
-.. test_step:: 8
-
-    Find *Objects* card in *Main Dashboard* page.
-
-.. test_result:: 8
-
-    Such item exists and reports:
-
-    * total number of objects
-    * overall status
-
-    The status may be one of (depends on the actuall cluster state): 
-
-    * green icon which means that everything is ok
-    * or the following details are provided in case of some error/failure:
-        * number of objects in an error/fail state
-        * number of objects in a warning state
-
-.. test_step:: 9
-
-    Find *System Performance* card in *Main Dashboard* page.
-
-.. test_result:: 9
-
-    Such item exists and contains:
-
-    * CPU utilization graph
-    * Memory ulitization graph
-    * IOPS graph
-    * Throughput graph
-    * Latency graph
-
-    Data there are computed based on status of all clusters.
-
-.. test_step:: 10
-
-    Find *Most Used Storage Profiles* card in *Main Dashboard* page.
-
-.. test_result:: 10
-
-    Such item exists and contains list of utilization bars of 3 most utilized
-    storage profiles.
-   
-    If more are defined, there should be a item called Others aggregating
-    utilization of the rest of storage profiles.
-
-    Data there are agregated based on status of all clusters.
-
-.. test_step:: 11
-
-    Find *Most Used Pools* card in *Main Dashboard* page.
-
-.. test_result:: 11
-
-    Such item exists and contains list of utilization bars, one for each
-    ceph pool.
-
-    Utilization and maximum capacity is correct for each pool shown there.
-
-    TODO: what about a limit there? How many pools is a maximum?
-
-    Data there are agregated based on status of all clusters.
+       Data there are agregated based on status of all clusters.
 
 Teardown
 ========

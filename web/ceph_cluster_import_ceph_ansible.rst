@@ -128,46 +128,36 @@ During testing `Design document for import`_ should be considered.
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Go to ``Clusters``
+   :result:
+       List of clusters page is shown.
 
-    Go to ``Clusters``
+.. test_action::
+   :step:
+       Click on ``Import Cluster`` button
+   :result:
+       Wizard for importing cluster is shown.
 
-.. test_result:: 1
+.. test_action::
+   :step:
+       Select node where Calamari is installed and click on ``Continue``
+   :result:
+       ``Cluster Summary`` is shown with proper values.
 
-    List of clusters page is shown.
+.. test_action::
+   :step:
+      Click on ``Import`` button
+   :result:
+      Import task is opened.
 
-.. test_step:: 2
-
-    Click on ``Import Cluster`` button
-
-.. test_result:: 2
-
-    Wizard for importing cluster is shown.
-
-.. test_step:: 3
-
-    Select node where Calamari is installed and click on ``Continue``
-
-.. test_result:: 3
-
-    ``Cluster Summary`` is shown with proper values.
-
-.. test_step:: 4
-
-   Click on ``Import`` button
-
-.. test_result:: 4
-
-   Import task is opened.
-
-.. test_step:: 5
-
-    Check if task and imported cluster.
-
-.. test_result:: 5
-
-    Import task pass and cluster is imported properly.
-    Check that a new pool could be created.
+.. test_action::
+   :step:
+       Check if task and imported cluster.
+   :result:
+       Import task pass and cluster is imported properly.
+       Check that a new pool could be created.
 
 Teardown
 ========

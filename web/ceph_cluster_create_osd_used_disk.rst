@@ -21,15 +21,13 @@ Configure all storage nodes to use at least 2 disks and mount the fist one somew
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Follow test steps from *Create Ceph cluster* testcase.
+   :result:
+       Follow test results from *Create Ceph cluster* testcase.
 
-    Follow test steps from *Create Ceph cluster* testcase.
-
-.. test_result:: 1
-
-    Follow test results from *Create Ceph cluster* testcase.
-
-    Check that used disk (mounted as /home) is not counted as part of storage cluster. 
+       Check that used disk (mounted as /home) is not counted as part of storage cluster. 
 
 Teardown
 ========

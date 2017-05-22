@@ -20,21 +20,17 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
-
-    Go to login page 
-
-.. test_result:: 1
-
-    Page should loaded properly. Especially it should contain ``Username`` and ``Password`` inputs and ``Log In`` button.
+.. test_action::
+   :step:
+       Go to login page 
+   :result:
+       Page should loaded properly. Especially it should contain ``Username`` and ``Password`` inputs and ``Log In`` button.
     
-.. test_step:: 2
-
-    Enter valid ``Username`` into proper input. Make sure there is no character in ``Password`` input. Click on ``Log In`` button.
-
-.. test_result:: 2
-
-    User should not log into Tendrl. Proper error message should appear.
+.. test_action::
+   :step:
+       Enter valid ``Username`` into proper input. Make sure there is no character in ``Password`` input. Click on ``Log In`` button.
+   :result:
+       User should not log into Tendrl. Proper error message should appear.
 
 
 Teardown

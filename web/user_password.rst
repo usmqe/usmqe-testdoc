@@ -19,37 +19,29 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
-  
-    Click on most right icon in upper menu and click on ``change password``.
-  
-.. test_result:: 1
-   
-    Window for changing password is opened.
+.. test_action::
+   :step:
+       Click on most right icon in upper menu and click on ``change password``.
+   :result:
+       Window for changing password is opened.
 
-.. test_step:: 2
-    
-    Add to email and password number ``2`` at the end and click ``Save``.
+.. test_action::
+   :step:
+       Add to email and password number ``2`` at the end and click ``Save``.
+   :result:
+       Window should be closed.
 
-.. test_result:: 2
+.. test_action::
+   :step:
+       Follow(*Log out* testcase)
+   :result:
+       User is log out from Tendrl.
 
-    Window should be closed.
-
-.. test_step:: 3
-
-    Follow(*Log out* testcase)
-
-.. test_result:: 3
-
-    User is log out from Tendrl.
-
-.. test_step:: 4
-
-    *Positive login* testcase with new password.
-
-.. test_result:: 4
-
-    User is able to login with new password.
+.. test_action::
+   :step:
+       *Positive login* testcase with new password.
+   :result:
+       User is able to login with new password.
     
 Teardown
 ========

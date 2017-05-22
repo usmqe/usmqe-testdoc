@@ -281,125 +281,117 @@ Root/system disk is not counted in the number of mentioned disks!
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Prepare cluster with 4 OSD nodes and 8 spare disks on each OSD node.
 
-    Prepare cluster with 4 OSD nodes and 8 spare disks on each OSD node.
+       Disks should be created accordingly to schema for the first, second or third scenario in Setup section (part *Disk creation*).
 
-    Disks should be created accordingly to schema for the first, second or third scenario in Setup section (part *Disk creation*).
+       The commands should be launched from the hypervisor server after proper modification!
+   :result:
+       Check the created disks (especially the disk sizes).
 
-    The commands should be launched from the hypervisor server after proper modification!
+       ::
 
-.. test_result:: 1
+           IMAGES_PATH=/var/lib/libvirt/images/
+           CLUSTER_NAME=dahorak-usm3
+           for node in node{1..4}; do
+             for disk in {1..8}; do
+               echo "== ${node}-${disk} ====================================="
+               qemu-img info ${IMAGES_PATH}${CLUSTER_NAME}-${node}-${disk}.img
+             done
+           done
 
-    Check the created disks (especially the disk sizes).
+.. test_action::
+   :step:
+       Run *Cluster create* job for the cluster, do not run *Cluster install* (RUN_CLUSTER_INSTALL=False).
 
-    ::
+       Download inventory file from the job *Workspace* (e.g. ``usersys_dahorak-usm3.hosts``)
 
-        IMAGES_PATH=/var/lib/libvirt/images/
-        CLUSTER_NAME=dahorak-usm3
-        for node in node{1..4}; do
-          for disk in {1..8}; do
-            echo "== ${node}-${disk} ====================================="
-            qemu-img info ${IMAGES_PATH}${CLUSTER_NAME}-${node}-${disk}.img
-          done
-        done
+       Try to ping all the nodes via ansible:
+       ::
 
-.. test_step:: 2
+           ansible -i usersys_dahorak-usm3.hosts all -m ping
+   :result:
+       Bunch of nodes for the cluster should be prepared and available.
 
-    Run *Cluster create* job for the cluster, do not run *Cluster install* (RUN_CLUSTER_INSTALL=False).
+       You should be able to succesfully ping all machines.
 
-    Download inventory file from the job *Workspace* (e.g. ``usersys_dahorak-usm3.hosts``)
+.. test_action::
+   :step:
+       Configure the particular disks to behave as SSD or HDD accordingly to the Setup section (part *HDD/SSD disk configuration*).
 
-    Try to ping all the nodes via ansible:
-    ::
+       ::
 
-        ansible -i usersys_dahorak-usm3.hosts all -m ping
+           ansible -i usersys_dahorak-usm3.hosts ceph_osd -m shell -a 'cat /sys/block/vd*/queue/rotational'
 
-.. test_result:: 2
+       - SSD means ``0`` in ``/sys/block/vdX/queue/rotational``.
+       - HDD means ``1`` in ``/sys/block/vdX/queue/rotational``.
+   :result:
+       Check that the HDD/SSD configuration match the desired schema.
 
-    Bunch of nodes for the cluster should be prepared and available.
+.. test_action::
+   :step:
+       Run *Cluster install* job and when finish, follow test steps from *Create cluster* testcase and install and configure
+       Ceph cluster via Tendrl web UI.
 
-    You should be able to succesfully ping all machines.
+       Use 5GB journal size.
+   :result:
+       Check the mapping of journal.
 
-.. test_step:: 3
+       1. scenario
 
-    Configure the particular disks to behave as SSD or HDD accordingly to the Setup section (part *HDD/SSD disk configuration*).
+           - node1: 0 SSD,  8 HDD (1T, 1T, 1T, 1T, 1T, 1T, 1T, 1T)
+             4 OSDs created (randomly spread across all the available disks - :RHBZ:`1334344`)
+           - node2: 0 SSD,  8 HDD (10G, 10G, 10G, 10G, 1T, 1T, 1T, 1T)
+             4 OSDs created (``vdb,vdc,vdd,vde`` used as journal, ``vdf,vdg,vdh,vdi`` used for data, also not sorted - :RHBZ:`1334344`)
+           - node3: 0 SSD,  8 HDD (4G, 5G, 10G, 1T, 1T, 1T, 1T, 1T)
+             2 OSDs created (creation of 2 OSDs fails because of journal creation from 4GB and 5GB disks fails - :RHBZ:`1356876`)
+           - node4: 0 SSD,  8 HDD (4G, 4G, 4G, 4G, 1T, 1T, 1T, 1T)
+             no OSD created (creation of any journal fails because of not enough space on 4GB disks - :RHBZ:`1356876`)
 
-    ::
+       2. scenario
 
-        ansible -i usersys_dahorak-usm3.hosts ceph_osd -m shell -a 'cat /sys/block/vd*/queue/rotational'
+           - node1: 2 SSD (100G, 100G), 6 HDD (1T, 1T, 1T, 1T, 1T, 1T)
+             6 OSDs created from 1TB disks, journal on 100GB disks (one used for 4 OSDs, second for 2 OSDs)
+           - node2: 2 SSD (10G, 10G), 6 HDD (1T, 1T, 1T, 1T, 1T, 1T)
+             TODO: what should be the correct result?
+             CURRENT STATE: created 3 OSDs one journal peer SSD, one journal on HDD,
+             creation of 2 OSD failed because of 10GB SSD is too small for 2x5GB journal
+           - node3: 2 SSD (15G, 20G), 6 HDD (1T, 1T, 1T, 1T, 1T, 1T)
+             TODO: what should be the correct result?
+             CURRENT STATE: created 5 OSDs, two journals on 15GB SSD, 3 journals on 20GB SSD,
+             creation of one OSD failed because of 15GB SSD is too small for 3x5GB journal
+           - node4: 1 SSD (100G), 7 HDD (10G, 10G, 1T, 1T, 1T, 1T, 1T)
+             created 5 OSDs, journal for 4 OSDs on the SSD disk, journal for one OSD on HDD
+             one HDD left untouched because of no available disk for journal
 
-    - SSD means ``0`` in ``/sys/block/vdX/queue/rotational``.
-    - HDD means ``1`` in ``/sys/block/vdX/queue/rotational``.
+       3. scenario (used **16GB journal**)
 
-.. test_result:: 3
-
-    Check that the HDD/SSD configuration match the desired schema.
-
-.. test_step:: 4
-
-    Run *Cluster install* job and when finish, follow test steps from *Create cluster* testcase and install and configure
-    Ceph cluster via Tendrl web UI.
-
-    Use 5GB journal size.
-
-.. test_result:: 4
-
-    Check the mapping of journal.
-
-    1. scenario
-
-        - node1: 0 SSD,  8 HDD (1T, 1T, 1T, 1T, 1T, 1T, 1T, 1T)
-          4 OSDs created (randomly spread across all the available disks - :RHBZ:`1334344`)
-        - node2: 0 SSD,  8 HDD (10G, 10G, 10G, 10G, 1T, 1T, 1T, 1T)
-          4 OSDs created (``vdb,vdc,vdd,vde`` used as journal, ``vdf,vdg,vdh,vdi`` used for data, also not sorted - :RHBZ:`1334344`)
-        - node3: 0 SSD,  8 HDD (4G, 5G, 10G, 1T, 1T, 1T, 1T, 1T)
-          2 OSDs created (creation of 2 OSDs fails because of journal creation from 4GB and 5GB disks fails - :RHBZ:`1356876`)
-        - node4: 0 SSD,  8 HDD (4G, 4G, 4G, 4G, 1T, 1T, 1T, 1T)
-          no OSD created (creation of any journal fails because of not enough space on 4GB disks - :RHBZ:`1356876`)
-
-    2. scenario
-
-        - node1: 2 SSD (100G, 100G), 6 HDD (1T, 1T, 1T, 1T, 1T, 1T)
-          6 OSDs created from 1TB disks, journal on 100GB disks (one used for 4 OSDs, second for 2 OSDs)
-        - node2: 2 SSD (10G, 10G), 6 HDD (1T, 1T, 1T, 1T, 1T, 1T)
-          TODO: what should be the correct result?
-          CURRENT STATE: created 3 OSDs one journal peer SSD, one journal on HDD,
-          creation of 2 OSD failed because of 10GB SSD is too small for 2x5GB journal
-        - node3: 2 SSD (15G, 20G), 6 HDD (1T, 1T, 1T, 1T, 1T, 1T)
-          TODO: what should be the correct result?
-          CURRENT STATE: created 5 OSDs, two journals on 15GB SSD, 3 journals on 20GB SSD,
-          creation of one OSD failed because of 15GB SSD is too small for 3x5GB journal
-        - node4: 1 SSD (100G), 7 HDD (10G, 10G, 1T, 1T, 1T, 1T, 1T)
-          created 5 OSDs, journal for 4 OSDs on the SSD disk, journal for one OSD on HDD
-          one HDD left untouched because of no available disk for journal
-
-    3. scenario (used **16GB journal**)
-
-        - node1: 2 SSD (32G, 32G), 6 HDD (1T, 1T, 1T, 1T, 1T, 1T)
-          TODO: what should be the correct result?
-          CURRENT STATE: created 3 OSDs, 1 journal peer 1 SSD, 1 journal on HDD,
-          creation of 2 OSDs failed because of 32GB SSD is too small for 2x16GB journal
-        - node2: 2 SSD (64G, 64G), 6 HDD (1T, 1T, 1T, 1T, 1T, 1T)
-          TODO: what should be the correct result?
-          CURRENT STATE: created 5 OSDs, 3 journals on first SSD, 2 journas on second SSD,
-          creation of 1 OSD failed because of 64GB SSD is too small for 4x16GB journal
-        - node3: 2 SSD (65G, 65G), 6 HDD (1T, 1T, 1T, 1T, 1T, 1T)
-          6 OSDs created, 4 journals on one SSD, 2 journals on the second
-        - node4: 2 SSD (40G, 80G), 6 HDD (1T, 1T, 1T, 1T, 1T, 1T)
-          6 OSDs created, 4 journals on 80GB SSD, 2 journals on 40GB SSD
+           - node1: 2 SSD (32G, 32G), 6 HDD (1T, 1T, 1T, 1T, 1T, 1T)
+             TODO: what should be the correct result?
+             CURRENT STATE: created 3 OSDs, 1 journal peer 1 SSD, 1 journal on HDD,
+             creation of 2 OSDs failed because of 32GB SSD is too small for 2x16GB journal
+           - node2: 2 SSD (64G, 64G), 6 HDD (1T, 1T, 1T, 1T, 1T, 1T)
+             TODO: what should be the correct result?
+             CURRENT STATE: created 5 OSDs, 3 journals on first SSD, 2 journas on second SSD,
+             creation of 1 OSD failed because of 64GB SSD is too small for 4x16GB journal
+           - node3: 2 SSD (65G, 65G), 6 HDD (1T, 1T, 1T, 1T, 1T, 1T)
+             6 OSDs created, 4 journals on one SSD, 2 journals on the second
+           - node4: 2 SSD (40G, 80G), 6 HDD (1T, 1T, 1T, 1T, 1T, 1T)
+             6 OSDs created, 4 journals on 80GB SSD, 2 journals on 40GB SSD
 
 
-    4. scenario
+       4. scenario
 
-        - node1: 8 SSD (1T, 1T, 1T, 1T, 1T, 1T, 1T, 1T), 0 HDD
-          6 OSDs created (OSDs and journals randomly spread across all the available disks - :RHBZ:`1334344`)
-        - node2: 8 SSD (100G, 100G, 1T, 1T, 1T, 1T, 1T, 1T), 0 HDD
-          6 OSDs created (journals on the 100G disks)
-        - node3: 8 SSD (11G, 11G, 11G, 1T, 1T, 1T, 1T, 1T), 0 HDD
-          5 OSDs created (journals on the 11G disks) - :RHBZ:`1358627`
-        - node4: 8 SSD (6G, 11G, 16G, 100G, 1T, 1T, 1T, 1T), 0 HDD
-          5 OSDs created (journals on the 6G, 11G and 16G disks) - :RHBZ:`1358627`
+           - node1: 8 SSD (1T, 1T, 1T, 1T, 1T, 1T, 1T, 1T), 0 HDD
+             6 OSDs created (OSDs and journals randomly spread across all the available disks - :RHBZ:`1334344`)
+           - node2: 8 SSD (100G, 100G, 1T, 1T, 1T, 1T, 1T, 1T), 0 HDD
+             6 OSDs created (journals on the 100G disks)
+           - node3: 8 SSD (11G, 11G, 11G, 1T, 1T, 1T, 1T, 1T), 0 HDD
+             5 OSDs created (journals on the 11G disks) - :RHBZ:`1358627`
+           - node4: 8 SSD (6G, 11G, 16G, 100G, 1T, 1T, 1T, 1T), 0 HDD
+             5 OSDs created (journals on the 6G, 11G and 16G disks) - :RHBZ:`1358627`
 
 
 Teardown

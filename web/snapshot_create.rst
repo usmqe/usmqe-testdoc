@@ -21,21 +21,17 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
-  
-    Go to ``Storage``
-  
-.. test_result:: 1
-   
-    Storage list is shown.
+.. test_action::
+   :step:
+       Go to ``Storage``
+   :result:
+       Storage list is shown.
 
-.. test_step:: 2
-
-    Click on menu at the end of storage description and click on ``Create snapshot`` and wait for end of process.
-
-.. test_result:: 2
-
-    Check if snapshot was created.
+.. test_action::
+   :step:
+       Click on menu at the end of storage description and click on ``Create snapshot`` and wait for end of process.
+   :result:
+       Check if snapshot was created.
 
 
 Teardown

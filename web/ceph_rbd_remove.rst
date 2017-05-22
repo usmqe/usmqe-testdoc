@@ -23,53 +23,41 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Click on ``Storage`` button and ``RBDs`` in submenu.
+   :result:
+       Page with list of RBD items is shown.
 
-    Click on ``Storage`` button and ``RBDs`` in submenu.
+.. test_action::
+   :step:
+       Click "3 dots" button on the end of ``rbd1`` row.
+   :result:
+       Menu with ``Resize`` and ``Remove`` is opened.
 
-.. test_result:: 1
+.. test_action::
+   :step:
+       Click on ``Remove`` button.
+   :result:
+       Confirmation dialog is opened.
 
-    Page with list of RBD items is shown.
+.. test_action::
+   :step:
+       Click on ``OK`` button.
+   :result:
+       New task in created in ``Tasks``.
 
-.. test_step:: 2
+.. test_action::
+   :step:
+       Wait till task for removing ``rbd1`` ends.
+   :result:
+       Check if task for removing ``rbd1`` pass.
 
-    Click "3 dots" button on the end of ``rbd1`` row.
-
-.. test_result:: 2
-
-    Menu with ``Resize`` and ``Remove`` is opened.
-
-.. test_step:: 3
-
-    Click on ``Remove`` button.
-
-.. test_result:: 3
-
-    Confirmation dialog is opened.
-
-.. test_step:: 4
-
-    Click on ``OK`` button.
-
-.. test_result:: 4
-
-    New task in created in ``Tasks``.
-
-.. test_step:: 5
-
-    Wait till task for removing ``rbd1`` ends.
-
-.. test_result:: 5
-
-    Check if task for removing ``rbd1`` pass.
-
-.. test_step:: 6
-    
-    Ssh to one of monitor and check if there is still ``rbd1``.
-
-.. test_result:: 6
-
-    # ``rbd --pool rbd_pool ls`` returns list of rbds without ``rbd1``
+.. test_action::
+   :step:
+       Ssh to one of monitor and check if there is still ``rbd1``.
+   :result:
+       # ``rbd --pool rbd_pool ls`` returns list of rbds without ``rbd1``
 
 Teardown
 ========

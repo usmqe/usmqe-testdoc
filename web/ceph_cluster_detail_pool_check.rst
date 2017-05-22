@@ -31,57 +31,49 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Click on *Clusters* link in the left menu bar.
+   :result:
+       The *Clusters Landing Page* is shown. The title reads "Clusters" and the
+       cluster you have created in this testacase's setup phase is shown here.
 
-    Click on *Clusters* link in the left menu bar.
+.. test_action::
+   :step:
+       Click on the item for *alpha* cluster.
+   :result:
+       Default Cluster dashboard is shown with details about *alpha* cluster.
 
-.. test_result:: 1
+.. test_action::
+   :step:
+       Click on *Pools* tab.
+   :result:
+       List of pools is shown. There is just a single item which should belong
+       to the *alpha* cluster.
 
-    The *Clusters Landing Page* is shown. The title reads "Clusters" and the
-    cluster you have created in this testacase's setup phase is shown here.
+.. test_action::
+   :step:
+       See information provided in ceph pool storage item in the list of the
+       *Pools* tab.
+   :result:
+       The item provides the following information for a ceph pool item:
 
-.. test_step:: 2
+       * Storage type in the left collumn is **CEPH**.
+       * Pool name is *aplha*.
+       * Pool type (TODO: clarify).
+       * Utilization graph, used space as a total number and percentage
+       * Cluster name and TODO
+       * Number of OSDs (along with some error/warning if needed - TODO recheck)
+       * Snapshot info
+       * Other features (cache, tiering, ...) TODO: details
+       * Total number of **Alerts** (TODO: add details)
+       * Menu icon which provides pop up menu with operations which could be
+         performed for this node
+         TODO: list all actions available 
 
-    Click on the item for *alpha* cluster.
-
-.. test_result:: 2
-
-    Default Cluster dashboard is shown with details about *alpha* cluster.
-
-.. test_step:: 3
-
-    Click on *Pools* tab.
-
-.. test_result:: 3
-
-    List of pools is shown. There is just a single item which should belong
-    to the *alpha* cluster.
-
-.. test_step:: 4
-
-    See information provided in ceph pool storage item in the list of the
-    *Pools* tab.
-
-.. test_result:: 4
-
-    The item provides the following information for a ceph pool item:
-
-    * Storage type in the left collumn is **CEPH**.
-    * Pool name is *aplha*.
-    * Pool type (TODO: clarify).
-    * Utilization graph, used space as a total number and percentage
-    * Cluster name and TODO
-    * Number of OSDs (along with some error/warning if needed - TODO recheck)
-    * Snapshot info
-    * Other features (cache, tiering, ...) TODO: details
-    * Total number of **Alerts** (TODO: add details)
-    * Menu icon which provides pop up menu with operations which could be
-      performed for this node
-      TODO: list all actions available 
-
-    TODO: this is (almost) the same as in :doc:`/web/storage_page_check`
-    (step 5), use import or redesing this test case.
-    Maybe something like *pool list check* with a few ways to get there.
+       TODO: this is (almost) the same as in :doc:`/web/storage_page_check`
+       (step 5), use import or redesing this test case.
+       Maybe something like *pool list check* with a few ways to get there.
 
 Teardown
 ========

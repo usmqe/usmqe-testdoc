@@ -19,21 +19,17 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
-  
-    Go to Crushmap update page.
-  
-.. test_result:: 1
-   
-    Check Crushmap update page.
+.. test_action::
+   :step:
+       Go to Crushmap update page.
+   :result:
+       Check Crushmap update page.
 
-.. test_step:: 2
-
-    Update Crushmap.
-
-.. test_result:: 2
-
-    Check if update of Crushmap correctly ends.
+.. test_action::
+   :step:
+       Update Crushmap.
+   :result:
+       Check if update of Crushmap correctly ends.
 
 Teardown
 ========

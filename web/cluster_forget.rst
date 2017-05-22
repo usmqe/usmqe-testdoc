@@ -21,21 +21,17 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Click ``Clusters`` 
+   :result:
+       Page with list of clusters is open.
 
-    Click ``Clusters`` 
-
-.. test_result:: 1
-
-    Page with list of clusters is open.
-
-.. test_step:: 2
-
-    Find unmanaged cluster and click on right cluster menu and click on ``Forget``
-
-.. test_result:: 2
-
-    Cluster is not in list of clusters.
+.. test_action::
+   :step:
+       Find unmanaged cluster and click on right cluster menu and click on ``Forget``
+   :result:
+       Cluster is not in list of clusters.
 
 Teardown
 ========

@@ -23,81 +23,73 @@ is running.
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Enable Tendrl services::
 
-    Enable Tendrl services::
+           # systemctl enable tendrl-performance-monitoring
+           # systemctl enable tendrl-apid
+   :result:
+       Check that services has been enabled::
 
-        # systemctl enable tendrl-performance-monitoring
-        # systemctl enable tendrl-apid
+           # systemctl is-enabled tendrl-performance-monitoring
+           # systemctl is-enabled tendrl-apid
 
-.. test_result:: 1
+       Moreover this are also visible in the status::
 
-    Check that services has been enabled::
+           # systemctl status tendrl-performance-monitoring
+           # systemctl status tendrl-apid
 
-        # systemctl is-enabled tendrl-performance-monitoring
-        # systemctl is-enabled tendrl-apid
+.. test_action::
+   :step:
+       Reboot the machine::
 
-    Moreover this are also visible in the status::
+           # shutdown -r now
 
-        # systemctl status tendrl-performance-monitoring
-        # systemctl status tendrl-apid
+       And then wait for the machine to boot again.
+   :result:
+       The machine is rebooted without any errors.
 
-.. test_step:: 2
+       After the machine is up again, check Tendrl services::
 
-    Reboot the machine::
+           # systemctl status tendrl-performance-monitoring
+           # systemctl status tendrl-apid
 
-        # shutdown -r now
+       Services are running. There are no errors in any Tendrl log.
 
-    And then wait for the machine to boot again.
+.. test_action::
+   :step:
+       Disable Tendrl services::
 
-.. test_result:: 2
+           # systemctl disable tendrl-performance-monitoring
+           # systemctl disable tendrl-apid
+   :result:
+       Check that services have been disabled::
 
-    The machine is rebooted without any errors.
+           # systemctl is-enabled tendrl-performance-monitoring
+           # systemctl is-enabled tendrl-apid
 
-    After the machine is up again, check Tendrl services::
+       Moreover this is also visible in the status::
 
-        # systemctl status tendrl-performance-monitoring
-        # systemctl status tendrl-apid
+           # systemctl status tendrl-performance-monitoring
+           # systemctl status tendrl-apid
 
-    Services are running. There are no errors in any Tendrl log.
+.. test_action::
+   :step:
+       Reboot the machine::
 
-.. test_step:: 3
+           # shutdown -r now
 
-    Disable Tendrl services::
+       And then wait for the machine to boot again.
+   :result:
+       The machine is rebooted without any errors.
 
-        # systemctl disable tendrl-performance-monitoring
-        # systemctl disable tendrl-apid
+       After the magging is up again, check Tendrl services::
 
-.. test_result:: 3
+           # systemctl status tendrl-performance-monitoring
+           # systemctl status tendrl-apid
 
-    Check that services have been disabled::
-
-        # systemctl is-enabled tendrl-performance-monitoring
-        # systemctl is-enabled tendrl-apid
-
-    Moreover this is also visible in the status::
-
-        # systemctl status tendrl-performance-monitoring
-        # systemctl status tendrl-apid
-
-.. test_step:: 4
-
-    Reboot the machine::
-
-        # shutdown -r now
-
-    And then wait for the machine to boot again.
-
-.. test_result:: 4
-
-    The machine is rebooted without any errors.
-
-    After the magging is up again, check Tendrl services::
-
-        # systemctl status tendrl-performance-monitoring
-        # systemctl status tendrl-apid
-
-    Services are not running.
+       Services are not running.
 
 Teardown
 ========

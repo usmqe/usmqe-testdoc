@@ -30,64 +30,54 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Click on *Storage* link in the left menu bar.
+   :result:
+       The *Storage Landing Page* is shown. The title reads "Storage" and the page
+       is empty.
 
-    Click on *Storage* link in the left menu bar.
+.. test_action::
+   :step:
+       Configure 1st cluster: TODO - add details here (ceph one)
 
-.. test_result:: 1
+       Wait for a *Create Cluster* task to finish.
+   :result:
+       Cluster has been created without any error.
 
-    The *Storage Landing Page* is shown. The title reads "Storage" and the page
-    is empty.
-
-.. test_step:: 2
-
-    Configure 1st cluster: TODO - add details here (ceph one)
-
-    Wait for a *Create Cluster* task to finish.
-
-.. test_result:: 2
-
-    Cluster has been created without any error.
-
-.. test_step:: 3
-
-    Create storage in 1st cluster: new ceph pool
-
-.. test_result:: 3
-
-    Ceph pool has been created without any error.
+.. test_action::
+   :step:
+       Create storage in 1st cluster: new ceph pool
+   :result:
+       Ceph pool has been created without any error.
  
-.. test_step:: 4
+.. test_action::
+   :step:
+       Click on *Storage* link in the left menu bar.
+   :result:
+       The *Storage Landing Page* is shown. The title reads "Storage" and 
+       the page contains list of storage items with just single item: ceph pool
+       created in a previous step.
 
-    Click on *Storage* link in the left menu bar.
+.. test_action::
+   :step:
+       See information provided in ceph pool storage item in the list on
+       *Storage Langing Page*.
+   :result:
+       The item provides the following information for a ceph pool item:
 
-.. test_result:: 4
-
-    The *Storage Landing Page* is shown. The title reads "Storage" and 
-    the page contains list of storage items with just single item: ceph pool
-    created in a previous step.
-
-.. test_step:: 5
-
-    See information provided in ceph pool storage item in the list on
-    *Storage Langing Page*.
-
-.. test_result:: 5
-
-    The item provides the following information for a ceph pool item:
-
-    * Storage type in the left collumn is **CEPH**.
-    * Pool name.
-    * Pool type (TODO: clarify).
-    * Utilization graph, used space as a total number and percentage
-    * Cluster name and TODO
-    * Number of OSDs (along with some error/warning if needed - TODO recheck)
-    * Snapshot info
-    * Other features (cache, tiering, ...) TODO: details
-    * Total number of **Alerts** (TODO: add details)
-    * Menu icon which provides pop up menu with operations which could be
-      performed for this node
-      TODO: list all actions available 
+       * Storage type in the left collumn is **CEPH**.
+       * Pool name.
+       * Pool type (TODO: clarify).
+       * Utilization graph, used space as a total number and percentage
+       * Cluster name and TODO
+       * Number of OSDs (along with some error/warning if needed - TODO recheck)
+       * Snapshot info
+       * Other features (cache, tiering, ...) TODO: details
+       * Total number of **Alerts** (TODO: add details)
+       * Menu icon which provides pop up menu with operations which could be
+         performed for this node
+         TODO: list all actions available 
 
 TODO: add a step for 2nd cluster setup (this is needed for a proper check)
 

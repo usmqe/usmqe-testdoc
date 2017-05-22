@@ -29,204 +29,184 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Click on ``Storage`` button.
+   :result:
+       Page with list of storage items is shown.
+
+.. test_action::
+   :step:
+       Click ``Add Storage`` button on the page you opened in previous step.
+   :result:
+       Add Storage page is open. There should be the following choices presented:
+
+       #. Object Storage
+       #. Block Storage
+
+       (specified in Tendrl 1.0 Overall Design)
+
+.. test_action::
+   :step:
+       Select cluster *alpha* and ``Block Storage`` option. Then click on ``Next``
+       button.
+   :result:
+       A *Add Block Storage* wizard is shown.
 
-    Click on ``Storage`` button.
+       The 1st page of the wizard provides:
+
+       #. input field to specify **Device Name**
+       #. number selection to specify number of devices to create
+          (the title should say **RBDs to Create**)
+       #. number seclection to specify **Target Size** of the device
+          (consists of 2 select boxes, one for the number and the other for units)
+       #. section called **Backing Pool** with 2 mutualy exclusive options:
+           * reuse existing pool (there are no such pool at this point though)
+           * create a new pool
+       #. section **Advanced Configuration** - TODO: design conflict (missing)
+       #. section **Snapshots** - TODO: design conflict (missing)
+       #. section **Quotas**
+
+       (specified in Add Storage Workflow)
 
-.. test_result:: 1
+.. test_action::
+   :step:
+       Fill out the 1st page of the wizard and specify:
 
-    Page with list of storage items is shown.
+       * name: ``rbd0``
+       * devices to create: ``1``
+       * size: ``1 GB`` (this is simplest test case possible)
+       * backing pool: create new pool
 
-.. test_step:: 2
+       TODO:
 
-    Click ``Add Storage`` button on the page you opened in previous step.
+       Branch out another basic test case where some pre existing pool is
+       reused (via option *backing pool*).
+   :result:
+       The form allows you to enter given values.
 
-.. test_result:: 2
+.. test_action::
+   :step:
+       Having selected *create new pool*, specify:
 
-    Add Storage page is open. There should be the following choices presented:
+       * pool name: ``rbd_pool``
+       * type: ``standard``
+       * number of replicas: ``3``
+       * storage rofile: general
 
-    #. Object Storage
-    #. Block Storage
+       TODO items:
 
-    (specified in Tendrl 1.0 Overall Design)
+       Branch out another test case for EC Pool option (known
+       issue :RHBZ:`1342480`):
 
-.. test_step:: 3
+       * check that it's not possible to create RBD on EC pool
+       * check that EC option is not available
 
-    Select cluster *alpha* and ``Block Storage`` option. Then click on ``Next``
-    button.
+       (via option *type*)
 
-.. test_result:: 3
+       Moreover, there is a conflict with the design document, which:
 
-    A *Add Block Storage* wizard is shown.
+       * notes that one can specify the following for a storage profile:
+          * optimal pool size
+          * number of placement groups
+       * shows a graph with utilization of selected pool wrt. the storage profile
+   :result:
+       It's possible to specify all listed options.
 
-    The 1st page of the wizard provides:
+       Backing Pool Size default value matches storage space required for creating
+       of all target BRDs (**RBDs to Create** ``x`` **Target Size**).
 
-    #. input field to specify **Device Name**
-    #. number selection to specify number of devices to create
-       (the title should say **RBDs to Create**)
-    #. number seclection to specify **Target Size** of the device
-       (consists of 2 select boxes, one for the number and the other for units)
-    #. section called **Backing Pool** with 2 mutualy exclusive options:
-        * reuse existing pool (there are no such pool at this point though)
-        * create a new pool
-    #. section **Advanced Configuration** - TODO: design conflict (missing)
-    #. section **Snapshots** - TODO: design conflict (missing)
-    #. section **Quotas**
+       If ``OSD count > 50``, it's possible to adjust pool size using slider
+       control.
 
-    (specified in Add Storage Workflow)
+       TODO: check other default values?
 
-.. test_step:: 4
+       (specified in Add Storage Workflow, but the implementation intend may
+       have hanged in the mean time - TODO: check this)
 
-    Fill out the 1st page of the wizard and specify:
+.. test_action::
+   :step:
+       When the configuration is done, click on **Next** button.
+   :result:
+       The summary of block devices to be created, including a backing pool (if
+       any) is shown to the user.
 
-    * name: ``rbd0``
-    * devices to create: ``1``
-    * size: ``1 GB`` (this is simplest test case possible)
-    * backing pool: create new pool
+       For each RBD, there is an item with it's name and target size.
 
-    TODO:
+       If a new backing pool is created, the following is shown:
 
-    Branch out another basic test case where some pre existing pool is
-    reused (via option *backing pool*).
+       * name
+       * type
+       * storage profile
+       * number of replicas
+       * optimized for size (including units, eg. GB)
+       * number of OSds
+       * quotas status (Enabled vs Disabled) TODO: design doc conflict (missing)
+       * journal status (eg. Optimized)
 
-.. test_result:: 4
+       The backing pool item doesn't contain any link to object details.
 
-    The form allows you to enter given values.
+       TODO: edit button for a backing storage pool is not available, but it's
+       specified in the design doc
 
-.. test_step:: 5
+       TODO: If a backing pool is an existing pool, staus is shown. Details can't
+       be changed (this should be splitted into another case).
 
-    Having selected *create new pool*, specify:
+.. test_action::
+   :step:
+       Click on **Add Storage** button.
 
-    * pool name: ``rbd_pool``
-    * type: ``standard``
-    * number of replicas: ``3``
-    * storage rofile: general
+       TODO: design conflict, name of the button is actually **Submit**
+   :result:
+       New **Create Storage** taks is started.
 
-    TODO items:
+       After some time, it finishes without any error.
 
-    Branch out another test case for EC Pool option (known
-    issue :RHBZ:`1342480`):
+.. test_action::
+   :step:
+       Click on ``Storage`` button again.
+   :result:
+       Just created RBD is shown in the list, there are no errors reported.
 
-    * check that it's not possible to create RBD on EC pool
-    * check that EC option is not available
+       (We do this just to check that RBD has been created, there is another
+       test case for RBD listing)
 
-    (via option *type*)
+.. test_action::
+   :step:
+       From monitor machine, see status of just created pool via::
 
-    Moreover, there is a conflict with the design document, which:
+           ceph -c /etc/ceph/alpha.conf osd pool ls
+   :result:
+       The command shows the just created pool::
 
-    * notes that one can specify the following for a storage profile:
-       * optimal pool size
-       * number of placement groups
-    * shows a graph with utilization of selected pool wrt. the storage profile
+           # ceph -c /etc/ceph/alpha.conf osd pool ls
+           rbd_pool
 
-.. test_result:: 5
+.. test_action::
+   :step:
+       From monitor machine, see just created rbd device via::
 
-    It's possible to specify all listed options.
+           rbd -c /etc/ceph/alpha.conf ls rbd_pool
 
-    Backing Pool Size default value matches storage space required for creating
-    of all target BRDs (**RBDs to Create** ``x`` **Target Size**).
+       And check details via::
 
-    If ``OSD count > 50``, it's possible to adjust pool size using slider
-    control.
+           rbd -c /etc/ceph/alpha.conf -p rbd_pool info rbd0
+   :result:
+       The command shows the just created rbd device::
 
-    TODO: check other default values?
+           # rbd -c /etc/ceph/alpha.conf ls rbd_pool
+           rbd0
 
-    (specified in Add Storage Workflow, but the implementation intend may
-    have hanged in the mean time - TODO: check this)
+       And provided details matches what has been specified via web gui::
 
-.. test_step:: 6
-
-    When the configuration is done, click on **Next** button.
-
-.. test_result:: 6
-
-    The summary of block devices to be created, including a backing pool (if
-    any) is shown to the user.
-
-    For each RBD, there is an item with it's name and target size.
-
-    If a new backing pool is created, the following is shown:
-
-    * name
-    * type
-    * storage profile
-    * number of replicas
-    * optimized for size (including units, eg. GB)
-    * number of OSds
-    * quotas status (Enabled vs Disabled) TODO: design doc conflict (missing)
-    * journal status (eg. Optimized)
-
-    The backing pool item doesn't contain any link to object details.
-
-    TODO: edit button for a backing storage pool is not available, but it's
-    specified in the design doc
-
-    TODO: If a backing pool is an existing pool, staus is shown. Details can't
-    be changed (this should be splitted into another case).
-
-.. test_step:: 7
-
-    Click on **Add Storage** button.
-
-    TODO: design conflict, name of the button is actually **Submit**
-
-.. test_result:: 7
-
-    New **Create Storage** taks is started.
-
-    After some time, it finishes without any error.
-
-.. test_step:: 8
-
-    Click on ``Storage`` button again.
-
-.. test_result:: 8
-
-    Just created RBD is shown in the list, there are no errors reported.
-
-    (We do this just to check that RBD has been created, there is another
-    test case for RBD listing)
-
-.. test_step:: 9
-
-    From monitor machine, see status of just created pool via::
-
-        ceph -c /etc/ceph/alpha.conf osd pool ls
-
-.. test_result:: 9
-
-    The command shows the just created pool::
-
-        # ceph -c /etc/ceph/alpha.conf osd pool ls
-        rbd_pool
-
-.. test_step:: 10
-
-    From monitor machine, see just created rbd device via::
-
-        rbd -c /etc/ceph/alpha.conf ls rbd_pool
-
-    And check details via::
-
-        rbd -c /etc/ceph/alpha.conf -p rbd_pool info rbd0
-
-.. test_result:: 10
-
-    The command shows the just created rbd device::
-
-        # rbd -c /etc/ceph/alpha.conf ls rbd_pool
-        rbd0
-
-    And provided details matches what has been specified via web gui::
-
-        # rbd -c /etc/ceph/alpha.conf -p rbd_pool info rbd0
-        rbd image 'rbd0':
-            size 1024 MB in 256 objects
-            order 22 (4096 kB objects)
-            block_name_prefix: rbd_data.135582ae8944a
-            format: 2
-            features: layering, exclusive-lock, object-map, fast-diff, deep-flatten
-            flags:
+           # rbd -c /etc/ceph/alpha.conf -p rbd_pool info rbd0
+           rbd image 'rbd0':
+               size 1024 MB in 256 objects
+               order 22 (4096 kB objects)
+               block_name_prefix: rbd_data.135582ae8944a
+               format: 2
+               features: layering, exclusive-lock, object-map, fast-diff, deep-flatten
+               flags:
 
 Teardown
 ========

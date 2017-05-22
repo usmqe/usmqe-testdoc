@@ -21,45 +21,35 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Click ``Clusters`` 
+   :result:
+       Page with list of clusters is open.
 
-    Click ``Clusters`` 
-
-.. test_result:: 1
-
-    Page with list of clusters is open.
-
-.. test_step:: 2
-
-    Find unmanaged cluster and click on right cluster menu and click on ``Manage``
-
-.. test_result:: 2
-
-    Cluster status icon has changed.
+.. test_action::
+   :step:
+       Find unmanaged cluster and click on right cluster menu and click on ``Manage``
+   :result:
+       Cluster status icon has changed.
     
-.. test_step:: 3
+.. test_action::
+   :step:
+       Go to unmanaged cluster dashboard.
+   :result:
+       Managed cluster dashboard reflects cluster's state(cluster is Managed).
 
-    Go to unmanaged cluster dashboard.
-
-.. test_result:: 3
-
-    Managed cluster dashboard reflects cluster's state(cluster is Managed).
-
-.. test_step:: 4
-
-    Go to ``Storage``->``Pools`` and try to create one.
-
-.. test_result:: 4
-
-    It is possible to create new pool.
+.. test_action::
+   :step:
+       Go to ``Storage``->``Pools`` and try to create one.
+   :result:
+       It is possible to create new pool.
     
-.. test_step:: 5
-
-    Go to ``Storage``->``RBDs`` and try to create one.
-
-.. test_result:: 5
-
-    It is possible to create new RBD.
+.. test_action::
+   :step:
+       Go to ``Storage``->``RBDs`` and try to create one.
+   :result:
+       It is possible to create new RBD.
 
 
 Teardown

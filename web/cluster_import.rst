@@ -35,29 +35,23 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
-  
-    Go to ``Clusters``
-  
-.. test_result:: 1
-   
-    List of clusters page is shown.
+.. test_action::
+   :step:
+       Go to ``Clusters``
+   :result:
+       List of clusters page is shown.
 
-.. test_step:: 2
+.. test_action::
+   :step:
+       Click on ``Import Cluster`` button
+   :result:
+       Wizard for importing cluster is shown.
 
-    Click on ``Import Cluster`` button
-
-.. test_result:: 2
-
-    Wizard for importing cluster is shown.
-
-.. test_step:: 3
-
-   Follow wizard for importing cluster.
-
-.. test_result:: 3
-
-   Cluster is successfully imported.
+.. test_action::
+   :step:
+      Follow wizard for importing cluster.
+   :result:
+      Cluster is successfully imported.
 
 Teardown
 ========

@@ -33,55 +33,45 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Click on "Storage" button in the left menu of Tendrl web interface.
+   :result:
+       List of storage items is shown (TODO: make this more specific).
 
-    Click on "Storage" button in the left menu of Tendrl web interface.
+.. test_action::
+   :step:
+       Go somehow (TODO: describe how - not implemented yet) to the page with
+       *Storage Tree view*.
+   :result:
+       Storage Tree view page is shown.
 
-.. test_result:: 1
+.. test_action::
+   :step:
+       Find each volume and select it.
+   :result:
+       Volume is available in the Storage Tree view and when selected,
+       further information and management operations are available for the volume.
 
-    List of storage items is shown (TODO: make this more specific).
+       TODO: add details
 
-.. test_step:: 2
+.. test_action::
+   :step:
+       Find each pool and select it.
+   :result:
+       Pool is available in the *Storage Tree view* and when selected,
+       further information and management operations are available for the pool.
 
-    Go somehow (TODO: describe how - not implemented yet) to the page with
-    *Storage Tree view*.
+       TODO: add details
 
-.. test_result:: 2
+.. test_action::
+   :step:
+       Find each RBD and select it.
+   :result:
+       RBD is available in the *Storage Tree view* and when selected,
+       further information and management operations are available for the rbd.
 
-    Storage Tree view page is shown.
-
-.. test_step:: 3
-
-    Find each volume and select it.
-
-.. test_result:: 3
-
-    Volume is available in the Storage Tree view and when selected,
-    further information and management operations are available for the volume.
-
-    TODO: add details
-
-.. test_step:: 4
-
-    Find each pool and select it.
-
-.. test_result:: 4
-
-    Pool is available in the *Storage Tree view* and when selected,
-    further information and management operations are available for the pool.
-
-    TODO: add details
-
-.. test_step:: 5
-
-    Find each RBD and select it.
-
-.. test_result:: 5
-
-    RBD is available in the *Storage Tree view* and when selected,
-    further information and management operations are available for the rbd.
-
-    TODO: add details
+       TODO: add details
 
 Teardown
 ========

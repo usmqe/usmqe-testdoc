@@ -21,29 +21,23 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
-  
-    Click on ``Admin`` button in left menu.
-  
-.. test_result:: 1
-   
-    List of users is shown.
+.. test_action::
+   :step:
+       Click on ``Admin`` button in left menu.
+   :result:
+       List of users is shown.
 
-.. test_step:: 2
+.. test_action::
+   :step:
+       Click on ``Edit`` button
+   :result:
+       Form for edit user is shown.
 
-    Click on ``Edit`` button
-
-.. test_result:: 2
-
-    Form for edit user is shown.
-
-.. test_step:: 3
-
-   Change ``User Id``, ``First Name``, ``Last Name``, ``Email``, ``Password`` and other and click on button ``Save``
-
-.. test_result:: 3
-
-   List of users is shown. Changed user is in list with all values input in this step.
+.. test_action::
+   :step:
+      Change ``User Id``, ``First Name``, ``Last Name``, ``Email``, ``Password`` and other and click on button ``Save``
+   :result:
+      List of users is shown. Changed user is in list with all values input in this step.
 
 Teardown
 ========

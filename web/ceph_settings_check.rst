@@ -21,19 +21,17 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
-  
-    Connect to all OSD nodes.  
+.. test_action::
+   :step:
+       Connect to all OSD nodes.  
+   :result:
+       There are set all required settings.
 
-.. test_result:: 1
-   
-    There are set all required settings.
-
-    Kernel params:
-    * pid_max -- set to 10x default or max (4 MB)
-    * vm.min_free_kbytes -- set to 1 GB (if > 64 GB RAM), 2 GB if 128 GB RAM, 3 GB if 256 GB RAM
-    Ceph.conf:
-    * max open files -- set to 10x default or max (4 MB) Set in ceph.conf
+       Kernel params:
+       * pid_max -- set to 10x default or max (4 MB)
+       * vm.min_free_kbytes -- set to 1 GB (if > 64 GB RAM), 2 GB if 128 GB RAM, 3 GB if 256 GB RAM
+       Ceph.conf:
+       * max open files -- set to 10x default or max (4 MB) Set in ceph.conf
 
 
 Teardown

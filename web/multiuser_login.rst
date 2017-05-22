@@ -23,37 +23,29 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       In both browsers go to login page ``https://TENDRL-SERVER/``.
+   :result:
+       In both browsers page should be loaded properly. Especially it should contain ``Username`` and ``Password`` inputs and ``Log In`` button.
 
-    In both browsers go to login page ``https://TENDRL-SERVER/``.
+.. test_action::
+   :step:
+       In both browsers enter (the same) intended username to ``Username`` input and related password to ``Password`` input. Simultaneously click on ``Log In`` button.
+   :result:
+       In both browsers user should log into Tendrl. Main page should be loaded.
 
-.. test_result:: 1
+.. test_action::
+   :step:
+       In both browsers log out from Tendrl. Simultaneously click on ``Log Out`` button.
+   :result:
+       In both browsers user should be loged out. Login page should be loaded.
 
-    In both browsers page should be loaded properly. Especially it should contain ``Username`` and ``Password`` inputs and ``Log In`` button.
-
-.. test_step:: 2
-
-    In both browsers enter (the same) intended username to ``Username`` input and related password to ``Password`` input. Simultaneously click on ``Log In`` button.
-
-.. test_result:: 2
-
-    In both browsers user should log into Tendrl. Main page should be loaded.
-
-.. test_step:: 3
-
-    In both browsers log out from Tendrl. Simultaneously click on ``Log Out`` button.
-
-.. test_result:: 3
-
-    In both browsers user should be loged out. Login page should be loaded.
-
-.. test_step:: 4
-
-    In both browsers enter different username to ``Username`` input and related password to ``Password`` input. Simultaneously click on ``Log In`` button.
-
-.. test_result:: 4
-
-    In both browsers user should log into Tendrl. Main page should be loaded.
+.. test_action::
+   :step:
+       In both browsers enter different username to ``Username`` input and related password to ``Password`` input. Simultaneously click on ``Log In`` button.
+   :result:
+       In both browsers user should log into Tendrl. Main page should be loaded.
 
 Teardown
 ========

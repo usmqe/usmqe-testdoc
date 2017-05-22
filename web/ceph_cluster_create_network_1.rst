@@ -20,13 +20,11 @@ Configure all storage nodes to use only 1 network as both *Cluster Network* and 
 Test Steps
 ==========
 
-.. test_step:: 1
-
-    Follow test steps from *Create Ceph cluster* testcase.
-
-.. test_result:: 1
-
-    Follow test results from *Create Ceph cluster* testcase.
+.. test_action::
+   :step:
+       Follow test steps from *Create Ceph cluster* testcase.
+   :result:
+       Follow test results from *Create Ceph cluster* testcase.
 
 Teardown
 ========

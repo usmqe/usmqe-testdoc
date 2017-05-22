@@ -20,21 +20,17 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Go to login page 
+   :result:
+       Page should loaded properly. Especially it should contain ``Username`` and ``Password`` inputs and ``Log In`` button.
 
-    Go to login page 
-
-.. test_result:: 1
-
-    Page should loaded properly. Especially it should contain ``Username`` and ``Password`` inputs and ``Log In`` button.
-
-.. test_step:: 2
-
-    Click on ``Forgot username`` link or ``password`` link.
-
-.. test_result:: 2
-
-    Check if Tendrl sends to user forgotten username or resets password.
+.. test_action::
+   :step:
+       Click on ``Forgot username`` link or ``password`` link.
+   :result:
+       Check if Tendrl sends to user forgotten username or resets password.
     
 Teardown
 ========

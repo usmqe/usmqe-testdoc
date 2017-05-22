@@ -28,85 +28,75 @@ All test steps are performed on the api server, where the ``tendrl-apid`` and
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Check that the tendrl-apid systemd service file is available:
 
-    Check that the tendrl-apid systemd service file is available:
+       .. code-block:: bash
 
-    .. code-block:: bash
+           # rpm -qa | grep tendrl | xargs rpm -ql | grep systemd
+   :result:
+       Tendrl systemd service files are shown in the output, like this::
 
-        # rpm -qa | grep tendrl | xargs rpm -ql | grep systemd
+           /usr/lib/systemd/system/tendrl-performance-monitoring.service
+           /usr/lib/systemd/system/tendrl-apid.service
 
-.. test_result:: 1
+       Note: we don't expect any other systemd unit files here now. When other
+       systemd units are added, we need to update this test case to do the
+       initial validation of these files as well.
 
-    Tendrl systemd service files are shown in the output, like this::
+.. test_action::
+   :step:
+       Run the following commands on the tendrl service files:
 
-        /usr/lib/systemd/system/tendrl-performance-monitoring.service
-        /usr/lib/systemd/system/tendrl-apid.service
+       .. code-block:: bash
 
-    Note: we don't expect any other systemd unit files here now. When other
-    systemd units are added, we need to update this test case to do the
-    initial validation of these files as well.
+           # systemd-analyze verify /usr/lib/systemd/system/tendrl-performance-monitoring.service
+           # systemd-analyze verify /usr/lib/systemd/system/tendrl-apid.service
+   :result:
+       Commands produce no output and return zero.
 
-.. test_step:: 2
+.. test_action::
+   :step:
+       Show the content of tendrl systemd unit files:
 
-    Run the following commands on the tendrl service files:
+       .. code-block:: bash
 
-    .. code-block:: bash
+           # systemctl cat tendrl-performance-monitoring.service
+           # systemctl cat tendrl-apid.service
+   :result:
+       The content of the service unit files are shown and they contain:
 
-        # systemd-analyze verify /usr/lib/systemd/system/tendrl-performance-monitoring.service
-        # systemd-analyze verify /usr/lib/systemd/system/tendrl-apid.service
+       * A good human-readable description string with ``Description=``.
+       * Reference to documentation/manpage is available in ``Documentation=``
+         and this manpage is availabe on the system.
+       * There is an ``[Install]`` section including installation information
+         for the unit file which contains ``WantedBy=multi-user.target``.
 
-.. test_result:: 2
+       Based on suggestions from `daemon(7)`_ manpage and `systemd packaging
+       policy`_.
 
-    Commands produce no output and return zero.
+.. test_action::
+   :step:
+       List dependencies of the services:
 
-.. test_step:: 3
+       .. code-block:: bash
 
-    Show the content of tendrl systemd unit files:
+           # systemctl list-dependencies tendrl-performance-monitoring
+           # systemctl list-dependencies tendrl-apid
+   :result:
+       Dependency tree is shown.
 
-    .. code-block:: bash
+.. test_action::
+   :step:
+       Check status of the service:
 
-        # systemctl cat tendrl-performance-monitoring.service
-        # systemctl cat tendrl-apid.service
+       .. code-block:: bash
 
-.. test_result:: 3
-
-    The content of the service unit files are shown and they contain:
-
-    * A good human-readable description string with ``Description=``.
-    * Reference to documentation/manpage is available in ``Documentation=``
-      and this manpage is availabe on the system.
-    * There is an ``[Install]`` section including installation information
-      for the unit file which contains ``WantedBy=multi-user.target``.
-
-    Based on suggestions from `daemon(7)`_ manpage and `systemd packaging
-    policy`_.
-
-.. test_step:: 4
-
-    List dependencies of the services:
-
-    .. code-block:: bash
-
-        # systemctl list-dependencies tendrl-performance-monitoring
-        # systemctl list-dependencies tendrl-apid
-
-.. test_result:: 4
-
-    Dependency tree is shown.
-
-.. test_step:: 5
-
-    Check status of the service:
-
-    .. code-block:: bash
-
-        # systemctl status tendrl-performance-monitoring
-        # systemctl status tendrl-apid
-
-.. test_result:: 5
-
-    Status is shown, systemctl returns zero return code.
+           # systemctl status tendrl-performance-monitoring
+           # systemctl status tendrl-apid
+   :result:
+       Status is shown, systemctl returns zero return code.
 
 Teardown
 ========

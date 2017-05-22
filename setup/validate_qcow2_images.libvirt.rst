@@ -21,69 +21,61 @@ Prepare copy of the image for testing VM::
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Configure root password for the image accordingly to the documentation::
 
-    Configure root password for the image accordingly to the documentation::
+           virt-customize -a test-IMAGE --root-password password:def_password
 
-        virt-customize -a test-IMAGE --root-password password:def_password
+.. test_action::
+   :step:
+       Disable cloud-init service accordingly to the documentation::
 
-.. test_step:: 2
+           guestfish -a test-IMAGE -i ln-sf /dev/null /etc/systemd/system/cloud-init.service
 
-    Disable cloud-init service accordingly to the documentation::
+.. test_action::
+   :step:
+       Create new VM (according to the documentation) and use the prepared
+       test-IMAGE as existing disk.
 
-        guestfish -a test-IMAGE -i ln-sf /dev/null /etc/systemd/system/cloud-init.service
+.. test_action::
+   :step:
+       Login into the VM created in the previous step and check:
 
-.. test_step:: 3
+       * network configuration (IP address, hostname)
 
-    Create new VM (according to the documentation) and use the prepared
-    test-IMAGE as existing disk.
+       .. * check security related configuration: SELinux, firewall,...
+   :result:
+       Expected state:
 
-.. test_step:: 4
+       * the machine has a proper IP address and hostname
 
-    Login into the VM created in the previous step and check:
+       .. * SELinux is in Enforcing mode, firewall is enabled,...
 
-    * network configuration (IP address, hostname)
+.. test_action::
+   :step:
+       Check that all Tendrl related services are running:
 
-    .. * check security related configuration: SELinux, firewall,...
+       * etcd
+       * ceph-installer
+       * ceph-installer-celery
+       * httpd
+       * tendrl-performance-monitoring
+       * tendrl-apid
+   :result:
+       All services are up running.
 
-.. test_result:: 4
+.. test_action::
+   :step:
+       Open the Tendrl web UI and graphite-web UI in browser.
+   :result:
+       Tendrl web UI and graphite-web UI is accesible.
 
-    Expected state:
-
-    * the machine has a proper IP address and hostname
-
-    .. * SELinux is in Enforcing mode, firewall is enabled,...
-
-.. test_step:: 5
-
-    Check that all Tendrl related services are running:
-
-    * etcd
-    * ceph-installer
-    * ceph-installer-celery
-    * httpd
-    * tendrl-performance-monitoring
-    * tendrl-apid
-
-.. test_result:: 5
-
-    All services are up running.
-
-.. test_step:: 6
-
-    Open the Tendrl web UI and graphite-web UI in browser.
-
-.. test_result:: 6
-
-    Tendrl web UI and graphite-web UI is accesible.
-
-.. test_step:: 7
-
-    Create cluster accordingly to :doc:`/setup/install_default`.
-
-.. test_result:: 7
-
-    It is possible to create cluster and perform additional tasks as with othe Tendrl server.
+.. test_action::
+   :step:
+       Create cluster accordingly to :doc:`/setup/install_default`.
+   :result:
+       It is possible to create cluster and perform additional tasks as with othe Tendrl server.
 
 Teardown
 ========

@@ -29,145 +29,129 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Click on ``Storage`` button.
+   :result:
+       Page with list of storage items is shown.
 
-    Click on ``Storage`` button.
+.. test_action::
+   :step:
+       Click ``Add Storage`` button on the page you opened in previous step.
+   :result:
+       Add Storage page is open. There should be the following choices presented:
 
-.. test_result:: 1
+       #. Object Storage
+       #. Block Storage
 
-    Page with list of storage items is shown.
+       (specified in Tendrl 1.0 Overall Design)
 
-.. test_step:: 2
+.. test_action::
+   :step:
+       Select cluster *alpha* and ``Block Storage`` option. Then click on ``Next``
+       button.
+   :result:
+       A *Add Block Storage* wizard is shown.
 
-    Click ``Add Storage`` button on the page you opened in previous step.
+       The 1st page of the wizard provides:
 
-.. test_result:: 2
+       #. input field to specify **Device Name**
+       #. number selection to specify number of devices to create
+          (the title should say **RBDs to Create**)
+       #. number seclection to specify **Target Size** of the device
+          (consists of 2 select boxes, one for the number and the other for units)
+       #. section called **Backing Pool** with 2 mutualy exclusive options:
+           * reuse existing pool (there are no such pool at this point though)
+           * create a new pool
+       #. section **Advanced Configuration** - TODO: design conflict (missing)
+       #. section **Snapshots** - TODO: design conflict (missing)
+       #. section **Quotas**
 
-    Add Storage page is open. There should be the following choices presented:
-
-    #. Object Storage
-    #. Block Storage
-
-    (specified in Tendrl 1.0 Overall Design)
-
-.. test_step:: 3
-
-    Select cluster *alpha* and ``Block Storage`` option. Then click on ``Next``
-    button.
-
-.. test_result:: 3
-
-    A *Add Block Storage* wizard is shown.
-
-    The 1st page of the wizard provides:
-
-    #. input field to specify **Device Name**
-    #. number selection to specify number of devices to create
-       (the title should say **RBDs to Create**)
-    #. number seclection to specify **Target Size** of the device
-       (consists of 2 select boxes, one for the number and the other for units)
-    #. section called **Backing Pool** with 2 mutualy exclusive options:
-        * reuse existing pool (there are no such pool at this point though)
-        * create a new pool
-    #. section **Advanced Configuration** - TODO: design conflict (missing)
-    #. section **Snapshots** - TODO: design conflict (missing)
-    #. section **Quotas**
-
-    (specified in Add Storage Workflow)
+       (specified in Add Storage Workflow)
 
 .. so far, the steps were the same as in web/rbc_creater.rst test case
 
-.. test_step:: 4
+.. test_action::
+   :step:
+       Fill out the 1st page of the wizard and specify:
 
-    Fill out the 1st page of the wizard and specify:
+       * name: ``rbd1``
+       * devices to create: ``1``
+       * size: ``1 GB`` (this is simplest test case possible)
+       * backing pool: use *choose existing pool* option and select
+         ``rbd_pool``
 
-    * name: ``rbd1``
-    * devices to create: ``1``
-    * size: ``1 GB`` (this is simplest test case possible)
-    * backing pool: use *choose existing pool* option and select
-      ``rbd_pool``
+       TODO: branch out a negative test case for going over the available space in
+       selected pool
+   :result:
+       The form allows you to enter given values.
 
-    TODO: branch out a negative test case for going over the available space in
-    selected pool
+       Graph showing utilization of ``rbd_pool`` showns:
 
-.. test_result:: 4
+       * in use part
+       * to be added part 
+       * remaining part
 
-    The form allows you to enter given values.
+       Check that the values presented are correct.
+      
+       Known BZs here so far:
+      
+       * :RHBZ:`1351703`
 
-    Graph showing utilization of ``rbd_pool`` showns:
+       TODO: I don's see 'in use' part when all I have is an empty RBD,
+       research pending - but it's likely ok - but there is a possible conflict
+       with the design doc
 
-    * in use part
-    * to be added part 
-    * remaining part
+.. test_action::
+   :step:
+       Click next to submit the form filled in a previous step.
+   :result:
+       An overview with list of RADOS block devices to be created is shown.
 
-    Check that the values presented are correct.
-   
-    Known BZs here so far:
-   
-    * :RHBZ:`1351703`
+.. test_action::
+   :step:
+       Click on "Submit" button to start "Create Block Device" task.
+   :result:
+       Create Block Device task is created and finishes without any errors.
 
-    TODO: I don's see 'in use' part when all I have is an empty RBD,
-    research pending - but it's likely ok - but there is a possible conflict
-    with the design doc
+.. test_action::
+   :step:
+       Got to **Storage - RBD** page with list of all RBDs.
+   :result:
+       Just created RBD is shown in the list, there are no errors reported.
 
-.. test_step:: 5
+       Information shown for the new RBD matches the desired parameters.
 
-    Click next to submit the form filled in a previous step.
+       (There is another RBD in the list as expected by Setup section)
 
-.. test_result:: 5
+.. test_action::
+   :step:
+       From monitor machine, see just created rbd device via::
 
-    An overview with list of RADOS block devices to be created is shown.
+           rbd -c /etc/ceph/alpha.conf ls rbd_pool
 
-.. test_step:: 6
+       And check details via::
 
-    Click on "Submit" button to start "Create Block Device" task.
+           rbd -c /etc/ceph/alpha.conf -p rbd_pool info rbd0
+   :result:
+       The command shows the just created rbd device::
 
-.. test_result:: 6
+           # rbd -c /etc/ceph/alpha.conf ls rbd_pool
+           rbd0
+           rbd1
 
-    Create Block Device task is created and finishes without any errors.
+       And provided details matches what has been specified via web gui::
 
-.. test_step:: 7
+           # rbd -c /etc/ceph/alpha.conf -p rbd_pool info rbd1
+           rbd image 'rbd1':
+               size 1024 MB in 256 objects
+               order 22 (4096 kB objects)
+               block_name_prefix: rbd_data.1b5a1238e1f29
+               format: 2
+               features: layering, exclusive-lock, object-map, fast-diff, deep-flatten
+               flags: 
 
-    Got to **Storage - RBD** page with list of all RBDs.
-
-.. test_result:: 7
-
-    Just created RBD is shown in the list, there are no errors reported.
-
-    Information shown for the new RBD matches the desired parameters.
-
-    (There is another RBD in the list as expected by Setup section)
-
-.. test_step:: 8
-
-    From monitor machine, see just created rbd device via::
-
-        rbd -c /etc/ceph/alpha.conf ls rbd_pool
-
-    And check details via::
-
-        rbd -c /etc/ceph/alpha.conf -p rbd_pool info rbd0
-
-.. test_result:: 8
-
-    The command shows the just created rbd device::
-
-        # rbd -c /etc/ceph/alpha.conf ls rbd_pool
-        rbd0
-        rbd1
-
-    And provided details matches what has been specified via web gui::
-
-        # rbd -c /etc/ceph/alpha.conf -p rbd_pool info rbd1
-        rbd image 'rbd1':
-            size 1024 MB in 256 objects
-            order 22 (4096 kB objects)
-            block_name_prefix: rbd_data.1b5a1238e1f29
-            format: 2
-            features: layering, exclusive-lock, object-map, fast-diff, deep-flatten
-            flags: 
-
-    (compare with data checked during test step 7)
+       (compare with data checked during test step 7)
 
 Teardown
 ========

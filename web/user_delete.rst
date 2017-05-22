@@ -21,45 +21,35 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
-  
-    Click on ``Admin`` button in left menu.
-  
-.. test_result:: 1
-   
-    List of users is shown.
+.. test_action::
+   :step:
+       Click on ``Admin`` button in left menu.
+   :result:
+       List of users is shown.
 
-.. test_step:: 2
+.. test_action::
+   :step:
+      Click on checkbox in line with test user
+   :result:
+      Checkbox is checked
 
-   Click on checkbox in line with test user
+.. test_action::
+   :step:
+       Click on ``remove`` button
+   :result:
+       User is removed from list.
 
-.. test_result:: 2
+.. test_action::
+   :step:
+      Logout as in *Logout* testcase
+   :result:
+      Admin user is logged out.
 
-   Checkbox is checked
-
-.. test_step:: 3
-
-    Click on ``remove`` button
-
-.. test_result:: 3
-
-    User is removed from list.
-
-.. test_step:: 4
-
-   Logout as in *Logout* testcase
-
-.. test_result:: 4
-
-   Admin user is logged out.
-
-.. test_step:: 5
-
-   Try to login as deleted user as in *Negative Login* testcase.
-
-.. test_result:: 5
-
-  User is not logged in.
+.. test_action::
+   :step:
+      Try to login as deleted user as in *Negative Login* testcase.
+   :result:
+     User is not logged in.
 
 Teardown
 ========

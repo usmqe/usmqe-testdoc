@@ -21,54 +21,42 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Click ``Storage`` button.
+   :result:
+       Page with list of storages is open.
 
-    Click ``Storage`` button.
+.. test_action::
+   :step:
+       Click menu button - 3 dots icon at the most right side of storage info line.
+   :result:
+       Action menu for storage is open.
 
-.. test_result:: 1
+.. test_action::
+   :step:
+       Click on ``Remove`` button.
+   :result:
+       Confirmation form is opened
 
-    Page with list of storages is open.
+.. test_action::
+   :step:
+       Click ``OK`` button.
+   :result:
+       Confirmation form is closed and there is new task for removing pool.
+       Check ``Tasks`` for task for changing pool.
 
-.. test_step:: 2
+.. test_action::
+   :step:
+       Click ``Storage`` button.
+   :result:
+       After task is done there is no more removed pool in list of pools.
 
-    Click menu button - 3 dots icon at the most right side of storage info line.
-
-.. test_result:: 2
-
-    Action menu for storage is open.
-
-.. test_step:: 3
-
-    Click on ``Remove`` button.
-
-.. test_result:: 3
-
-    Confirmation form is opened
-
-.. test_step:: 4
-
-    Click ``OK`` button.
-
-.. test_result:: 4
-
-    Confirmation form is closed and there is new task for removing pool.
-    Check ``Tasks`` for task for changing pool.
-
-.. test_step:: 5
-
-    Click ``Storage`` button.
-
-.. test_result:: 5
-
-    After task is done there is no more removed pool in list of pools.
-
-.. test_step:: 6
-
-    Ssh to one of monitor and check if there is removed pool in cluster.
-
-.. test_result:: 6
-
-    # ``ceph osd pool ls`` returns list of pools where is not removed pool
+.. test_action::
+   :step:
+       Ssh to one of monitor and check if there is removed pool in cluster.
+   :result:
+       # ``ceph osd pool ls`` returns list of pools where is not removed pool
 
 Teardown
 ========

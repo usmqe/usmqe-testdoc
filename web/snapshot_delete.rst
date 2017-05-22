@@ -22,29 +22,23 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
-  
-    Go to ``Storage``
-  
-.. test_result:: 1
-   
-    Storage list is shown.
+.. test_action::
+   :step:
+       Go to ``Storage``
+   :result:
+       Storage list is shown.
 
-.. test_step:: 2
+.. test_action::
+   :step:
+       Click on menu at the end of storage description and click on ``Show snapshots``.
+   :result:
+       List of snapshots is shown.
 
-    Click on menu at the end of storage description and click on ``Show snapshots``.
-
-.. test_result:: 2
-
-    List of snapshots is shown.
-
-.. test_step:: 3
-
-    Click on menu at the end of snapshot description and click on ``Delete snapshot``.
-
-.. test_result:: 3
-
-    Check if snapshot is deleted in UI and in storage.
+.. test_action::
+   :step:
+       Click on menu at the end of snapshot description and click on ``Delete snapshot``.
+   :result:
+       Check if snapshot is deleted in UI and in storage.
 
 Teardown
 ========

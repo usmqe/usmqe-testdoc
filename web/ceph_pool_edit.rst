@@ -22,66 +22,52 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Click ``Storage`` button.
+   :result:
+       Page with list of storages is open.
 
-    Click ``Storage`` button.
+.. test_action::
+   :step:
+       Click menu button - 3 dots icon at the most right side of storage info line.
+   :result:
+       Action menu for storage is open.
 
-.. test_result:: 1
+.. test_action::
+   :step:
+       Click on ``Edit`` button.
+   :result:
+       Edit form for storage is open.
 
-    Page with list of storages is open.
+.. test_action::
+   :step:
+       # Add to pool name '_chng'
+       # Increase replica count by 1
+       # Enable quotas
+       # Set/change ``Max percentage used`` to 90%
+       # Set/chnage ``Max number of objects`` to 10
+   :result:
+       All values can be changed.
 
-.. test_step:: 2
+.. test_action::
+   :step:
+       Click on ``Save`` button.
+   :result:
+       Check ``Tasks`` for task for changing pool.
 
-    Click menu button - 3 dots icon at the most right side of storage info line.
+.. test_action::
+   :step:
+       Click ``Storage`` button.
+   :result:
+       Check if pool was changed correctly.
 
-.. test_result:: 2
-
-    Action menu for storage is open.
-
-.. test_step:: 3
-
-    Click on ``Edit`` button.
-
-.. test_result:: 3
-
-    Edit form for storage is open.
-
-.. test_step:: 4
-
-    # Add to pool name '_chng'
-    # Increase replica count by 1
-    # Enable quotas
-    # Set/change ``Max percentage used`` to 90%
-    # Set/chnage ``Max number of objects`` to 10
-
-.. test_result:: 4
-
-    All values can be changed.
-
-.. test_step:: 5
-
-    Click on ``Save`` button.
-
-.. test_result:: 5
-
-    Check ``Tasks`` for task for changing pool.
-
-.. test_step:: 6
-
-    Click ``Storage`` button.
-
-.. test_result:: 6
-
-    Check if pool was changed correctly.
-
-.. test_step:: 7
-
-    Ssh to one of monitor and check changed pool.
-
-.. test_result:: 7
-
-    # ``ceph osd pool get _pool_name_chng size`` returns number higher by 1
-    # ``ceph osd pool get-quota _pool_name_chng`` returns 10 objects and percentage transtalted to MB
+.. test_action::
+   :step:
+       Ssh to one of monitor and check changed pool.
+   :result:
+       # ``ceph osd pool get _pool_name_chng size`` returns number higher by 1
+       # ``ceph osd pool get-quota _pool_name_chng`` returns 10 objects and percentage transtalted to MB
 
 Teardown
 ========

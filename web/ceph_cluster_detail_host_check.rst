@@ -37,59 +37,51 @@ to use just a single monitor per cluster for the purpose of this test case.
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Click on *Clusters* link in the left menu bar.
+   :result:
+       The *Clusters Landing Page* is shown. The title reads "Clusters" and the
+       cluster you have created in this testacase's setup phase is shown here.
 
-    Click on *Clusters* link in the left menu bar.
+.. test_action::
+   :step:
+       Click on the item for *alpha* cluster.
+   :result:
+       Default Cluster dashboard is shown with details about *alpha* cluster.
 
-.. test_result:: 1
+.. test_action::
+   :step:
+       Click on *Hosts* tab.
+   :result:
+       List of hosts is shown. There are only machines which belongs to the
+       *alpha* cluster. No machine from *alpha* cluster is missing in the list.
 
-    The *Clusters Landing Page* is shown. The title reads "Clusters" and the
-    cluster you have created in this testacase's setup phase is shown here.
+.. test_action::
+   :step:
+       See information provided in ceph pool storage item in the list of the
+       *Hosts* tab.
+   :result:
+       For each host item in the list, there are the following details provided:
 
-.. test_step:: 2
+       * Assignment status in the left collumn is **CEPH**.
+       * Hostname (fqdn)
+       * IP address (TODO: what if there are multiple interfaces?)
+       * Cluster type (Ceph in this case)
+       * Cluster name reported as *alpha*
+       * Cluster role (eg. monitor, OSD, ...)
+       * Version of OS (distro), kernel and storage software (ceph or gluster)
+       * Total number of **Alerts** (TODO: add details)
+       * Menu icon which provides pop up menu with operations which could be
+         performed for this node
+         TODO: list all host actions (eg. Unmanage, Remove, ...) or maybe just
+         left it to other test cases 
+       * TODO: daemon actions (Start, Stop, ...)
+       * TODO: something else?
 
-    Click on the item for *alpha* cluster.
-
-.. test_result:: 2
-
-    Default Cluster dashboard is shown with details about *alpha* cluster.
-
-.. test_step:: 3
-
-    Click on *Hosts* tab.
-
-.. test_result:: 3
-
-    List of hosts is shown. There are only machines which belongs to the
-    *alpha* cluster. No machine from *alpha* cluster is missing in the list.
-
-.. test_step:: 4
-
-    See information provided in ceph pool storage item in the list of the
-    *Hosts* tab.
-
-.. test_result:: 4
-
-    For each host item in the list, there are the following details provided:
-
-    * Assignment status in the left collumn is **CEPH**.
-    * Hostname (fqdn)
-    * IP address (TODO: what if there are multiple interfaces?)
-    * Cluster type (Ceph in this case)
-    * Cluster name reported as *alpha*
-    * Cluster role (eg. monitor, OSD, ...)
-    * Version of OS (distro), kernel and storage software (ceph or gluster)
-    * Total number of **Alerts** (TODO: add details)
-    * Menu icon which provides pop up menu with operations which could be
-      performed for this node
-      TODO: list all host actions (eg. Unmanage, Remove, ...) or maybe just
-      left it to other test cases 
-    * TODO: daemon actions (Start, Stop, ...)
-    * TODO: something else?
-
-    TODO: this is very similar to :doc:`/web/hosts_page_check`
-    (step 4), use import or redesing this test case.
-    Maybe something like *hosts list check* with a few ways to get there.
+       TODO: this is very similar to :doc:`/web/hosts_page_check`
+       (step 4), use import or redesing this test case.
+       Maybe something like *hosts list check* with a few ways to get there.
 
 Teardown
 ========

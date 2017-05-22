@@ -35,21 +35,17 @@ All interfaces (eth0, eth1 and eth2) should have IPv4 address.
 Test Steps
 ==========
 
-.. test_step:: 1
-
-    Follow test steps from *Create Ceph cluster* testcase and chose one network as *Cluster Network* and second as *Access Network*.
-
-.. test_result:: 1
-
-    Follow test results from *Create Ceph cluster* testcase.
+.. test_action::
+   :step:
+       Follow test steps from *Create Ceph cluster* testcase and chose one network as *Cluster Network* and second as *Access Network*.
+   :result:
+       Follow test results from *Create Ceph cluster* testcase.
     
-.. test_step:: 2
-
-    Check ``/etc/ceph/<CLUSTERNAME>.conf`` configuratin file on all Ceph nodes.
-
-.. test_result:: 2
-
-    Check, that *Cluster Network* (``cluster_network``) and *Access Network* (``public_network``) is properly configured.
+.. test_action::
+   :step:
+       Check ``/etc/ceph/<CLUSTERNAME>.conf`` configuratin file on all Ceph nodes.
+   :result:
+       Check, that *Cluster Network* (``cluster_network``) and *Access Network* (``public_network``) is properly configured.
 
 Teardown
 ========

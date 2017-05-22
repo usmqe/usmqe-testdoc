@@ -24,49 +24,39 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Click on "Storage" button in the left menu of Tendrl web interface.
+   :result:
+       The rbd storage is in the list of storage items.
 
-    Click on "Storage" button in the left menu of Tendrl web interface.
+.. test_action::
+   :step:
+       Login on some machine in RADOS cluster and check maximum capacity of the
+       rbd via ``rbd info $rbd_name``.
+   :result:
+       Size reported by Tendrl and ``rbd info`` matches.
 
-.. test_result:: 1
+.. test_action::
+   :step:
+       Select rbd storage item and see all operations available for it.
+   :result:
+       Device resize is in the list of available operations. 
 
-    The rbd storage is in the list of storage items.
+.. test_action::
+   :step:
+       Shrink rbd by half of free space available (using maximum capacity as a
+       reference).
+   :result:
+       Tendrl reports success.
 
-.. test_step:: 2
-
-    Login on some machine in RADOS cluster and check maximum capacity of the
-    rbd via ``rbd info $rbd_name``.
-
-.. test_result:: 2
-
-    Size reported by Tendrl and ``rbd info`` matches.
-
-.. test_step:: 3
-
-    Select rbd storage item and see all operations available for it.
-
-.. test_result:: 3
-
-    Device resize is in the list of available operations. 
-
-.. test_step:: 4
-
-    Shrink rbd by half of free space available (using maximum capacity as a
-    reference).
-
-.. test_result:: 4
-
-    Tendrl reports success.
-
-.. test_step:: 5
-
-    Login on some machine in RADOS cluster and check maximum capacity of the
-    rbd via ``rbd info $rbd_name``.
-
-.. test_result:: 5
-
-    Size reported by Tendrl and ``rbd info`` matches so that the RADOS block device
-    has been shrinked as expected.
+.. test_action::
+   :step:
+       Login on some machine in RADOS cluster and check maximum capacity of the
+       rbd via ``rbd info $rbd_name``.
+   :result:
+       Size reported by Tendrl and ``rbd info`` matches so that the RADOS block device
+       has been shrinked as expected.
 
 Teardown
 ========

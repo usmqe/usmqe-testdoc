@@ -32,118 +32,104 @@ is running.
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Check status of the service::
 
-    Check status of the service::
+           # systemctl status tendrl-performance-monitoring
+           # systemctl status tendrp-apid
+   :result:
+       Status of the services are shown. Based on the setup section, services
+       are expected to be both *running* and *enabled*.
 
-        # systemctl status tendrl-performance-monitoring
-        # systemctl status tendrp-apid
+.. test_action::
+   :step:
+       Stop the services::
 
-.. test_result:: 1
+           # systemctl stop tendrl-performance-monitoring
+           # systemctl stop tendrl-apid
+   :result:
+       Services are stopped. Verify by::
 
-    Status of the services are shown. Based on the setup section, services
-    are expected to be both *running* and *enabled*.
+           # systemctl status tendrl-performance-monitoring
+           # systemctl is-active tendrl-performance-monitoring
+           # systemctl status tendrl-apid
+           # systemctl is-active tendrl-apid
 
-.. test_step:: 2
+.. test_action::
+   :step:
+       Start the services again::
 
-    Stop the services::
+           # systemctl start tendrl-performance-monitoring
+           # systemctl start tendrl-apid
+   :result:
+       Services are running. Verify by::
 
-        # systemctl stop tendrl-performance-monitoring
-        # systemctl stop tendrl-apid
+           # systemctl status tendrl-performance-monitoring
+           # systemctl status tendrl-apid
+           # systemctl is-active tendrl-performance-monitoring
+           # systemctl is-active tendrl-apid
 
-.. test_result:: 2
+.. test_action::
+   :step:
+       Restart services (from the running state)::
 
-    Services are stopped. Verify by::
+           # systemctl restart tendrl-performance-monitoring
+           # systemctl restart tendrl-apid
+   :result:
+       Services have been restarted and are running now. Verify by::
 
-        # systemctl status tendrl-performance-monitoring
-        # systemctl is-active tendrl-performance-monitoring
-        # systemctl status tendrl-apid
-        # systemctl is-active tendrl-apid
+           # systemctl status tendrl-performance-monitoring
+           # systemctl status tendrl-apid
+           # systemctl is-active tendrl-performance-monitoring
+           # systemctl is-active tendrl-apid
 
-.. test_step:: 3
+       Check that `Active since` date has been updated.
 
-    Start the services again::
+.. test_action::
+   :step:
+       Stop services (again)::
 
-        # systemctl start tendrl-performance-monitoring
-        # systemctl start tendrl-apid
+           # systemctl stop tendrl-performance-monitoring
+           # systemctl stop tendrl-apid
+   :result:
+       Services are stopped. Verify by::
 
-.. test_result:: 3
+           # systemctl status tendrl-performance-monitoring
+           # systemctl status tendrl-apid
+           # systemctl is-active tendrl-performance-monitoring
+           # systemctl is-active tendrl-apid
 
-    Services are running. Verify by::
+.. test_action::
+   :step:
+       Restart services (from the stopped state)::
 
-        # systemctl status tendrl-performance-monitoring
-        # systemctl status tendrl-apid
-        # systemctl is-active tendrl-performance-monitoring
-        # systemctl is-active tendrl-apid
+           # systemctl restart tendrl-performance-monitoring
+           # systemctl restart tendrl-apid
+   :result:
+       Services have been restarted and are running now. Verify by::
 
-.. test_step:: 4
+           # systemctl status tendrl-performance-monitoring
+           # systemctl status tendrl-apid
+           # systemctl is-active tendrl-performance-monitoring
+           # systemctl is-active tendrl-apid
 
-    Restart services (from the running state)::
+       Check that `Active since` date has been updated.
 
-        # systemctl restart tendrl-performance-monitoring
-        # systemctl restart tendrl-apid
+.. test_action::
+   :step:
+       Reload configuration of services::
 
-.. test_result:: 4
+           # systemctl reload tendrl-performance-monitoring
+           # systemctl reload tendrl-apid
+   :result:
+       Commands return zero return code and tendrl-apid and tendrl-performance-monitoring
+       configurations have been reloaded. Check that configuration files have been accessed::
 
-    Services have been restarted and are running now. Verify by::
+           # find /etc/tendrl/ -type f | xargs stat | grep '^Access: 2'
 
-        # systemctl status tendrl-performance-monitoring
-        # systemctl status tendrl-apid
-        # systemctl is-active tendrl-performance-monitoring
-        # systemctl is-active tendrl-apid
-
-    Check that `Active since` date has been updated.
-
-.. test_step:: 5
-
-    Stop services (again)::
-
-        # systemctl stop tendrl-performance-monitoring
-        # systemctl stop tendrl-apid
-
-.. test_result:: 5
-
-    Services are stopped. Verify by::
-
-        # systemctl status tendrl-performance-monitoring
-        # systemctl status tendrl-apid
-        # systemctl is-active tendrl-performance-monitoring
-        # systemctl is-active tendrl-apid
-
-.. test_step:: 6
-
-    Restart services (from the stopped state)::
-
-        # systemctl restart tendrl-performance-monitoring
-        # systemctl restart tendrl-apid
-
-.. test_result:: 6
-
-    Services have been restarted and are running now. Verify by::
-
-        # systemctl status tendrl-performance-monitoring
-        # systemctl status tendrl-apid
-        # systemctl is-active tendrl-performance-monitoring
-        # systemctl is-active tendrl-apid
-
-    Check that `Active since` date has been updated.
-
-.. test_step:: 7
-
-    Reload configuration of services::
-
-        # systemctl reload tendrl-performance-monitoring
-        # systemctl reload tendrl-apid
-
-.. test_result:: 7
-
-    Commands return zero return code and tendrl-apid and tendrl-performance-monitoring
-    configurations have been reloaded. Check that configuration files have been accessed::
-
-        # find /etc/tendrl/ -type f | xargs stat | grep '^Access: 2'
-
-    All config files have a new (recent, silimar to each other) access
-    timestamp.
+       All config files have a new (recent, silimar to each other) access
+       timestamp.
 
 Teardown
 ========

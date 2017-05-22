@@ -24,49 +24,39 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       In both browsers click ``Storage`` button.
+   :result:
+       In both browsers page with list of storages is open.
 
-    In both browsers click ``Storage`` button.
+.. test_action::
+   :step:
+       In both browsers click ``Add Storage`` button.
+   :result:
+       In both browsers Add storage page is open. There should be the following choices:
 
-.. test_result:: 1
+       #. Object Storage
+       #. Block Storage
 
-    In both browsers page with list of storages is open.
+.. test_action::
+   :step:
+       In both browsers click ``Object Storage`` link.
+   :result:
+       In both browsers wizard for creating Object Storage pool is open.
 
-.. test_step:: 2
+.. test_action::
+   :step:
+       In both browsers fill all required data into inputs and simultaneously click ``Create Storage`` button.
+       Use different name in each browser.
+   :result:
+       In both browsers check ``Tasks`` for task for creating pools.
 
-    In both browsers click ``Add Storage`` button.
-
-.. test_result:: 2
-
-    In both browsers Add storage page is open. There should be the following choices:
-
-    #. Object Storage
-    #. Block Storage
-
-.. test_step:: 3
-
-    In both browsers click ``Object Storage`` link.
-
-.. test_result:: 3
-
-    In both browsers wizard for creating Object Storage pool is open.
-
-.. test_step:: 4
-
-    In both browsers fill all required data into inputs and simultaneously click ``Create Storage`` button.
-    Use different name in each browser.
-
-.. test_result:: 4
-
-    In both browsers check ``Tasks`` for task for creating pools.
-
-.. test_step:: 5
-
-    In both browsers click ``Storage`` button.
-
-.. test_result:: 5
-
-    In both browsers check if pools was created correctly.
+.. test_action::
+   :step:
+       In both browsers click ``Storage`` button.
+   :result:
+       In both browsers check if pools was created correctly.
 
 Teardown
 ========

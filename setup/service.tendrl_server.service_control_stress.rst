@@ -27,58 +27,50 @@ are running.
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Make sure that Tendrl services are running::
 
-    Make sure that Tendrl services are running::
+           # systemctl start tendrl-performance-monitoring
+           # systemctl start tendrp-apid
+           # systemctl status tendrl-performance-monitoring
+           # systemctl status tendrp-apid
+   :result:
+       Status of services is shown as running without any problems reported.
 
-        # systemctl start tendrl-performance-monitoring
-        # systemctl start tendrp-apid
-        # systemctl status tendrl-performance-monitoring
-        # systemctl status tendrp-apid
+.. test_action::
+   :step:
+       Manually kill Tendrl process. Use PID of ``/usr/bin/puma`` process
+       from the ``systemctl status tendrp-apid`` output (done in the previous step)
+       and PID of ``/usr/bin/tendrl-performance-monitoring``::
 
-.. test_result:: 1
+           # kill -9 123
+           # systemctl status tendrp-apid
 
-    Status of services is shown as running without any problems reported.
+           # kill -9 124
+           # systemctl status tendrl-performance-monitoring
+   :result:
+       Tendrl services are not running.
 
-.. test_step:: 2
+.. test_action::
+   :step:
+       Restart Tendrl services.
 
-    Manually kill Tendrl process. Use PID of ``/usr/bin/puma`` process
-    from the ``systemctl status tendrp-apid`` output (done in the previous step)
-    and PID of ``/usr/bin/tendrl-performance-monitoring``::
+           # systemctl restart tendrl-performance-monitoring
+           # systemctl restart tendrl-apid
+   :result:
+       Tendrl services are running.
 
-        # kill -9 123
-        # systemctl status tendrp-apid
+.. test_action::
+   :step:
+       Kill Tendrl processes via systemd:: 
 
-        # kill -9 124
-        # systemctl status tendrl-performance-monitoring
-
-.. test_result:: 2
-
-    Tendrl services are not running.
-
-.. test_step:: 3
-
-    Restart Tendrl services.
-
-        # systemctl restart tendrl-performance-monitoring
-        # systemctl restart tendrl-apid
-
-.. test_result:: 3
-    
-    Tendrl services are running.
-
-.. test_step:: 4
-
-    Kill Tendrl processes via systemd:: 
-
-        # systemctl kill -s 9 tendrl-apid
-        # systemctl status tendrl-apid
-        # systemctl kill -s 9 tendrl-performance-monitoring
-        # systemctl status tendrl-performance-monitoring
-
-.. test_result:: 4
-
-    Tendrl services are not running.
+           # systemctl kill -s 9 tendrl-apid
+           # systemctl status tendrl-apid
+           # systemctl kill -s 9 tendrl-performance-monitoring
+           # systemctl status tendrl-performance-monitoring
+   :result:
+       Tendrl services are not running.
 
 Teardown
 ========

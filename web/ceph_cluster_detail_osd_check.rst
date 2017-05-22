@@ -31,100 +31,92 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Click on *Clusters* link in the left menu bar.
+   :result:
+       The *Clusters Landing Page* is shown. The title reads "Clusters" and the
+       cluster you have created in this testacase's setup phase is shown here.
 
-    Click on *Clusters* link in the left menu bar.
+.. test_action::
+   :step:
+       Click on the item for *alpha* cluster.
+   :result:
+       Default Cluster dashboard is shown with details about *alpha* cluster.
 
-.. test_result:: 1
+.. test_action::
+   :step:
+       Click on *OSDs* tab.
+   :result:
+       List of OSDs is shown for each pool of the *alpha* cluster. There are only
+       OSDs from machines which belongs to the *alpha* cluster. No OSDs of *alpha*
+       cluster is missing in the list.
 
-    The *Clusters Landing Page* is shown. The title reads "Clusters" and the
-    cluster you have created in this testacase's setup phase is shown here.
+.. test_action::
+   :step:
+       See information provided in OSD item in the list.
+   :result:
+       For each OSD item (card) in the list, there are the following details
+       provided:
 
-.. test_step:: 2
+       * OSD name
+       * status indicator
+       * utilization bar
+        
+       Note: utilization bar is color coded:
 
-    Click on the item for *alpha* cluster.
+       * blue ``=< 85%``
+       * orange for a *near full* state
+       * red for a *full* state
 
-.. test_result:: 2
+.. test_action::
+   :step:
+       TODO: filtering (left sidebar of OSDs tab) - by:
+      
+       * OSD status (up-in, up-out, down-in, down, + error/warnings)
+       * PG status (see the design doc...)
+       * Utilization (see the design doc...)
 
-    Default Cluster dashboard is shown with details about *alpha* cluster.
+.. test_action::
+   :step:
+       TODO: group by host, pool or storage profile
 
-.. test_step:: 3
+.. test_action::
+   :step:
+       TODO: OSD details - header (includes status, name and type)
 
-    Click on *OSDs* tab.
+.. test_action::
+   :step:
+       TODO: OSD details - journal details
 
-.. test_result:: 3
+.. test_action::
+   :step:
+       TODO: OSD details - failure domain details
+       (to identify location of this OSD)
 
-    List of OSDs is shown for each pool of the *alpha* cluster. There are only
-    OSDs from machines which belongs to the *alpha* cluster. No OSDs of *alpha*
-    cluster is missing in the list.
+.. test_action::
+   :step:
+       TODO: OSD details - failure domain details
 
-.. test_step:: 4
+.. test_action::
+   :step:
+       TODO: filter by search input field
 
-    See information provided in OSD item in the list.
+.. test_action::
+   :step:
+       TODO: action list provided
 
-.. test_result:: 4
+.. test_action::
+   :step:
+       TODO: show utilization/weight (changes what's displayed in the OSD cards)
 
-    For each OSD item (card) in the list, there are the following details
-    provided:
+.. test_action::
+   :step:
+       TODO: hide filter sidebar
 
-    * OSD name
-    * status indicator
-    * utilization bar
-     
-    Note: utilization bar is color coded:
-
-    * blue ``=< 85%``
-    * orange for a *near full* state
-    * red for a *full* state
-
-.. test_step:: 5
-
-    TODO: filtering (left sidebar of OSDs tab) - by:
-   
-    * OSD status (up-in, up-out, down-in, down, + error/warnings)
-    * PG status (see the design doc...)
-    * Utilization (see the design doc...)
-
-.. test_step:: 6
-
-    TODO: group by host, pool or storage profile
-
-.. test_step:: 7
-
-    TODO: OSD details - header (includes status, name and type)
-
-.. test_step:: 8
-
-    TODO: OSD details - journal details
-
-.. test_step:: 9
-
-    TODO: OSD details - failure domain details
-    (to identify location of this OSD)
-
-.. test_step:: 10
-
-    TODO: OSD details - failure domain details
-
-.. test_step:: 11
-
-    TODO: filter by search input field
-
-.. test_step:: 12
-
-    TODO: action list provided
-
-.. test_step:: 13
-
-    TODO: show utilization/weight (changes what's displayed in the OSD cards)
-
-.. test_step:: 14
-
-    TODO: hide filter sidebar
-
-.. test_step:: 15
-
-    TODO: selection model
+.. test_action::
+   :step:
+       TODO: selection model
 
 Teardown
 ========

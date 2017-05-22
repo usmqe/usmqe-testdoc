@@ -22,39 +22,31 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       In both browsers click on 3rd icon in right upper menu.
+   :result:
+       In both browsers small windows is opened. There is at least one discovered node.
 
-    In both browsers click on 3rd icon in right upper menu.
+.. test_action::
+   :step:
+       In both browsers simultaneously click ``Accept`` button next to one node name (the same on both browsers).
+   :result:
+       In one browser button label changes. ``Accepting`` task is visible in task list(2nd icon in right upper menu->See all). After task is done alert message appears with task result.
 
-.. test_result:: 1
+       In second browser, error message is shown about already accepted node.
 
-    In both browsers small windows is opened. There is at least one discovered node.
+.. test_action::
+   :step:
+       In both browsers simultaneously click ``Accept`` button next to one node name (different on both browsers).
+   :result:
+       In both browsers button label changes. ``Accepting`` task is visible in task list(2nd icon in right upper menu->See all). After task is done alert message appears with task result.
 
-.. test_step:: 2
-
-    In both browsers simultaneously click ``Accept`` button next to one node name (the same on both browsers).
-
-.. test_result:: 2
-
-    In one browser button label changes. ``Accepting`` task is visible in task list(2nd icon in right upper menu->See all). After task is done alert message appears with task result.
-
-    In second browser, error message is shown about already accepted node.
-
-.. test_step:: 3
-
-    In both browsers simultaneously click ``Accept`` button next to one node name (different on both browsers).
-
-.. test_result:: 3
-
-    In both browsers button label changes. ``Accepting`` task is visible in task list(2nd icon in right upper menu->See all). After task is done alert message appears with task result.
-
-.. test_step:: 4
-
-    In both browsers click on ``Hosts`` in left menu.
-    
-.. test_result:: 4
-   
-    In both browsers accepted node is in list of hosts with proper host information.
+.. test_action::
+   :step:
+       In both browsers click on ``Hosts`` in left menu.
+   :result:
+       In both browsers accepted node is in list of hosts with proper host information.
 
 Teardown
 ========

@@ -25,21 +25,17 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+      Activate mode flakey on disks where are RBD and pool.
+   :result:
+      There are alerts about errors on disks.
 
-   Activate mode flakey on disks where are RBD and pool.
-
-.. test_result:: 1
-
-   There are alerts about errors on disks.
-
-.. test_step:: 2
-
-   Try to write data on RBD and pool.
-
-.. test_result:: 2
-
-   There are alerts about errors on disks.
+.. test_action::
+   :step:
+      Try to write data on RBD and pool.
+   :result:
+      There are alerts about errors on disks.
 
 Teardown
 ========
