@@ -19,72 +19,50 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
-   
-   :doc:`/setup/install_default`
+.. test_action::
+   :step:
+      :doc:`/setup/install_default`
 
-.. test_result:: 1
+.. test_action::
+   :step:
+      :doc:`/web/node_add`
 
-.. test_step:: 2
+.. test_action::
+   :step:
+      :doc:`/web/ceph_cluster_create`
+      :doc:`/web/gluster_cluster_create`
 
-   :doc:`/web/node_add`
+.. test_action::
+   :step:
+      :doc:`/web/cluster_import`
 
-.. test_result:: 2
-   
-.. test_step:: 3
-   
-   :doc:`/web/ceph_cluster_create`
-   :doc:`/web/gluster_cluster_create`
+.. test_action::
+   :step:
+      :doc:`/web/cluster_status`
 
-.. test_result:: 3
-   
-.. test_step:: 4
-   
-   :doc:`/web/cluster_import`
+.. test_action::
+   :step:
+      :doc:`/web/ceph_crushmap_update`
 
-.. test_result:: 4
-   
-.. test_step:: 5
-   
-   :doc:`/web/cluster_status`
+.. test_action::
+   :step:
+      :doc:`/web/ceph_settings_check`
 
-.. test_result:: 5
+.. test_action::
+   :step:
+      :doc:`/web/node_status`
 
-.. test_step:: 6
+.. test_action::
+   :step:
+      :doc:`/web/ceph_pool_create`
 
-   :doc:`/web/ceph_crushmap_update`
+.. test_action::
+   :step:
+      :doc:`/api/index.rst`
 
-.. test_result:: 6
-   
-.. test_step:: 7 
-   
-   :doc:`/web/ceph_settings_check`
-
-.. test_result:: 7
-   
-.. test_step:: 8
-   
-   :doc:`/web/node_status`
-
-.. test_result:: 8
-   
-.. test_step:: 9
-   
-   :doc:`/web/ceph_pool_create`
-
-.. test_result:: 9
-
-.. test_step:: 10
-
-   :doc:`/api/index.rst`
-
-.. test_result:: 10
-
-.. test_step:: 11
-   
-   :doc:`/web/design_check`
-
-.. test_result:: 11
+.. test_action::
+   :step:
+      :doc:`/web/design_check`
 
 Teardown
 ========
