@@ -25,17 +25,14 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
-
-    #. Follow instruction in :doc:`/web/ceph_cluster_shrink_disk` and perform all operation simultaneously in two browsers:
-    #. for the same node/disk in both browsers,
-    #. for different node/disk in each browser.
-
-
-.. test_result:: 1
-
-    #. In one browser it should raise meaningful error message, in second browser it should pass.
-    #. The operation launched from both browsers should pass accordingly to test results from :doc:`/web/ceph_cluster_shrink_disk`
+.. test_action::
+   :step:
+       #. Follow instruction in :doc:`/web/ceph_cluster_shrink_disk` and perform all operation simultaneously in two browsers:
+       #. for the same node/disk in both browsers,
+       #. for different node/disk in each browser.
+   :result:
+       #. In one browser it should raise meaningful error message, in second browser it should pass.
+       #. The operation launched from both browsers should pass accordingly to test results from :doc:`/web/ceph_cluster_shrink_disk`
 
 Teardown
 ========

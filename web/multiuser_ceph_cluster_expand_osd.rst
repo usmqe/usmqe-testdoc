@@ -23,17 +23,15 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Follow instruction in :doc:`/web/node_add` and perform all operation simultaneously in two browsers:
 
-    Follow instruction in :doc:`/web/node_add` and perform all operation simultaneously in two browsers:
-
-    #. for one (the same) disk in both browsers,
-    #. for different disk in each browser.
-
-.. test_result:: 1
-
-    #. In one browser it should raise error message about already used disk/osd, in second browser it should pass.
-    #. It should extend cluster with both added disks/OSDs.
+       #. for one (the same) disk in both browsers,
+       #. for different disk in each browser.
+   :result:
+       #. In one browser it should raise error message about already used disk/osd, in second browser it should pass.
+       #. It should extend cluster with both added disks/OSDs.
 
 
 Teardown
