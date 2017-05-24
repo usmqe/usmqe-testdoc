@@ -17,10 +17,11 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
-
-
-.. test_result:: 1
+.. test_action::
+   :step:
+       TODO
+   :result:
+       TODO
 
 
 Teardown
