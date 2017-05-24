@@ -22,28 +22,21 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Go to login page
+   :result:
+       Page should loaded properly. Especially it should contain ``Username`` and ``Password`` inputs and ``Log In`` button.
 
-    Go to login page
+.. test_action::
+   :step:
+       Enter ``test_user`` to ``Username`` input and ``test_user`` to ``Password`` input. Click on ``Log In`` button.
+   :result:
+       User should log into Tendrl. Main page should loaded.
 
-.. test_result:: 1
-
-    Page should loaded properly. Especially it should contain ``Username`` and ``Password`` inputs and ``Log In`` button.
-
-.. test_step:: 2
-
-    Enter ``test_user`` to ``Username`` input and ``test_user`` to ``Password`` input. Click on ``Log In`` button.
-
-.. test_result:: 2
-
-    User should log into Tendrl. Main page should loaded.
-
-.. test_step:: 3
-
-   Check all differencies between admin user interface and non-administrator roles.
-
-.. test_result:: 3
-
+.. test_action::
+   :step:
+      Check all differencies between admin user interface and non-administrator roles.
 
 
 Teardown
