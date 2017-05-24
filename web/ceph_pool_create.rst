@@ -22,69 +22,56 @@ Setup
 Test Steps
 ==========
 
-.. test_step:: 1
+.. test_action::
+   :step:
+       Click ``Storage`` button.
+   :result:
+       Page with list of storages is open.
 
-    Click ``Storage`` button.
+.. test_action::
+   :step:
+       Click ``Add Storage`` button.
+   :result:
+       Add storage page is open. There should be the following choices:
 
-.. test_result:: 1
+       #. Object Storage
+       #. Block Storage
 
-    Page with list of storages is open.
+.. test_action::
+   :step:
+       Select particular cluster and chose ``Object Storage``, click to ``Next`` button.
+   :result:
+       Wizard for creating *Object Storage* pool is open.
 
-.. test_step:: 2
+.. test_action::
+   :step:
+       Create few Object Storages with combination of following choices:
 
-    Click ``Add Storage`` button.
+       * Pools to Create: ``1``, ``3``
+       * Type: ``Replicated``, ``Erasure Coded``
+       * Replicas (for Replicated type): ``1``, ``3``
+       * EC Profile (for Erasure Coded): ``2+1``, ``4+2``, ``6+3``, ``8+4``
 
-.. test_result:: 2
+       Fill all required data into inputs and click on ``Next`` button.
 
-    Add storage page is open. There should be the following choices:
+       | TODO: specify details (there are lot of knobs now), maybe split further into another test cases.
+       | TODO: check quotas
+       | TODO: check to create a pool on more than 50 OSDs, to have a slider with size and number of PGs
+       | TODO: missing advanced configuration, missing snapshots (design conflict)
+   :result:
+       Check Summary page, that all information is correct.
 
-    #. Object Storage
-    #. Block Storage
+.. test_action::
+   :step:
+       Click on ``Submit`` button.
+   :result:
+       Check ``Tasks`` for task for creating pool.
 
-.. test_step:: 3
-
-    Select particular cluster and chose ``Object Storage``, click to ``Next`` button.
-
-.. test_result:: 3
-
-    Wizard for creating *Object Storage* pool is open.
-
-.. test_step:: 4
-
-    | TODO: specify details (there are lot of knobs now), maybe split further into another test cases.
-    | TODO: check quotas
-    | TODO: check to create a pool on more than 50 OSDs, to have a slider with size and number of PGs
-    | TODO: missing advanced configuration, missing snapshots (design conflict)
-    |
-
-    Create few Object Storages with combination of following choices:
-
-    * Pools to Create: ``1``, ``3``
-    * Type: ``Replicated``, ``Erasure Coded``
-    * Replicas (for Replicated type): ``1``, ``3``
-    * EC Profile (for Erasure Coded): ``2+1``, ``4+2``, ``6+3``, ``8+4``
-
-    Fill all required data into inputs and click on ``Next`` button.
-
-.. test_result:: 4
-
-    Check Summary page, that all information is correct.
-
-.. test_step:: 5
-
-    Click on ``Submit`` button.
-
-.. test_result:: 5
-
-    Check ``Tasks`` for task for creating pool.
-
-.. test_step:: 6
-
-    Click ``Storage`` button.
-
-.. test_result:: 6
-
-    Check if pool was created correctly, try to use it.
+.. test_action::
+   :step:
+       Click ``Storage`` button.
+   :result:
+       Check if pool was created correctly, try to use it.
 
 Teardown
 ========
