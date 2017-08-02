@@ -1,8 +1,11 @@
-Setup Test Cases
-================
+Systemd Integration Tests
+=========================
+
+These test cases validates systemd units provided with the product such
+as service files.
 
 .. test_defaults::
-   :casecomponent: setup
+   :casesubcomponent: systemd
 
 .. toctree::
    :caption: Test Cases

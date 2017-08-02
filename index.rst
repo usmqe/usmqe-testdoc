@@ -11,5 +11,5 @@
    :maxdepth: 2
    :caption: Contents:
 
-   setup/index.rst
+   system-integration/index.rst
    web/index.rst
