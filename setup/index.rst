@@ -9,7 +9,6 @@ Setup Test Cases
    :maxdepth: 1
    :glob:
 
-   install_default.rst
    service.tendrl_server.elementary_check.rst
    service.tendrl_server.service_control.rst
    service.tendrl_server.service_control_stress.rst
