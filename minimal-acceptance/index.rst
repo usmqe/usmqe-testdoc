@@ -21,3 +21,7 @@ For source code of upstream jenkins jobs, see `usmqe-centos-ci`_ repository.
    :caption: Subcomponents:
    :maxdepth: 2
    :glob:
+
+   rpm/index.rst
+   unit-test-rerun/index.rst
+   minimal-install/index.rst
