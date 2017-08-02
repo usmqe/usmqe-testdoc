@@ -11,5 +11,6 @@
    :maxdepth: 2
    :caption: Contents:
 
+   minimal-acceptance/index.rst
    system-integration/index.rst
    web/index.rst
