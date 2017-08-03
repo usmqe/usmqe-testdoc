@@ -8,3 +8,10 @@ installation.
 
 .. test_defaults::
    :casecomponent: rpm
+
+.. toctree::
+   :caption: Test Cases
+   :maxdepth: 1
+   :glob:
+
+   *
