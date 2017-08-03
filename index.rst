@@ -7,9 +7,22 @@
  Tendrl Tests Documentation
 ============================
 
+This is qe documentation for `Tendrl Project`_ maintained by `USM QE team`_,
+covering testing environment (eg. cluster configuration) and test cases.
+
+While this description is concerned with **upstream testing only**, it's
+**driven by downstream plans** and downstream test cases will be based on it
+later on.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Testing Approach and Environment:
+
+   clusterconfig.rst
+
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Test Case Structure:
 
    minimal-acceptance/index.rst
    system-integration/index.rst

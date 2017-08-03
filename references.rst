@@ -6,6 +6,7 @@
 
 .. Tendrl Upstream Documentation
 
+.. _`Tendrl Project`: http://tendrl.org/
 .. _`Tendrl Package Installation Reference`: https://github.com/Tendrl/documentation/wiki/Tendrl-Package-Installation-Reference
 .. _`Design document for Gluster file shares list`: https://redhat.invisionapp.com/share/BR8JDCGSQ#/screens/198417117
 
@@ -13,3 +14,7 @@
 
 .. _`daemon(7)`: https://www.freedesktop.org/software/systemd/man/daemon.html
 .. _`systemd packaging policy`: https://fedoraproject.org/wiki/Packaging:Systemd
+
+.. Other references
+
+.. _`USM QE Team`: https://usmqe-tests.readthedocs.io/en/latest/usmqe_team.html
