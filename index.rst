@@ -13,4 +13,5 @@
 
    minimal-acceptance/index.rst
    system-integration/index.rst
+   installation/index.rst
    web/index.rst
