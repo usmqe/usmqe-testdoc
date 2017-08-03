@@ -1,11 +1,11 @@
-Web Tests
+API Tests
 =========
 
 System tests based on requirements and user scenarios, which interacts with
-Tendrl (and other components) via web ui.
+Tendrl (and other components) via API.
 
 .. test_defaults::
-   :casecomponent: web
+   :casecomponent: api
    :caselevel: system
 
 .. toctree::
@@ -14,5 +14,4 @@ Tendrl (and other components) via web ui.
    :glob:
 
    tendrl/index.rst
-   tendrl-grafana/index.rst
-   grafana/index.rst
+   grafana-graphite/index.rst
