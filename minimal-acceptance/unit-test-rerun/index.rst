@@ -7,3 +7,8 @@ package.
 
 Rerunning unit tests on target platform could reveal significant problems with
 packaging or differences between unit test and production environment.
+
+.. test_defaults::
+   :caselevel: integration
+   :casecomponent: rpm
+   :testtype: nonfunctional
