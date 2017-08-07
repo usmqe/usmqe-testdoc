@@ -1,5 +1,5 @@
-Tendrl server services control stress test
-*******************************************
+Tendrl server services control crash test
+*****************************************
 
 :author: - mbukatov@redhat.com
          - mkudlej@redhat.com

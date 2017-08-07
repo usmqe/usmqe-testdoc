@@ -1,4 +1,4 @@
-Unit Test Retun
+Unit Test Rerun
 ===============
 
 Since python tendrl packages bundles unit test code into main python module of
