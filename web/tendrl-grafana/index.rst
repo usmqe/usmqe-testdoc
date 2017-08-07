@@ -8,6 +8,9 @@ checking values shown on the dashboard. Tests here checks that:
 * the dashboard linked from Tendrl UI has expected properties (name, graphs
   shown, ...)
 
+Besides that, we may consider a limited set of manual test cases based on
+visual inspection of Tendrl grafana dashboards linked from Tendrl UI.
+
 .. test_defaults::
    :casesubcomponent: tendrl_grafana_web
 
