@@ -15,4 +15,5 @@ Tendrl (and other components) via web ui.
 
    tendrl/index.rst
    tendrl-grafana/index.rst
+   alerting/index.rst
    grafana/index.rst
