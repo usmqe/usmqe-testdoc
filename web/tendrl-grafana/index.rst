@@ -7,7 +7,7 @@ checking values shown on the dashboard. Tests here checks that:
 * every grafana dashboard is reachable from Tendrl UI from expected place(s)
 * the dashboard linked from Tendrl UI has expected properties (name, graphs
   shown, ...)
-* we are able to indentify grafana definition file for every grafana dashboard
+* we are able to identify grafana definition file for every grafana dashboard
   which is reachable from Tendrl UI (we need to establish relationship between
   grafana dashboards and packaged definition files)
 
