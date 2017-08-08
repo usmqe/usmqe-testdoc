@@ -16,7 +16,7 @@ later on.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Testing Approach and Environment:
+   :caption: Testing Approach:
 
    clusterconfig.rst
 
