@@ -112,7 +112,7 @@ Testers:
 .. _Tendrl Install Documentation: https://github.com/Tendrl/documentation/wiki/Tendrl-Package-Installation-Reference(Revised)
 .. _Tendrl package repository: https://copr.fedorainfracloud.org/coprs/tendrl/release/repo/epel-7/tendrl-release-epel-7.repo
 .. _Webstr: https://github.com/Webstr-framework/webstr
-.. _UI tests: https://github.com/usmqe/usmqe-tests
+.. _UI tests: https://github.com/usmqe/usmqe-tests/tree/master/usmqe_tests/web
 .. _USMQE Setup: https://github.com/usmqe/usmqe-setup
 .. _Tendrl Ansible: https://github.com/Tendrl/tendrl-ansible
 .. _How to file bugs against the Tendrl stack: https://github.com/Tendrl/documentation/wiki/How-to-file-bugs-against-the-Tendrl-stack
