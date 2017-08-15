@@ -6,8 +6,8 @@ Testing Strategy for Tendrl project
 
 Test Strategy Identifier
 ***************************************************
-This is master strategy for testing `Tendrl`_.
-In case of any questions please contact `USMQE group`_.
+This is master strategy for testing `Tendrl Project`_.
+In case of any questions please contact `USM QE team`_.
 
 References
 ***************************************************
@@ -17,7 +17,7 @@ References
 - `Tendrl documentation`_
 - `Tendrl wiki documentation`_
 - `UI designs`_
-- :doc:`QE team references <references>`
+
 
 Introduction
 ***************************************************
@@ -104,8 +104,6 @@ Testers:
 * Resolve technical issues
 * Track the defects created and make sure they are complete and correct
 
-.. _Tendrl: https://github.com/Tendrl
-.. _USMQE group: https://github.com/orgs/usmqe/people
 .. _ISTQB syllabus: http://www.istqb.org/downloads/syllabi/foundation-level-syllabus.html
 .. _Requirements defined by developers: https://github.com/Tendrl/specifications
 .. _Tendrl documentation: https://github.com/Tendrl/documentation
