@@ -40,11 +40,11 @@ Features to be Tested
 Tested features are described in testcases including tested Gluster configurations.
 List of test case categories:
 
-  * :doc:`api/index`
-  * :doc:`installation/index`
-  * :doc:`minimal-acceptance/index`
-  * :doc:`system-integration/index`
-  * :doc:`web/index`
+* :doc:`api/index`
+* :doc:`installation/index`
+* :doc:`minimal-acceptance/index`
+* :doc:`system-integration/index`
+* :doc:`web/index`
 
 Features not to be Tested
 ***************************************************
@@ -56,11 +56,11 @@ Approach
 Tools used
 ===========
 
- * Selenium + `Webstr`_ - for automated `UI tests`_
- * Ansible - for provisioning and configuration machines - `USMQE Setup`_, `Tendrl Ansible`_
- * Jenkins - for CI - Tendrl jobs at `Centos CI`_
- * KVM, Libvirt, Duffy - infrastructure for deploying VMs - `Centos CI wiki`_
- * GDeploy - for setting up Gluster clusters
+* Selenium + `Webstr`_ - for automated `UI tests`_
+* Ansible - for provisioning and configuration machines - `USMQE Setup`_, `Tendrl Ansible`_
+* Jenkins - for CI - Tendrl jobs at `Centos CI`_
+* KVM, Libvirt, Duffy - infrastructure for deploying VMs - `Centos CI wiki`_
+* GDeploy - for setting up Gluster clusters
 
 How to test
 ============
@@ -68,12 +68,12 @@ How to test
 Manual testing
 ---------------
 
- #. Install clean machines for every testcase (if 2 testcases are completely independent, orthogonal and they are not influenced each other, they can be tested one after another)
- #. Read testcase description and related issues.
- #. Test it
- #. Think about enhancing testcase, make it more general, try to write semi-automated script for testing
- #. Change testcase if there are any changes
- #. If testcase is related to any issue, please close issue(s) in case of pass. Otherwise file new issue, add it to testcase, add testcase link to that issue.
+#. Install clean machines for every testcase (if 2 testcases are completely independent, orthogonal and they are not influenced each other, they can be tested one after another)
+#. Read testcase description and related issues.
+#. Test it
+#. Think about enhancing testcase, make it more general, try to write semi-automated script for testing
+#. Change testcase if there are any changes
+#. If testcase is related to any issue, please close issue(s) in case of pass. Otherwise file new issue, add it to testcase, add testcase link to that issue.
 
 Automated testing (CI)
 -----------------------
@@ -98,11 +98,11 @@ Responsibilities
 Testers:
 =========
 
- * Build infrastructure
- * Create test cases
- * Write automated test cases
- * Resolve technical issues
- * Track the defects created and make sure they are complete and correct
+* Build infrastructure
+* Create test cases
+* Write automated test cases
+* Resolve technical issues
+* Track the defects created and make sure they are complete and correct
 
 .. _Tendrl: https://github.com/Tendrl
 .. _USMQE group: https://github.com/orgs/usmqe/people
