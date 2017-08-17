@@ -30,3 +30,4 @@ later on.
    installation/index.rst
    api/index.rst
    web/index.rst
+   configurations/index.rst

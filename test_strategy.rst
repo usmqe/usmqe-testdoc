@@ -37,14 +37,16 @@ Packages
 
 Features to be Tested
 ***************************************************
-Tested features are described in testcases including tested Gluster configurations.
+Tested features are described in testcases.
+Tested Gluster configurations are linked in testcases and are in :doc:`/configurations/index`.
+Testcases are split into categories according test type (for example :doc:`/minimal-acceptance/index`) or tested feature (for example :doc:`/web/index`).
 List of test case categories:
 
-* :doc:`api/index`
-* :doc:`installation/index`
-* :doc:`minimal-acceptance/index`
-* :doc:`system-integration/index`
-* :doc:`web/index`
+* :doc:`/api/index`
+* :doc:`/installation/index`
+* :doc:`/minimal-acceptance/index`
+* :doc:`/system-integration/index`
+* :doc:`/web/index`
 
 Features not to be Tested
 ***************************************************
@@ -59,7 +61,7 @@ Tools used
 * Selenium + `Webstr`_ - for automated `UI tests`_
 * Ansible - for provisioning and configuration machines - `USMQE Setup`_, `Tendrl Ansible`_
 * Jenkins - for CI - Tendrl jobs at `Centos CI`_
-* KVM, Libvirt, Duffy - infrastructure for deploying VMs - `Centos CI wiki`_
+* KVM, Libvirt, Duffy - infrastructure for deploying machines - `Centos CI wiki`_
 * GDeploy - for setting up Gluster clusters
 
 How to test
