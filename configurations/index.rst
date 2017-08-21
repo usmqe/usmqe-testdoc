@@ -1,5 +1,6 @@
-Cluster configurations
-=======================
+========================
+ Cluster configurations
+========================
 
 Configurations based on requirements and user scenarios. Configuration can be simple one and also more complex one
 which can be combination from simple configurations. Configuration can contain:

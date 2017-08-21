@@ -18,7 +18,7 @@ later on.
    :maxdepth: 1
    :caption: Testing Approach:
 
-   clusterconfig.rst
+   configurations/index.rst
    test_strategy.rst
 
 .. toctree::
@@ -30,4 +30,3 @@ later on.
    installation/index.rst
    api/index.rst
    web/index.rst
-   configurations/index.rst
