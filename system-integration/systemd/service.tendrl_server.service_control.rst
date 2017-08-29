@@ -22,7 +22,7 @@ far.
 Setup
 =====
 
-Follow :doc:`/setup/install_default` to install Tendrl. No particular
+Follow TODO to install Tendrl. No particular
 cluster configuration is required for this test case, so we use the default
 one.
 
