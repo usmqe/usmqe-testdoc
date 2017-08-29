@@ -14,6 +14,11 @@ While this description is concerned with **upstream testing only**, it's
 **driven by downstream plans** and downstream test cases will be based on it
 later on.
 
+Upstream source code of this project is available on github in `usmqe-testdoc
+repository`_.
+
+.. _`usmqe-testdoc repository`: https://github.com/usmqe/usmqe-testdoc
+
 .. toctree::
    :maxdepth: 1
    :caption: Testing Approach:
