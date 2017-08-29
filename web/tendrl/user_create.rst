@@ -12,7 +12,7 @@ Create user.
 Setup
 =====
 
-#. Login user into Tendrl, see :doc:`/web/login_positive`
+#. Login user into Tendrl, see :doc:`/web/tendrl/login_positive`
 
 Test Steps
 ==========

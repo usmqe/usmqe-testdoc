@@ -15,7 +15,7 @@ Login as one or two users simultaneously from two browsers.
 Setup
 =====
 
-#. Prepare environment as described in :doc:`/web/multiuser_initial_setup`.
+#. Prepare environment as described in :doc:`/configurations/multiuser_initial_setup`.
 
 Test Steps
 ==========

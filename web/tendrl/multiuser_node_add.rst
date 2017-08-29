@@ -15,7 +15,7 @@ Add node - button next to node name
 Setup
 =====
 
-#. Prepare environment as described in :doc:`/web/multiuser_initial_setup`.
+#. Prepare environment as described in :doc:`/configurations/multiuser_initial_setup`.
 
 #. There are configured nodes which can be added
 
