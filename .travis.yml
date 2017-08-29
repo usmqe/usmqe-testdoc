@@ -4,5 +4,6 @@ python:
 install:
   - pip install sphinx pylatest
 script:
+  - mkdir -p _static _build _templates
   - sphinx-build -aE -nW -b html . _build/html
   - sphinx-build -b linkcheck . _build/linkcheck
