@@ -37,8 +37,6 @@ Test Steps
 
 Teardown
 ========
-#. Remove added cluster(*Forget cluster* testcase)
-
 #. Log out
 
 #. Close browser
