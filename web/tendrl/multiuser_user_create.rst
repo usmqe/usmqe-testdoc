@@ -52,7 +52,7 @@ Test Steps
     
 Teardown
 ========
-#. Remove new added users :doc:`/web/tendrl/multiuser_user_delete`
+#. Remove new added users
 
 #. Log out
 
