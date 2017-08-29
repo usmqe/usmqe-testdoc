@@ -9,7 +9,7 @@ Description
 
 **UNDER CONSTRUCTION - NEED UPDATE**
 
-Prepare environment for multiuser testing (test Locking Framework).
+Prepare environment for multiuser testing.
 
 Setup
 =====
@@ -23,15 +23,3 @@ Setup
 #. In each browser login as admin user and perform all multiuser_* test cases.
 
 #. In each browser login as different user and perform all multiuser_* test cases.
-
-Test Steps
-==========
-
-    
-Teardown
-========
-
-#. Log out
-
-#. Close browser
-

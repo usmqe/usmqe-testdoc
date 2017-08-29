@@ -4,18 +4,13 @@ Negative login - empty login and password
 :authors: 
           - mkudlej@redhat.com
 
-.. _Design document for login: https://redhat.invisionapp.com/share/6T900V2ZX#/screens/198042643
-
 Description
 ===========
 
 Try to login valid user but not valid password(empty string) into Tendrl.
-During testing `Design document for login`_ should be considered.
 
 Setup
 =====
-
-#. Install Tendrl according installation instruction written in *Test Plan*
 
 Test Steps
 ==========

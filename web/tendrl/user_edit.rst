@@ -12,9 +12,7 @@ Edit user.
 Setup
 =====
 
-#. Install Tendrl according installation instruction written in *Test Plan*
-
-#. Login user into Tendrl, see :doc:`/web/login_positive`
+#. Login user into Tendrl, see :doc:`/web/tendrl/login_positive`
 
 #. Create test user as in *Create user* testcase
 

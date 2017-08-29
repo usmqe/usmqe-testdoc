@@ -15,7 +15,7 @@ Create users simultaneously from two browsers.
 Setup
 =====
 
-#. Prepare environment as described in :doc:`/web/multiuser_initial_setup`.
+#. Prepare environment as described in :doc:`/configurations/multiuser_initial_setup`.
 
 Test Steps
 ==========
@@ -46,13 +46,13 @@ Test Steps
 
 .. test_action::
    :step:
-      In both browsers try to login as new users as in :doc:`/web/multiuser_login` testcase.
+      In both browsers try to login as new users as in :doc:`/web/tendrl/multiuser_login` testcase.
    :result:
       In both browsers users are logged in.
     
 Teardown
 ========
-#. Remove new added users :doc:`/web/multiuser_user_delete`
+#. Remove new added users :doc:`/web/tendrl/multiuser_user_delete`
 
 #. Log out
 
