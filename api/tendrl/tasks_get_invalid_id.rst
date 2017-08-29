@@ -1,2 +1,2 @@
-API-tasks: get nonexistent task
-*******************************
+API-tasks: get task of invalid id
+*********************************
