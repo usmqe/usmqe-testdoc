@@ -25,5 +25,3 @@ look like this:
    :caption: Test Cases
    :maxdepth: 1
    :glob:
-
-   *
