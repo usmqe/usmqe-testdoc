@@ -4,14 +4,10 @@ Import cluster
 :authors: 
           - mkudlej@redhat.com
 
-.. _Design document for import: https://redhat.invisionapp.com/share/R88EUSGJK#/screens/193145496
-
 Description
 ===========
 
 Import existing cluster.
-
-During testing `Design document for import`_ should be considered.
 
 Setup
 =====

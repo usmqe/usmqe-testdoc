@@ -4,13 +4,10 @@ Positive login - Enter submit
 :authors: 
           - mkudlej@redhat.com
 
-.. _Design document for login: https://redhat.invisionapp.com/share/6T900V2ZX#/screens/198042643
-
 Description
 ===========
 
 Login *admin* into Tendrl with valid credentials. 
-During testing `Design document for login`_ should be considered.
 
 Setup
 =====

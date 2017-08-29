@@ -5,13 +5,11 @@ Elementary check of Hosts Langing Page
           - mbukatov@redhat.com
           - mkudlej@redhat.com
 
-.. _`Design document for hosts list`: https://redhat.invisionapp.com/share/BR8JDCGSQ#/screens/212034116
-
 Description
 ===========
 
 This test case is concerned with *Hosts landing page* and verifies the
-core features as described in `Design document for hosts list`_.
+core features.
 
 This test case is not concerned with all possible states of information
 reported there, see other test cases which deals with information and

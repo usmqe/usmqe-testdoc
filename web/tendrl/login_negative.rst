@@ -4,13 +4,10 @@ Negative login
 :authors: 
           - mkudlej@redhat.com
 
-.. _Design document for login: https://redhat.invisionapp.com/share/6T900V2ZX#/screens/198042643
-
 Description
 ===========
 
 Try to login not valid user into Tendrl. 
-During testing `Design document for login`_ should be considered.
 
 Setup
 =====

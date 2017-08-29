@@ -5,15 +5,12 @@ Multiuser - Positive login
           - mkudlej@redhat.com
           - dahorak@redhat.com
 
-.. _Design document for login: https://redhat.invisionapp.com/share/6T900V2ZX#/screens/198042643
-
 Description
 ===========
 
 **UNDER CONSTRUCTION - NEED UPDATE**
 
 Login as one or two users simultaneously from two browsers.
-During testing `Design document for login`_ should be considered.
 
 Setup
 =====
