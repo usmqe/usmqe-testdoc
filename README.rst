@@ -9,6 +9,13 @@ testing related documentation for Tendrl_ upstream project, written in
 Maintained by `USM QE Team`_.
 
 
+Contributing
+============
+
+Make sure that you don't introduce any sphinx-build error or warning in your
+changes, both will make TravisCI check to fail.
+
+
 How to build html
 =================
 

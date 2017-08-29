@@ -1,0 +1,8 @@
+language: python
+python:
+  - "2.7"
+install:
+  - pip install sphinx pylatest
+script:
+  - sphinx-build -aE -nW -b html . _build/html
+  - sphinx-build -b linkcheck . _build/linkcheck
