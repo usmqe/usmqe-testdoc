@@ -16,8 +16,6 @@ During testing `Design document for import`_ should be considered.
 Setup
 =====
 
-#. Install Tendrl according installation instruction written in *Test Plan*
-
 #. Login user into Tendrl, see :doc:`/web/login_positive`
 
 Test Steps

@@ -12,8 +12,6 @@ Delete user.
 Setup
 =====
 
-#. Install Tendrl according installation instruction written in *Test Plan*
-
 #. Login user into Tendrl, see :doc:`/web/login_positive`
 
 #. Create test user(*Create user* testcase)

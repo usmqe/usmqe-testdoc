@@ -15,8 +15,6 @@ During testing `Design document for login`_ should be considered.
 Setup
 =====
 
-#. Install Tendrl according installation instruction written in *Test Plan*
-
 Test Steps
 ==========
 

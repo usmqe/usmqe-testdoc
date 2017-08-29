@@ -12,8 +12,6 @@ Log out user from Tendrl.
 Setup
 =====
 
-#. Install Tendrl according installation instruction written in *Test Plan*
-
 Test Steps
 ==========
 

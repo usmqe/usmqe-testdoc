@@ -20,8 +20,6 @@ features related to this page in more detail.
 Setup
 =====
 
-#. Install Tendrl according installation instruction written in the *Test Plan*
-
 #. Login as an admin user into Tendrl (:doc:`/web/login_positive`)
 
 #. Do nothing else (no cluster created, ...) so
