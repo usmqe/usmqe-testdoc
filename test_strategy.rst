@@ -31,6 +31,12 @@ Install documentation
 ======================
 `Tendrl Install Documentation`_
 
+.. note::
+
+    TODO: Reference documentation snapshots for a particular release. Moreover
+    later, when/if Tendrl Project will have a proper documentation upstream as
+    a ascidoc project, reference that instead.
+
 Packages
 ========
 `Tendrl package repository`_
