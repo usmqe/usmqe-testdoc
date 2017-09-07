@@ -24,7 +24,7 @@ Test Steps
         Log as Power user
     :result:
         User should be logged on. There should be availalble 'Clusters' list,
-          'Hosts' list, 'Alerts' list, 'Notifications' and 'Tasks' list.
+        'Hosts' list, 'Alerts' list, 'Notifications' and 'Tasks' list.
         Users list/menu should not be available.
         User should be able to change its password.
 

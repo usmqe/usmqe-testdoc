@@ -24,7 +24,7 @@ Test Steps
         Log as Admin user
     :result:
         User should be logged on. There should be availalble 'Clusters' list,
-          'Hosts' list, 'Alerts' list, 'Notifications' and 'Tasks' list.
+        'Hosts' list, 'Alerts' list, 'Notifications' and 'Tasks' list.
         Users list/menu should be available.
 
 .. test_action::
@@ -120,7 +120,7 @@ Test Steps
         Filter fields should be available and working.
         It should be possible to add new user.
         It should be possible to edit any existing user except removing
-          admin rights to itself.
+        admin rights to itself.
         It should be possible to remove any user except itself.
 
 Teardown
