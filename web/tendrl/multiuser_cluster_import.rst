@@ -28,24 +28,25 @@ Test Steps
 
 .. test_action::
    :step:
-      In first browser click on *Import* button.
+       In first browser click on *Import* button.
    :result:
-      There is page for new task opened with message: *Import Cluster Task Submitted*
+       There is page for new task opened with message: *Import Cluster Task Submitted*
 
 .. test_action::
    :step:
-      In first browsers click on *View Task Progress*.
+       In first browsers click on *View Task Progress*.
    :result:
-      Task in first browser should pass.
+       Task in first browser should pass.
 
 .. test_action::
    :step:
-      If import cluster task pass in second browser click on *Import* button.
+       If import cluster task pass in second browser click on *Import* button.
    :result:
-      There is page for new task opened with message: *Import Cluster Task Submitted*
+       There is page for new task opened with message: *Import Cluster Task Submitted*
 
 .. test_action::
    :step:
-      In second browser click on *Vew Task Progress*.
-    :result:
-      Task insecond browser should fail.
+       In second browser click on *Vew Task Progress*.
+   :result:
+       Task insecond browser should fail.
+
