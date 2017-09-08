@@ -13,7 +13,13 @@ Import existing cluster.
 Setup
 =====
 
-#. Login user into Tendrl, see :doc:`/web/tendrl/login_positive`
+#. Prepare Gluster cluster with 2 Volumes.
+
+#. Enable Gluster Volume Profiling on one Volume:
+
+  ``gluster volume profile <VOLUME-NAME> start``
+
+3. Login user into Tendrl, see :doc:`/web/tendrl/login_positive`
 
 Test Steps
 ==========
@@ -39,10 +45,10 @@ Test Steps
 
 .. test_action::
    :step:
-      | Login to one of the gluster storage server via SSH and check if Volume Profiling is enabled.
+      | Login to one of the gluster storage server via SSH and check if Volume Profiling is enabled on both volumes.
       | ``gluster volume profile <VOLUME-NAME> info``
    :result:
-      Volume profiling should be enabled and the gluster command should print statistics.
+      Volume profiling should be enabled on both volumes and the gluster command should print some statistics.
 
 Teardown
 ========
