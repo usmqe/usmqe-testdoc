@@ -3,12 +3,15 @@ Multiuser - Cluster import
 
 :authors:
           - mkudlej@redhat.com
+:caseposneg: positive
 
 
 Description
 ============
 
-Import cluster simultaneously from two browsers.
+Try to import cluster twice. Testcase is tested with one (or two users) and
+with 2 different browser sessions (two different session IDs). Goal is to try to import
+cluster from *Import wizard*. User(s) should have permission to import cluster.
 
 Setup
 ======
@@ -46,7 +49,7 @@ Test Steps
 
 .. test_action::
    :step:
-       In second browser click on *Vew Task Progress*.
+       In second browser click on *View Task Progress*.
    :result:
-       Task insecond browser should fail.
+       Task in second browser should fail.
 
