@@ -12,7 +12,9 @@ Change user password at user "Edit" page for these user types:
  2. *Power User* user
  3. *Read-only* user
 
-Design describing "Edit" page `https://redhat.invisionapp.com/share/KNB25OEQT#/screens/226063805`
+Design describing "Edit" page https://redhat.invisionapp.com/share/KNB25OEQT#/screens/226063805
+
+TODO: Menu position *Admin* -> *Users* can change.
 
 Setup
 =====
@@ -45,7 +47,7 @@ Test Steps
    :step:
        Click on icon next to *Change Password* and *Confirm Password* input.
    :result:
-       Both password strings are readable.
+       Both password strings are readable and are not shown in form of dots like before.
 
 .. test_action::
    :step:
@@ -55,7 +57,7 @@ Test Steps
 
 .. test_action::
    :step:
-       *Positive login* testcase with new password.
+       :doc:`/web/tendrl/login_positive` testcase with new password.
    :result:
        User is able to login with new password.
     
