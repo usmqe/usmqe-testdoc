@@ -1,4 +1,4 @@
-Multiuser - Positive login
+Read-Only user permissions
 **************************
 
 :authors:
@@ -15,17 +15,22 @@ Check that all features what should be available really are and vice versa.
 Setup
 =====
 
+#. Log as Read-Only user
 
 Test Steps
 ==========
 
 .. test_action::
     :step:
-        Log as Read-Only user
+        Look at UI landing page.
     :result:
-        User should be logged on. There should be availalble 'Clusters' list,
-        'Hosts' list, 'Alerts' list, 'Notifications' and 'Tasks' list.
-        Users list/menu should not be available.
+        There should be available links to:
+        * 'Clusters' list
+        * 'Hosts' list
+        * 'Alerts' list
+        * 'Notifications'
+        * 'Tasks' list
+        Verify that 'Users' list/menu is not available.
         User should be able to change its password.
 
 .. test_action::
@@ -59,15 +64,17 @@ Test Steps
     :result:
         Filter and order fields should be available and working.
         There should be functional link to Grafana for imported clusters.
-        It should not be possible to import, manage, unmanage and forget cluster.
+        It should not be possible to import cluster.
         It should not be allowed to enable or disable volume profiling.
+        It should not be possible to forget cluster :doc:`/web/tendrl/cluster_forgot`
+        NOTE: possibly forget cluster will not be implemented as such
 
 .. test_action::
     :step:
         Choose some cluster
     :result:
         There should be cluster Hosts list, Bricks list, Volumes list,
-          Configuration, Events list and Tasks list available.
+        Configuration, Events list and Tasks list available.
 
 .. test_action::
     :step:
