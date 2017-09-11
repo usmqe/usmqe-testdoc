@@ -7,8 +7,8 @@ Elementary checks of tendrl-apid service
 Description
 ===========
 
-Elementary check of tendrl-apid systemd service unit file. This test case
-doesn't change any state in any way.
+Elementary check of tendrl-apid, tendrl-node-agent and tendrl-monitoring-integration 
+systemd service unit file. This test case doesn't change any state in any way.
 
 Checks are based on:
 
@@ -22,24 +22,25 @@ Follow TODO to install Tendrl. No particular
 cluster configuration is required for this test case, so we use the default
 one.
 
-All test steps are performed on the api server, where the ``tendrl-apid`` and
-``tendrl-performance-monitoring`` service are running.
+All test steps are performed on the api server, where the ``tendrl-apid``,
+``tendrl-monitoring-integration`` and ``tendrl-node-agent`` service are running.
 
 Test Steps
 ==========
 
 .. test_action::
    :step:
-       Check that the tendrl-apid systemd service file is available:
+       Check that all systemd service file is available:
 
        .. code-block:: bash
 
-           # rpm -qa | grep tendrl | xargs rpm -ql | grep systemd
+           # rpm -qa | grep tendrl | xargs rpm -ql | grep "systemd.*service"
    :result:
        Tendrl systemd service files are shown in the output, like this::
 
-           /usr/lib/systemd/system/tendrl-performance-monitoring.service
-           /usr/lib/systemd/system/tendrl-apid.service
+           /usr/lib/systemd/system/tendrl-api.service
+           /usr/lib/systemd/system/tendrl-node-agent.service
+           /usr/lib/systemd/system/tendrl-monitoring-integration.service
 
        Note: we don't expect any other systemd unit files here now. When other
        systemd units are added, we need to update this test case to do the
@@ -51,8 +52,9 @@ Test Steps
 
        .. code-block:: bash
 
-           # systemd-analyze verify /usr/lib/systemd/system/tendrl-performance-monitoring.service
-           # systemd-analyze verify /usr/lib/systemd/system/tendrl-apid.service
+           # systemd-analyze verify /usr/lib/systemd/system/tendrl-api.service
+           # systemd-analyze verify /usr/lib/systemd/system/tendrl-node-agent.service
+           # systemd-analyze verify /usr/lib/systemd/system/tendrl-monitoring-integration.service
    :result:
        Commands produce no output and return zero.
 
@@ -62,8 +64,9 @@ Test Steps
 
        .. code-block:: bash
 
-           # systemctl cat tendrl-performance-monitoring.service
-           # systemctl cat tendrl-apid.service
+           # systemctl cat tendrl-api.service
+           # systemctl cat tendrl-node-agent.service
+           # systemctl cat tendrl-monitoring-integration.service
    :result:
        The content of the service unit files are shown and they contain:
 
@@ -82,8 +85,9 @@ Test Steps
 
        .. code-block:: bash
 
-           # systemctl list-dependencies tendrl-performance-monitoring
-           # systemctl list-dependencies tendrl-apid
+           # systemctl list-dependencies tendrl-api
+           # systemctl list-dependencies tendrl-node-agent
+           # systemctl list-dependencies tendrl-monitoring-integration
    :result:
        Dependency tree is shown.
 
@@ -93,8 +97,9 @@ Test Steps
 
        .. code-block:: bash
 
-           # systemctl status tendrl-performance-monitoring
-           # systemctl status tendrl-apid
+           # systemctl status tendrl-api
+           # systemctl status tendrl-node-agent
+           # systemctl status tendrl-monitoring-integration
    :result:
        Status is shown, systemctl returns zero return code.
 
