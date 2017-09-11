@@ -174,7 +174,7 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 # -- Options for linkcheck builder ----------------------------------------
 
 # one can disable anchors check completelly
-linkcheck_anchors = True
+linkcheck_anchors = False
 # list regexps to indentify anchors to ignore
 linkcheck_anchors_ignore = [
     "^!",  # commonly used for dynamic pages
