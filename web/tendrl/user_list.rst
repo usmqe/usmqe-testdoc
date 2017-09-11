@@ -7,7 +7,7 @@ User list
 Description
 ===========
 
-Check user list testcase and compare it with `https://redhat.invisionapp.com/share/8QCOEVEY9#/screens/244738633`.
+Check user list testcase and compare it with https://redhat.invisionapp.com/share/8QCOEVEY9#/screens/244738633.
 
 Setup
 =====
