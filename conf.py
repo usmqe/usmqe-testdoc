@@ -170,3 +170,13 @@ texinfo_documents = [
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {'https://docs.python.org/': None}
+
+# -- Options for linkcheck builder ----------------------------------------
+
+# one can disable anchors check completelly
+linkcheck_anchors = True
+# list regexps to indentify anchors to ignore
+linkcheck_anchors_ignore = [
+    "^!",  # commonly used for dynamic pages
+    "^/screens",  # screen anchors from invisionapp.com
+    ]
