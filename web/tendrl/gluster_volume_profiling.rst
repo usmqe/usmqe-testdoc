@@ -10,6 +10,7 @@ Description
 Enable/disable cluster wide volume profiling
 (both on initial import and post import).
 
+* `Gluster Volume Profiling`_
 
 Setup
 =====
@@ -99,3 +100,5 @@ Teardown
 #. Log out
 
 #. Close browser
+
+.. _Gluster Volume Profiling: https://gluster.readthedocs.io/en/latest/Administrator%20Guide/Monitoring%20Workload
