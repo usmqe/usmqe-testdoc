@@ -1,13 +1,13 @@
 Gluster Volume Profiling
 ************************
 
-:authors: 
+:authors:
           - dahorak@redhat.com
 
 Description
 ===========
 
-Enable/disable cluster wide volume profiling 
+Enable/disable cluster wide volume profiling
 (both on initial import and post import).
 
 
@@ -19,12 +19,11 @@ Perform following Setup and Test Steps twice:
 * firstly with enabling Volume Profiling during cluster import (default)
 * secondly with disabling Volume Profiling during cluster import
 
-TODO: both previous scenarios expects that Volume Profiling is
-initially disabled on the Volume (which is the default), but it might be
-worth to test the same again with also Volume with initially enabled Profiling.
-
 Setup steps:
 
+#. Prepare Gluster trusted storage pool (Gluster cluster).
+#. Create two Gluster volumes, enable Volume profiling on one volume.
+    (``gluster volume profile <VOLUME-NAME> start``)
 #. Login user into Tendrl, see :doc:`/web/tendrl/login_positive`
 #. Import cluster into Tendrl, see :doc:`/web/tendrl/cluster_import`
 
@@ -34,11 +33,11 @@ Test Steps
 .. test_action::
    :step:
       Login to one of the gluster storage server via SSH and check
-      if Volume Profiling is enabled or disabled.
+      if Volume Profiling is enabled or disabled for all Volumes.
 
       ``gluster volume profile <VOLUME-NAME> info``
    :result:
-      Volume profiling should be in the state (enabled or disabled) accordingly to the configured state during cluster import.
+      Volume profiling for all volumes should be in the state (enabled or disabled) accordingly to the configured state during cluster import.
 
 .. test_action::
    :step:
@@ -61,46 +60,39 @@ Test Steps
 .. test_action::
    :step:
       Login to one of the gluster storage server via SSH and check
-      if Volume Profiling is enabled or disabled.
+      if Volume Profiling is enabled or disabled for all volumes.
 
       ``gluster volume profile <VOLUME-NAME> info``
-       
+
    :result:
-      Volume profiling should be in the correct state (enabled or disabled).
+      Volume profiling should be in the correct state (enabled or disabled) for all volumes.
 
 .. test_action::
    :step:
       Repeat the previous steps and change the Volume Profiling state (enabled/disabled) multiple times.
-      
+
    :result:
 
 .. test_action::
    :step:
-      Login to one of the gluster storage server via SSH and change the
-      Volume Profiling state (enable or disable).
-
-      ``gluster volume profile <VOLUME-NAME> start``
-
-      or
-
-      ``gluster volume profile <VOLUME-NAME> stop``
-       
+      Enable Volume profiling.
    :result:
 
 .. test_action::
    :step:
-      Wait few minutes and check the state in Tendrl web UI on Clusters page (*Volume Profile* column).
+      Create new Gluster Volume and wait a minute.
    :result:
-      Volume profiling should be in the correct state (enabled or disabled).
-
-      Also correct menu item (Enable/Disable Profiling) is available.
 
 .. test_action::
    :step:
-      Repeat the previous two steps and change the Volume Profiling state (enable/disable)
-      multiple times via ``gluster volume profile <VOLUME-NAME> start|stop`` command.
-      
+      Login to one of the gluster storage server via SSH and check
+      if Volume Profiling is enabled or disabled for the new volume.
+
+      ``gluster volume profile <VOLUME-NAME> info``
+
    :result:
+      Volume profiling should be enabled for the new volume.
+
 
 Teardown
 ========
