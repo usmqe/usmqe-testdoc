@@ -19,7 +19,7 @@ TODO: Menu position *Admin* -> *Users* can change.
 Setup
 =====
 
-#. Login user into Tendrl, see :doc:`/web/tendrl/login_positive`
+#. Login as user picked up for this testcase run mentioned in description into Tendrl, see :doc:`/web/tendrl/login_positive`
 #. Create 3 users mentioned in Description, see :doc:`/web/tendrl/user_create`
 
 Test Steps
@@ -33,7 +33,7 @@ Test Steps
 
 .. test_action::
    :step:
-       Click on *Edit* button for user.
+       Click on *Edit* button for user picked up for this testcase run mentioned in description.
    :result:
        "Edit" page should be open.
 
