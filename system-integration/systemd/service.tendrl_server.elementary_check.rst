@@ -1,5 +1,5 @@
-Elementary checks of tendrl-apid service
-*****************************************
+Elementary checks of tendrl-api, tendrl-node-agent and tendrl-monitoring-integration service
+************************************************************************************************
 
 :author: - mbukatov@redhat.com
          - mkudlej@redhat.com
@@ -7,7 +7,7 @@ Elementary checks of tendrl-apid service
 Description
 ===========
 
-Elementary check of tendrl-apid, tendrl-node-agent and tendrl-monitoring-integration 
+Elementary check of tendrl-api, tendrl-node-agent and tendrl-monitoring-integration 
 systemd service unit file. This test case doesn't change any state in any way.
 
 Checks are based on:
@@ -22,7 +22,7 @@ Follow TODO to install Tendrl. No particular
 cluster configuration is required for this test case, so we use the default
 one.
 
-All test steps are performed on the api server, where the ``tendrl-apid``,
+All test steps are performed on the api server, where the ``tendrl-api``,
 ``tendrl-monitoring-integration`` and ``tendrl-node-agent`` service are running.
 
 Test Steps
@@ -30,7 +30,7 @@ Test Steps
 
 .. test_action::
    :step:
-       Check that all systemd service file is available:
+       Check that all systemd service files are available:
 
        .. code-block:: bash
 
@@ -89,7 +89,7 @@ Test Steps
            # systemctl list-dependencies tendrl-node-agent
            # systemctl list-dependencies tendrl-monitoring-integration
    :result:
-       Dependency tree is shown.
+       Dependency trees are shown.
 
 .. test_action::
    :step:
@@ -101,7 +101,7 @@ Test Steps
            # systemctl status tendrl-node-agent
            # systemctl status tendrl-monitoring-integration
    :result:
-       Status is shown, systemctl returns zero return code.
+       Statuses are shown, systemctl return zero return codes.
 
 Teardown
 ========
