@@ -24,6 +24,7 @@ Test Steps
         Look at UI landing page.
     :result:
         There should be available links to:
+
         * 'Clusters' list
         * 'Hosts' list
         * 'Alerts' list
