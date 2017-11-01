@@ -65,8 +65,6 @@ Test Steps
         There should be functional link to Grafana for imported clusters.
         It should be possible to import cluster.
         It should be possible to enable or disable volume profiling.
-        It should be possible to forget cluster :doc:`/web/tendrl/cluster_forgot`
-        NOTE: possibly forget cluster will not be implemented as such
 
 .. test_action::
     :step:
