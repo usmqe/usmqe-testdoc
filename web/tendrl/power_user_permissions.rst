@@ -24,11 +24,13 @@ Test Steps
         Look at UI landing page.
     :result:
         There should be available links to:
+
         * 'Clusters' list
         * 'Hosts' list
         * 'Alerts' list
         * 'Notifications'
         * 'Tasks' list
+
         Verify that 'Users' list/menu is not available.
         User should be able to change its password.
 
