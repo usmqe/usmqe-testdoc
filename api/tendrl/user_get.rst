@@ -35,7 +35,7 @@ Test Steps
         In response should be two users: admin and thardy created according to
         `Create user example`_. Status of response should be `200 OK`.
 
- .. test_action::
+.. test_action::
     :step:
         Call `Get Single User`_ API call.
     :result:
