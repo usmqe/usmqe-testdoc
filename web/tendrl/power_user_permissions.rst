@@ -9,7 +9,6 @@ Description
 
 **UNDER CONSTRUCTION - NEED UPDATE**
 
-Login as user with 'Power User' ('Normal User') role.
 Check that all features what should be available really are and vice versa.
 
 Setup
