@@ -1,5 +1,5 @@
-Elementary checks of tendrl-api, tendrl-node-agent and tendrl-monitoring-integration service
-************************************************************************************************
+Elementary checks of services
+******************************
 
 :author: - mbukatov@redhat.com
          - mkudlej@redhat.com
@@ -22,8 +22,13 @@ Follow TODO to install Tendrl. No particular
 cluster configuration is required for this test case, so we use the default
 one.
 
-All test steps are performed on the api server, where the ``tendrl-api``,
-``tendrl-monitoring-integration`` and ``tendrl-node-agent`` service are running.
+All test steps are performed for these services:
+
+* ``tendrl-api``,
+* ``tendrl-monitoring-integration``,
+* ``tendrl-node-agent``,
+* ``tendrl-gluster-integration``,
+* ``tendrl-notifier``.
 
 Test Steps
 ==========
@@ -41,6 +46,8 @@ Test Steps
            /usr/lib/systemd/system/tendrl-api.service
            /usr/lib/systemd/system/tendrl-node-agent.service
            /usr/lib/systemd/system/tendrl-monitoring-integration.service
+           /usr/lib/systemd/system/tendrl-gluster-integration.service
+           /usr/lib/systemd/system/tendrl-notifier.service
 
        Note: we don't expect any other systemd unit files here now. When other
        systemd units are added, we need to update this test case to do the
@@ -55,6 +62,8 @@ Test Steps
            # systemd-analyze verify /usr/lib/systemd/system/tendrl-api.service
            # systemd-analyze verify /usr/lib/systemd/system/tendrl-node-agent.service
            # systemd-analyze verify /usr/lib/systemd/system/tendrl-monitoring-integration.service
+           # systemd-analyze verify /usr/lib/systemd/system/tendrl-gluster-integration.service
+           # systemd-analyze verify /usr/lib/systemd/system/tendrl-notifier.service
    :result:
        Commands produce no output and return zero.
 
@@ -67,6 +76,8 @@ Test Steps
            # systemctl cat tendrl-api.service
            # systemctl cat tendrl-node-agent.service
            # systemctl cat tendrl-monitoring-integration.service
+           # systemctl cat tendrl-gluster-integration.service
+           # systemctl cat tendrl-notifier.service
    :result:
        The content of the service unit files are shown and they contain:
 
@@ -88,6 +99,8 @@ Test Steps
            # systemctl list-dependencies tendrl-api
            # systemctl list-dependencies tendrl-node-agent
            # systemctl list-dependencies tendrl-monitoring-integration
+           # systemctl list-dependencies tendrl-gluster-integration
+           # systemctl list-dependencies tendrl-notifier
    :result:
        Dependency trees are shown.
 
@@ -100,6 +113,8 @@ Test Steps
            # systemctl status tendrl-api
            # systemctl status tendrl-node-agent
            # systemctl status tendrl-monitoring-integration
+           # systemctl status tendrl-gluster-integration
+           # systemctl status tendrl-notifier
    :result:
        Statuses are shown, systemctl return zero return codes.
 
