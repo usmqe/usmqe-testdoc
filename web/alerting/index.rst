@@ -22,6 +22,9 @@ Upstream information related to alerting:
 * https://github.com/Tendrl/node-agent/issues/665
 * https://github.com/Tendrl/specifications/issues/185
 * https://github.com/Tendrl/ui/issues/663
+* TODO: full list of events on which Tendrl sends alert (either via UI, SNMP or
+  SMTP).
+* TODO: are all gluster native events supported and resend by Tendrl?
 
 .. test_defaults::
    :casecomponent: web
