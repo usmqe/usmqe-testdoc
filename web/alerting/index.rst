@@ -16,6 +16,13 @@ The only upstream documentation related to alerting is a description of
 alterting setup (for both `SNMP`_ and `SMTP`_) during `Tendrl Server
 Installation`_ (search for step `Configure email/snmp source` there).
 
+Upstream information related to alerting:
+
+* `Gluster Events APIs`_
+* https://github.com/Tendrl/node-agent/issues/665
+* https://github.com/Tendrl/specifications/issues/185
+* https://github.com/Tendrl/ui/issues/663
+
 .. test_defaults::
    :casecomponent: web
    :casesubcomponent: alerting
@@ -30,3 +37,4 @@ Installation`_ (search for step `Configure email/snmp source` there).
 .. _`SNMP`: https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol
 .. _`SMTP`: https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol
 .. _`Tendrl Server Installation`: https://github.com/Tendrl/documentation/wiki/Tendrl-release-v1.5.4-(install-guide)#tendrl-server-installation
+.. _`Gluster Events APIs`: http://docs.gluster.org/en/latest/Administrator%20Guide/Events%20APIs/
