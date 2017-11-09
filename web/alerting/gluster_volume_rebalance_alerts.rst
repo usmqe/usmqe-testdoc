@@ -1,5 +1,5 @@
-gluster_brick_alerts
+gluster_volume_rebalance_alerts
 *******************************************************************************
 
-* ``BRICK_CONNECT``
-* ``BRICK_DISCONNECT``
+* failed
+* complete

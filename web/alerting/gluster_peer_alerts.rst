@@ -1,5 +1,5 @@
-gluster_brick_alerts
+gluster_peer_alerts
 *******************************************************************************
 
-* ``BRICK_CONNECT``
-* ``BRICK_DISCONNECT``
+* ``PEER_CONNECT``
+* ``PEER_DISCONNECT``
