@@ -1,5 +1,4 @@
-gluster_volume_alerts
+gluster_georep_alerts
 *******************************************************************************
 
-* ``VOLUME_START``
-* ``VOLUME_STOP``
+* ``GEOPEP_FAULTY``
