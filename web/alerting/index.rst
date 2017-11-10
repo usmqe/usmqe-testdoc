@@ -22,6 +22,7 @@ Upstream information related to alerting:
 * https://github.com/Tendrl/node-agent/issues/665
 * https://github.com/Tendrl/specifications/issues/185
 * https://github.com/Tendrl/ui/issues/663
+* `List of Alerts and Notifications in Tendrl`_
 * `Description of Gluster Native Events handling in Tendrl`_
 * `Alert Types supported in Tendrl`_
 
@@ -42,3 +43,4 @@ Upstream information related to alerting:
 .. _`Gluster Events APIs`: http://docs.gluster.org/en/latest/Administrator%20Guide/Events%20APIs/
 .. _`Description of Gluster Native Events handling in Tendrl`: https://docs.google.com/document/d/1GFZyq3V-xBqMfAO_1Akjr-NORGwqLJOQSFkDc7WtMR8
 .. _`Alert Types supported in Tendrl`: https://docs.google.com/document/d/1vUHep-jc2oSg7bJ2oU57DcC8JiZ33ofqPLBZ9A5pPt8
+.. _`List of Alerts and Notifications in Tendrl`: https://github.com/Tendrl/documentation/wiki/List-of-Alerts-and-Notifications-in-Tendrl
