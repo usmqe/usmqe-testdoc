@@ -27,9 +27,6 @@ The main upstream documentation related to alerting is:
 
 Other upstream information related to alerting:
 
-* `Description of Gluster Native Events handling in Tendrl`_ (more details
-  about handling of Gluster events in Tendrl)
-* `Gluster Events APIs`_ (see full list of Gluster events there)
 * https://github.com/Tendrl/node-agent/issues/665 (alert lifecycle
   documentation is missing)
 * https://github.com/Tendrl/specifications/issues/185 (specification for SNMP
