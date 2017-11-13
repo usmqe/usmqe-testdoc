@@ -18,9 +18,6 @@ Tendrl supports these 3 alert types:
   them, while others are used for internal purposes and are not resend
   (see `Description of Gluster Native Events handling in Tendrl`_ )
 
-Note that **Tendrl SNMP implementation is concerned with alterting via SNMPv3
-traps only**, any other SNMP use cases are not supported.
-
 The main upstream documentation related to alerting is:
 
 * `List of Alerts and Notifications in Tendrl`_ from Tendrl wiki
@@ -51,6 +48,4 @@ Other upstream information related to alerting:
 
    *
 
-.. _`SNMP`: https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol
-.. _`SMTP`: https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol
 .. _`Tendrl Server Installation`: https://github.com/Tendrl/documentation/wiki/Tendrl-release-v1.5.4-(install-guide)#tendrl-server-installation

@@ -17,6 +17,13 @@
 .. _`Description of Gluster Native Events handling in Tendrl`: https://docs.google.com/document/d/1GFZyq3V-xBqMfAO_1Akjr-NORGwqLJOQSFkDc7WtMR8
 .. _`List of Alerts and Notifications in Tendrl`: https://github.com/Tendrl/documentation/wiki/List-of-Alerts-and-Notifications-in-Tendrl
 
+.. Gluster Upstream Documentation
+
+.. _`dispersed gluster volume`: http://docs.gluster.org/en/latest/Administrator%20Guide/Setting%20Up%20Volumes/#creating-dispersed-volumes
+.. _`Automatic File Replication`: https://docs.gluster.org/en/latest/Quick-Start-Guide/Architecture/#afrautomatic-file-replication-translator
+.. _`Geo Replication`: https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/
+.. _`Gluster Glossary`: https://docs.gluster.org/en/latest/glossary
+
 .. Upstream Documentation for Related Projects
 
 .. _`daemon(7)`: https://www.freedesktop.org/software/systemd/man/daemon.html
@@ -25,3 +32,6 @@
 .. Other references
 
 .. _`USM QE Team`: https://usmqe-tests.readthedocs.io/en/latest/usmqe_team.html
+.. _`volume_gama_disperse_4_plus_2x2`: https://github.com/usmqe/usmqe-setup/blob/master/gdeploy_config/volume_gama_disperse_4_plus_2x2.create.conf
+.. _`SNMP`: https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol
+.. _`SMTP`: https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol
