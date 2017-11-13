@@ -11,6 +11,12 @@
 .. _`Tendrl Package Installation Reference`: https://github.com/Tendrl/documentation/wiki/Tendrl-Package-Installation-Reference
 .. _`Design document for Gluster file shares list`: https://redhat.invisionapp.com/share/BR8JDCGSQ#/screens/198417117
 
+.. Tendrl Upstream Documentation related to Alerting
+
+.. _`Gluster Events APIs`: http://docs.gluster.org/en/latest/Administrator%20Guide/Events%20APIs/
+.. _`Description of Gluster Native Events handling in Tendrl`: https://docs.google.com/document/d/1GFZyq3V-xBqMfAO_1Akjr-NORGwqLJOQSFkDc7WtMR8
+.. _`List of Alerts and Notifications in Tendrl`: https://github.com/Tendrl/documentation/wiki/List-of-Alerts-and-Notifications-in-Tendrl
+
 .. Upstream Documentation for Related Projects
 
 .. _`daemon(7)`: https://www.freedesktop.org/software/systemd/man/daemon.html
