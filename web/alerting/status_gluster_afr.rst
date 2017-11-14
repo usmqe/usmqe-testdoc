@@ -22,6 +22,7 @@ Setup
 =====
 
 #. You need a gluster volume.
+   TODO: list of volumes from qe configurations which uses AFR translator
 
 Teardown
 ========
