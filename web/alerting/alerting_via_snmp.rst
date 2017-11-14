@@ -16,11 +16,11 @@ Setup
 =====
 
 #. You need gluster volume, details differ based on particular test case.
-#. Enable SNMP notifications via ``test_setup.snmp.yml`` playbook from
+#. Enable SNMP notifications via `test_setup.snmp.yml`_ playbook from
    ``usmqe-setup`` repo.
 
 Teardown
 ========
 
-#. Disable SNMP notifications via ``test_teardown.snmp.yml`` playbook from
+#. Disable SNMP notifications via `test_teardown.snmp.yml`_ playbook from
    ``usmqe-setup`` repo.

@@ -29,6 +29,11 @@
 .. _`daemon(7)`: https://www.freedesktop.org/software/systemd/man/daemon.html
 .. _`systemd packaging policy`: https://fedoraproject.org/wiki/Packaging:Systemd
 
+.. USMQE setup playbooks
+
+.. _`test_setup.snmp.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_setup.snmp.yml
+.. _`test_teardown.snmp.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_teardown.snmp.yml
+
 .. Other references
 
 .. _`USM QE Team`: https://usmqe-tests.readthedocs.io/en/latest/usmqe_team.html
