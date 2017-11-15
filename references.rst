@@ -20,9 +20,9 @@
 .. Gluster Upstream Documentation
 
 .. _`dispersed gluster volume`: http://docs.gluster.org/en/latest/Administrator%20Guide/Setting%20Up%20Volumes/#creating-dispersed-volumes
-.. _`Automatic File Replication`: https://docs.gluster.org/en/latest/Quick-Start-Guide/Architecture/#afrautomatic-file-replication-translator
-.. _`Geo Replication`: https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/
-.. _`Gluster Glossary`: https://docs.gluster.org/en/latest/glossary
+.. _`Automatic File Replication`: http://docs.gluster.org/en/latest/Quick-Start-Guide/Architecture/#afrautomatic-file-replication-translator
+.. _`Geo Replication`: http://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/
+.. _`Gluster Glossary`: http://docs.gluster.org/en/latest/glossary
 
 .. Upstream Documentation for Related Projects
 
