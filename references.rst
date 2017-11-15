@@ -33,6 +33,8 @@
 
 .. _`test_setup.snmp.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_setup.snmp.yml
 .. _`test_teardown.snmp.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_teardown.snmp.yml
+.. _`test_setup.smtp.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_setup.smtp.yml
+.. _`test_teardown.smtp.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_teardown.smtp.yml
 
 .. Other references
 
