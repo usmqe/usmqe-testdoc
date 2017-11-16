@@ -5,7 +5,7 @@ if [ "$#" -gt 0 ]; then
   echo "Usage:"
   echo "  1. Run script without any params in root of repository,"
   echo "  2. store script output to Doc wiki page,"
-  echo "  3. set RST syntax,"
+  echo "  3. set Markdown syntax,"
   echo "  4. edit list of tested testcases,"
   echo "  5. create link to main list of test runs."
 else
