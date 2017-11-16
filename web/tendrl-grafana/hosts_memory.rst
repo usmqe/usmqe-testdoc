@@ -38,8 +38,10 @@ Test Steps
 .. test_action::
    :step:
        On monitored machine get information about memory usage with commands:
-       ``# free``
-       ``# cat /proc/meminfo``
+
+       * ``# free``
+       * ``# cat /proc/meminfo``
+
        Compute and compare these values with values currently shown in Memory Utilization chart.
    :result:
        Values gotten from cli should correspond with values shown in Grafana.

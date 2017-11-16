@@ -24,10 +24,14 @@ Test Steps
 
 .. test_action::
    :step:
-       Log into monitored machine via ssh and try to generate I/O operations on mounted volume. Useful commands:
-       ``# dd if=/dev/zero of=/mnt/gluster/testfile bs=1G count=1 oflag=direct``
-       ``for i in {1..1000}; do echo "test" > /mnt/gluster/tf$i; done``
-       ``for i in {1..1000}; do cat /mnt/gluster/tf$i > /dev/null; done``
+       Log into monitored machine via ssh and try to generate I/O operations on mounted volume.
+
+       Useful commands:
+
+       * ``# dd if=/dev/zero of=/mnt/gluster/testfile bs=1G count=1 oflag=direct``
+       * ``for i in {1..1000}; do echo "test" > /mnt/gluster/tf$i; done``
+       * ``for i in {1..1000}; do cat /mnt/gluster/tf$i > /dev/null; done``
+
        Mark down time when the operation was held.
    :result:
        I/O operations should be increased on the machine and this should be reflected in IOPS chart on proper timestamp.
@@ -40,10 +44,14 @@ Test Steps
 
 .. test_action::
    :step:
-       Log into monitored machine via ssh and try to generate I/O operations outside from the mounted volume. Useful commands:
-       ``# dd if=/dev/zero of=/nogluster/testfile bs=1G count=1 oflag=direct``
-       ``for i in {1..1000}; do echo "test" > /nogluster/tf$i; done``
-       ``for i in {1..1000}; do cat /nogluster/tf$i > /dev/null; done``
+       Log into monitored machine via ssh and try to generate I/O operations outside from the mounted volume.
+
+       Useful commands:
+
+       * ``# dd if=/dev/zero of=/nogluster/testfile bs=1G count=1 oflag=direct``
+       * ``for i in {1..1000}; do echo "test" > /nogluster/tf$i; done``
+       * ``for i in {1..1000}; do cat /nogluster/tf$i > /dev/null; done``
+
        Mark down time when the operation was held.
    :result:
        I/O operations should not be increased on the machine.
