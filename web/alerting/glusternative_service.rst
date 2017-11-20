@@ -20,6 +20,15 @@ Setup
 
 #. You need a gluster volume.
 
+Test Steps
+==========
+
+.. test_action::
+   :step:
+       * TODO: figure out how to invoke ``SVC_MANAGER_FAILED`` event
+       * TODO: verify that ``SVC_MANAGER_FAILED`` is the right event here
+   :result:
+
 Teardown
 ========
 
