@@ -23,6 +23,7 @@
 .. _`Automatic File Replication`: http://docs.gluster.org/en/latest/Quick-Start-Guide/Architecture/#afrautomatic-file-replication-translator
 .. _`Geo Replication`: http://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/
 .. _`Gluster Glossary`: http://docs.gluster.org/en/latest/glossary
+.. _`Gluster BitRot Detection`: http://docs.gluster.org/en/latest/Administrator%20Guide/Managing%20Volumes/#bitrot-detection
 
 .. Upstream Documentation for Related Projects
 
