@@ -73,7 +73,7 @@ Test Steps
    :step:
        Create bitrot problem for the test file.
 
-       Locate brick which stores the testing file. You can use ansible
+       Locate some brick which stores the testing file. You can use ansible
        for that, from usmqe server run something like:
 
        .. code-block:: console
