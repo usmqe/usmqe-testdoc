@@ -15,12 +15,13 @@ Based on:
 * `List of Alerts and Notifications in Tendrl`_
 * `Gluster Events APIs`_
 * `Gluster BitRot Detection`_
+* :rhbz:`1516484`
 
 Setup
 =====
 
-#. You need a gluster volume
-   TODO: verify which gluster volume I need here
+#. You need a gluster volume (no gluster volume usmqe team uses right now
+   seem to work, see :rhbz:`1516484`)
 #. Enable bitrot detection on the volume. On one of storage nodes, run:
 
    .. code-block:: console
@@ -57,7 +58,8 @@ Test Steps
 
 .. test_action::
    :step:
-       Run on demand scrubbing for Bitrot Detection on the volume:
+       On some storage machine, run on demand scrubbing for Bitrot Detection on
+       the volume:
 
        .. code-block:: console
 
