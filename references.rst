@@ -24,6 +24,7 @@
 .. _`Geo Replication`: http://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/
 .. _`Gluster Glossary`: http://docs.gluster.org/en/latest/glossary
 .. _`Gluster BitRot Detection`: http://docs.gluster.org/en/latest/Administrator%20Guide/Managing%20Volumes/#bitrot-detection
+.. _`Split brain and the ways to deal with it`: https://docs.gluster.org/en/latest/Administrator%20Guide/Split%20brain%20and%20ways%20to%20deal%20with%20it/#split-brain
 
 .. Upstream Documentation for Related Projects
 
