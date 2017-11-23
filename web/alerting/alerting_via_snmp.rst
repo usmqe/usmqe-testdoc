@@ -56,7 +56,11 @@ Test Steps
        the client machine.
    :result:
        On the client machine, you should be able to see all notifications
-       Tendrl is sending as SNMPv3 trap messages:
+       Tendrl is sending as SNMPv3 trap messages.
+
+       In case of Status and utilization alerts for which a clearing alert
+       exists, snmp trap should be send repeatedly untill the clearing alert
+       is generated.
 
        .. code-block:: console
 
