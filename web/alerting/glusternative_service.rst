@@ -8,12 +8,13 @@ Description
 
 Alerts covered in this test case:
 
-* Scv reconfigure failed for service
+* Scv reconfigure failed for service (``SVC_RECONFIGURE_FAILED``)
 
 Based on:
 
 * `List of Alerts and Notifications in Tendrl`_
 * `Gluster Events APIs`_
+* RHG3-12335
 
 Setup
 =====
@@ -25,9 +26,13 @@ Test Steps
 
 .. test_action::
    :step:
-       * TODO: figure out how to invoke ``SVC_MANAGER_FAILED`` event
-       * TODO: verify that ``SVC_MANAGER_FAILED`` is the right event here
+       Manage or try to reconfigure a service, in those conditions that it
+       fails.
+
+       TODO: reproducer based on RHG3-12335, figure out details
    :result:
+       Moreover Tendrl sends an alert for "Scv reconfigure failed for service"
+       (``SVC_RECONFIGURE_FAILED``).
 
 Teardown
 ========
