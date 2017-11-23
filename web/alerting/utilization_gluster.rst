@@ -33,50 +33,58 @@ Test Steps
    :step:
         Try to fill volume:
         ``for i in {1..N-1}; do dd if=/dev/zero of=/[MOUNT]/testfile$i bs=1G count=1; done``
-        where N is capacity in GiB and [MOUNT] is directory with mounted volume.
-        Monitor changes in volume with:
-        ``gluster volume status [VOLUME] detail``
-        where [VOLUME] is name of volume.
-   :result:
-        When the volume is filled by 75% then the threshold is breached and there should be sent notification.
-        Checks for messages in Web Admin UI, SMNP and mail.
+        where ``N`` is capacity in GiB and ``[MOUNT]`` is directory with
+        mounted volume.
 
-.. test_action::
-   :step:
-        Try to fill bricks on volume:
-        ``for i in {1..N-1}; do dd if=/dev/zero of=/[MOUNT]/testfile$i bs=1G count=1; done``
-        where N is capacity in GiB and [MOUNT] is directory with mounted volume.
-        Monitor changes on bricks with:
-        ``gluster volume status [VOLUME] detail``
-        or for concrete brick:
-        ``gluster volume status [VOLUME] [HOST]:/[BRICK] detail``
-        where [VOLUME] is name of volume, [HOST] is monitored machine and [BRICK] is brick path.
-   :result:
-        When the brick is filled by 75% then the threshold is breached and there should be sent notification.
-        Checks for messages in Web Admin UI, SMNP and mail.
+        While ``dd`` process is filling the volume, monitor changes:
 
-.. test_action::
-   :step:
-        Clear files in mounted volume with ``rm`` command on client machine.
-        Monitor changes in volume with:
-        ``gluster volume status [VOLUME] detail``
-        where [VOLUME] is name of volume.
+        * for volume: ``gluster volume status [VOLUME] detail``
+        * for particular brick:
+          ``gluster volume status [VOLUME] [HOST]:/[BRICK] detail``
+
+        where:
+
+        * ``[VOLUME]`` is name of volume,
+        * ``[HOST]`` is monitored machine,
+        * ``[BRICK]`` is brick path.
    :result:
-        When the volume is cleared under the threshold 75%, there should be sent notifications about the event.
-        Checks for messages in Web Admin UI, SMNP and mail.
+        When the volume is filled by 75%, the threshold is breached and
+        Tendrl should sent notification about this.
+
+        When the brick is filled by 75%, the threshold is breached and
+        Tendrl should sent notification about this.
+        Check for messages in Web Admin UI, SMNP and mail.
 
 .. test_action::
    :step:
         Clear files in mounted volume with ``rm`` command on client machine.
-        Monitor changes in bricks with:
+        Monitor changes in volume with:
         ``gluster volume status [VOLUME] detail``
-        where [VOLUME] is name of volume.
+        where ``[VOLUME]`` is name of volume.
+
+        While removing files from volume, monitor changes in bricks with:
+        ``gluster volume status [VOLUME] detail``
+        where ``[VOLUME]`` is name of volume.
+
         or for concrete brick:
         ``gluster volume status [VOLUME] [HOST]:/[BRICK] detail``
-        where [VOLUME] is name of volume, [HOST] is monitored machine and [BRICK] is brick path.
+        where:
+
+        * ``[VOLUME]`` is name of volume, 
+        * ``[HOST]`` is monitored machine,
+        * ``[BRICK]`` is brick path.
    :result:
-        When the brick is cleared under the threshold 75%, there should be sent notifications about the event.
-        Checks for messages in Web Admin UI, SMNP and mail.
+        When the volume is cleared under 75%, the threshold is breached.
+        Tendrl should sent notifications about this.
+        Check for messages in Web Admin UI, SMNP and mail.
+
+        When the brick is cleared under 75%, the threshold is breached.
+        Tendrl should sent notifications about this.
+        Check for messages in Web Admin UI, SMNP and mail.
+
+.. test_action::
+   :step:
+   :result:
 
 Teardown
 ========

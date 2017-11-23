@@ -58,18 +58,24 @@ Test Steps
         Monitor changes on hosts with:
         ``top``
    :result:
-        When the memory utilization is filled by 80% then the threshold is breached and there should be sent notification.
-        Checks for messages in Web Admin UI, SMNP and mail.
-        When the swap utilization is filled by 50% then the threshold is breached and there should be sent notification.
+        When the memory utilization is filled by 80%, the threshold is breached
+        and there should be sent notification.
+        Check for messages in Web Admin UI, SMNP and mail.
+
+        When the swap utilization is filled by 50%, the threshold is breached
+        and there should be sent notification.
         Check for messages in Web Admin UI, SMNP and mail.
 
 .. test_action::
    :step:
         Stop ``stress`` tool from previous test step.
    :result:
-        When the memory utilization is lesser than 80% which is memory utilization threshold then there should be sent notification.
+        When the memory utilization is lesser than 80%, the memory utilization threshold is breached
+        and there should be sent notification.
         Checks for messages in Web Admin UI, SMNP and mail.
-        When the swap utilization is lesser than 80% which is swap utilization threshold then there should be sent notification.
+
+        When the swap utilization is lesser than 80%, the swap utilization threshold 
+        and there should be sent notification.
         Check for messages in Web Admin UI, SMNP and mail.
 
 Teardown
