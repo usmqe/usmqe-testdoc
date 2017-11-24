@@ -36,7 +36,7 @@ Test Steps
        split-brain, it gives out this event.
    :result:
        Tendrl sends alert "Subvolume affected by split-brain"
-       (``UNKNOWN_PEER``).
+       (``AFR_SPLIT_BRAIN``).
 
 Teardown
 ========
