@@ -41,6 +41,7 @@
 .. Other references
 
 .. _`USM QE Team`: https://usmqe-tests.readthedocs.io/en/latest/usmqe_team.html
+.. _`volume_beta_arbiter_2_plus_1x2`: https://github.com/usmqe/usmqe-setup/blob/master/gdeploy_config/volume_beta_arbiter_2_plus_1x2.create.conf
 .. _`volume_gama_disperse_4_plus_2x2`: https://github.com/usmqe/usmqe-setup/blob/master/gdeploy_config/volume_gama_disperse_4_plus_2x2.create.conf
 .. _`SNMP`: https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol
 .. _`SMTP`: https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol
