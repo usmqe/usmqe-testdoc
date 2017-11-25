@@ -24,9 +24,6 @@ Setup
 #. You need a gluster volume.
 #. Install stress tool on all Tendrl Nodes (Storage Servers)
 #. Mount volume on a client machine.
-#. Run `journalctl -u snmptrapd -fe` on client machine to monitor snmp messages.
-#. Open Web Admin UI to monitor alerts in web interface.
-#. Ensure that there is set user with enabled notifications and valid email address in UI.
 
 Test Steps
 ==========
@@ -40,15 +37,13 @@ Test Steps
         Monitor changes on hosts with:
         ``top``
    :result:
-        When the CPU utilization is filled by 80% then the threshold is breached and there should be sent notification.
-        Checks for messages in Web Admin UI, SMNP and mail.
+        When the CPU utilization is filled by 80% then the threshold is breached and there should be sent alert.
 
 .. test_action::
    :step:
         Stop ``stress`` tool from previous test step.
    :result:
-        When the CPU utilization is lesser than 80% which is memory utilization threshold then there should be sent notification.
-        Checks for messages in Web Admin UI, SMNP and mail.
+        When the CPU utilization is lesser than 80% which is memory utilization threshold then there should be sent alert.
 
 .. test_action::
    :step:
@@ -59,24 +54,20 @@ Test Steps
         ``top``
    :result:
         When the memory utilization is filled by 80%, the threshold is breached
-        and there should be sent notification.
-        Check for messages in Web Admin UI, SMNP and mail.
+        and there should be sent alert.
 
         When the swap utilization is filled by 50%, the threshold is breached
-        and there should be sent notification.
-        Check for messages in Web Admin UI, SMNP and mail.
+        and there should be sent alert.
 
 .. test_action::
    :step:
         Stop ``stress`` tool from previous test step.
    :result:
         When the memory utilization is lesser than 80%, the memory utilization threshold is breached
-        and there should be sent notification.
-        Checks for messages in Web Admin UI, SMNP and mail.
+        and there should be sent alert.
 
         When the swap utilization is lesser than 80%, the swap utilization threshold 
-        and there should be sent notification.
-        Check for messages in Web Admin UI, SMNP and mail.
+        and there should be sent alert.
 
 Teardown
 ========

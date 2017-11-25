@@ -22,9 +22,6 @@ Setup
 
 #. You need a gluster volume.
 #. Mount volume on a client machine.
-#. Run `journalctl -u snmptrapd -fe` on client machine to monitor snmp messages.
-#. Open Web Admin UI to monitor alerts in web interface.
-#. Ensure that there is set user with enabled notifications and valid email address in UI.
 
 Test Steps
 ==========
@@ -49,11 +46,10 @@ Test Steps
         * ``[BRICK]`` is brick path.
    :result:
         When the volume is filled by 75%, the threshold is breached and
-        Tendrl should sent notification about this.
+        Tendrl should sent alert about this.
 
         When the brick is filled by 75%, the threshold is breached and
-        Tendrl should sent notification about this.
-        Check for messages in Web Admin UI, SMNP and mail.
+        Tendrl should sent alert about this.
 
 .. test_action::
    :step:
@@ -75,16 +71,11 @@ Test Steps
         * ``[BRICK]`` is brick path.
    :result:
         When the volume is cleared under 75%, the threshold is breached.
-        Tendrl should sent notifications about this.
-        Check for messages in Web Admin UI, SMNP and mail.
+        Tendrl should sent alerts about this.
 
         When the brick is cleared under 75%, the threshold is breached.
-        Tendrl should sent notifications about this.
-        Check for messages in Web Admin UI, SMNP and mail.
+        Tendrl should sent alerts about this.
 
-.. test_action::
-   :step:
-   :result:
 
 Teardown
 ========
