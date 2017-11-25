@@ -2,6 +2,7 @@ Status of Gluster Peer
 **********************
 
 :author: mbukatov@redhat.com
+         mkudlej@redhat.com
 
 Description
 ===========
@@ -30,6 +31,7 @@ Test Steps
        There is alert: "status changed of peer from Connected to Disconnected".
        There is info about cluster ID and peer hostname.
 
+.. test_action::
    :step:
        Turn on back one of machine in Glsuter storage pool.
 
