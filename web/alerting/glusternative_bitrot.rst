@@ -139,4 +139,4 @@ Teardown
 
 #. Make sure all machines and volume used during testing are up again.
 #. Make sure that on the volume, there are no leftover files affected by bitrot
-   errors (just delete them, TODO: verify).
+   errors (just delete them).
