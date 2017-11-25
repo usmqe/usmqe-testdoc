@@ -20,8 +20,7 @@ Based on:
 Setup
 =====
 
-#. You need a gluster volume (no gluster volume usmqe team uses right now
-   seem to work, see :rhbz:`1516484`)
+#. You need a gluster volume.
 #. Enable bitrot detection on the volume. On one of storage nodes, run:
 
    .. code-block:: console
@@ -58,18 +57,27 @@ Test Steps
 
 .. test_action::
    :step:
-       On some storage machine, run on demand scrubbing for Bitrot Detection on
-       the volume:
+       On some storage machine, start ondemand scrubbing for Bitrot Detection
+       on the volume:
 
        .. code-block:: console
 
            # gluster volume bitrot VOLNAME scrub ondemand
+
+       and check the result:
+
+       .. code-block:: console
+
+           # gluster volume bitrot VOLNAME scrub status | grep -i error
+
    :result:
-       The process ends with success, printing the following on stdout:
+       The process is started with success, printing the following on stdout:
 
        .. code-block:: console
 
            volume bitrot: success
+
+       and when checking the result, there are no errors detected.
 
 .. test_action::
    :step:
@@ -80,7 +88,7 @@ Test Steps
 
        .. code-block:: console
 
-           $ ansible -i usm1.hosts -m shell -a 'tree /mnt/brick_VOLNAME*' all
+           $ ansible -i usm1.hosts -m shell -a 'find /mnt/brick_VOLNAME* -name glusternative_bitrot.testfile' gluster
 
        Edit this file directly on the brick, changing it's content. So for
        example:
@@ -96,11 +104,28 @@ Test Steps
        .. code-block:: console
 
            # gluster volume bitrot VOLNAME scrub ondemand
-   :result:
-       TODO: verify (this didn't happened on volume_beta_arbiter_2_plus_1x2)
 
-       The srub error should be detected, and Tendrl should create an alert
-       for this event.
+       and check the result:
+
+       .. code-block:: console
+
+           # gluster volume bitrot VOLNAME scrub status | less
+   :result:
+       The srub error should be detected, the scrub status output contains
+       error details including::
+
+           Error count: 1
+
+           Corrupted object's [GFID]:
+
+           420aa5a9-5444-4cee-9901-df606c600c6e
+
+       Based on that, GlusterFS generates native event for this, as you can see
+       in ``/var/log/glusterfs/events.log`` file on the machine which hosts
+       brick with affected file.
+
+       Tendrl should create an alert for this event, and GFID of affected file
+       should match what you have seen in output of scrub status command.
 
 
 Teardown
