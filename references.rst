@@ -37,10 +37,13 @@
 .. _`test_teardown.snmp.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_teardown.snmp.yml
 .. _`test_setup.smtp.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_setup.smtp.yml
 .. _`test_teardown.smtp.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_teardown.smtp.yml
+.. _`test_setup.splitbrain.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_setup.splitbrain.yml
+.. _`test_teardown.splitbrain.yml`: https://github.com/usmqe/usmqe-teardown/blob/master/test_teardown.splitbrain.yml
 
 .. Other references
 
 .. _`USM QE Team`: https://usmqe-tests.readthedocs.io/en/latest/usmqe_team.html
+.. _`volume_alpha_distrep_6x2`: https://github.com/usmqe/usmqe-setup/blob/master/gdeploy_config/volume_alpha_distrep_6x2.create.conf
 .. _`volume_beta_arbiter_2_plus_1x2`: https://github.com/usmqe/usmqe-setup/blob/master/gdeploy_config/volume_beta_arbiter_2_plus_1x2.create.conf
 .. _`volume_gama_disperse_4_plus_2x2`: https://github.com/usmqe/usmqe-setup/blob/master/gdeploy_config/volume_gama_disperse_4_plus_2x2.create.conf
 .. _`SNMP`: https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol

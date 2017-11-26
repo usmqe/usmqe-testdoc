@@ -20,11 +20,18 @@ Based on:
 * RHG3-12336
 * `Split brain and the ways to deal with it`_
 
+.. note::
+
+   Since this test case requires volume `volume_alpha_distrep_6x2`_ which
+   is not in our current set of volumes we test with, we should remove this
+   test case from the test plan.
+
 Setup
 =====
 
-#. You need a gluster volume with AFR translator,
-   so use: `volume_beta_arbiter_2_plus_1x2`_.
+#. You need a gluster volume with AFR translator, in a configuration prone to
+   split brain (with 2 bricks in replica set, without arbiter one):
+   `volume_alpha_distrep_6x2`_.
 
 #. You need **2 client machines** (you can ask your colleague for 2nd client
    machine and follow test steps without disrupting his setup, if you are
@@ -37,18 +44,15 @@ Setup
 
    .. code-block:: console
 
-       [root@usm1-client]# cd /mnt/volume_beta_arbiter_2_plus_1x2
-       [root@usm1-client]# echo "Hello GlusterFS!" > splitbrain.testfile
+       [root@usm1-client]# cd /mnt/VOLNAME
+       [root@usm1-client]# echo 'Hello GlusterFS!' > splitbrain.testfile
 
 #. Find out on which replica set ``splitbrain.testfile`` is stored, and write
    down all it's bricks. You can use ansible (from qe server) like this:
 
    .. code-block:: console
 
-       # ansible -i usm1.hosts -m shell -a 'find /mnt/brick_* -name splitbrain.testfile | xargs du -sh' gluster
-
-   Besides that, you also need to check which one is arbiter brick
-   (arbiter brick contains the file, but it has zero size).
+       # ansible -i usm1.hosts -m shell -a 'find /mnt/brick_* -name splitbrain.testfile' gluster
 
 #. Update your inventory file again, this time add 2 new groups based on
    previous observation:
@@ -57,13 +61,11 @@ Setup
 
        [gluster_splitbrain0]
        usm1-gl5.usmqe.example.com  # machine with brick of 1st replica
-       usm1-gl6.usmqe.example.com  # machine with arbiter brick
 
        [gluster_splitbrain1]
        usm1-gl4.usmqe.example.com  # machine with brick of 2nd replica
-       usm1-gl6.usmqe.example.com  # machine with arbiter brick
 
-#. Manually or using playbook ``test_setup.splitbrain.yml``,
+#. Manually or using playbook `test_setup.splitbrain.yml`_,
    create new mountpoint on 2nd client for the GlusterFS volume and
    reconfigure firewall on both client machines to drop network trafic:
 
@@ -100,5 +102,9 @@ Test Steps
 Teardown
 ========
 
-#. Make sure all machines and volume used during testing are up again.
-#. Mount glusterfs volume on the 1st client again.
+#. Resolve split brain (remove affected file on both clients).
+#. Manually or using playbook `test_teardown.splitbrain.yml`_,
+   unount glusterfs volume on the 2nd client and
+   drop firewall rules added to both client machines.
+#. Remove 2nd clinent from inventory file
+#. Remove gluster splitbrain groups from inventory file
