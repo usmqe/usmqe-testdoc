@@ -36,6 +36,7 @@ Test Steps
          restore bricks*.
        * Atin provided additional info:
          You can simulate this by changing the info file of a particular brick
+         (file from ``/var/lib/glusterd/vols/VOLNAME/bricks/`` directory)
          with a different IP (which is not there in trusted storage pool) and
          restarting glusterd service on the same node.
    :result:
