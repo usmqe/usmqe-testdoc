@@ -38,7 +38,7 @@
 .. _`test_setup.smtp.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_setup.smtp.yml
 .. _`test_teardown.smtp.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_teardown.smtp.yml
 .. _`test_setup.splitbrain.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_setup.splitbrain.yml
-.. _`test_teardown.splitbrain.yml`: https://github.com/usmqe/usmqe-teardown/blob/master/test_teardown.splitbrain.yml
+.. _`test_teardown.splitbrain.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_teardown.splitbrain.yml
 
 .. Other references
 
