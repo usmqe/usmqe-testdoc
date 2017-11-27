@@ -34,6 +34,10 @@ Test Steps
 
        * According to :rhbz:`1397430`, it's related to *glusterd failing to
          restore bricks*.
+       * Atin provided additional info:
+         You can simulate this by changing the info file of a particular brick
+         with a different IP (which is not there in trusted storage pool) and
+         restarting glusterd service on the same node.
    :result:
        Tendrl sends an alert for "Brick path resolution failed for brick"
        (``BRICKPATH_RESOLVE_FAILED``).
