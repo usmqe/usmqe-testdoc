@@ -66,8 +66,9 @@ Test Steps
     :result:
         Processes killed. Verify that after some time an *afr quorum fail* 
         alert is generated in **Tendrl**
+
         NOTE: To be sure the alert is hit load some data to the arbiter volume
-              empty files could be used
+        empty files could be used
 
         .. code-block:: console
 
@@ -120,8 +121,8 @@ Test Steps
     :result:
       *glusterd* service is started. All brick processes are running again.
       Verify that a *afr subvolume up* clearing alert is generated
-        in **Tendrl**.
-        Verify that the previous (warning) one is not displayed on UI anymore.
+      in **Tendrl**.
+      Verify that the previous (warning) one is not displayed on UI anymore.
 
 
 Teardown
