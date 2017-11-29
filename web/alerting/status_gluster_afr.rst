@@ -25,7 +25,7 @@ Setup
 
 #. You need a gluster arbiter volume.
    (distributed, distributed-replicate) volumes uses AFR translator
-   to this categories falls also arbiter - distributed-replicate volume
+   to this categories falls also arbiter as distributed-replicate volume
 
 Test Steps
 ==========
@@ -52,7 +52,7 @@ Test Steps
             # systemctl stop glusterd
     :result:
         A *glusterd* service is stopped on both machines.
-        **Tendrl** generates an (warning) alert for this event.
+        **Tendrl** generates (warning) alerts for these events.
 
 .. test_action::
     :step:
@@ -61,10 +61,10 @@ Test Steps
 
         .. code-block:: console
 
-            # ps -eaf " grep glusterfs
+            # ps -eaf | grep glusterfs
             # kill <pid>
     :result:
-        Processes killed. Verify that after some time an *afr quorum fail* 
+        Processes killed. Verify that after some time an *afr quorum fail*
         alert is generated in **Tendrl**
 
         NOTE: To be sure the alert is hit load some data to the arbiter volume
@@ -85,7 +85,8 @@ Test Steps
         *glusterd* service is started. All brick processes are running again.
         Verify that a *afr quorum met* clearing alert is generated
         in **Tendrl**.
-        Verify that the previous (warning) one is not displayed on UI anymore.
+        Verify that the previous (warning) *afr quorum fail* is not displayed
+        on UI anymore.
 
 .. test_action::
     :step:
@@ -97,7 +98,8 @@ Test Steps
             # systemctl stop glusterd
     :result:
         Service is stopped on all three machines.
-        **Tendrl** generates an alert.
+        **Tendrl** generates an alert for each machine with stopped *glusterd*
+        service.
 
 .. test_action::
     :step:
@@ -105,7 +107,7 @@ Test Steps
 
         .. code-block:: console
 
-            # ps -eaf " grep glusterfs
+            # ps -eaf | grep glusterfs
             # kill <pid>
     :result:
         Processes killed. Verify that after some time an *afr subvolume down*
@@ -122,7 +124,8 @@ Test Steps
       *glusterd* service is started. All brick processes are running again.
       Verify that a *afr subvolume up* clearing alert is generated
       in **Tendrl**.
-      Verify that the previous (warning) one is not displayed on UI anymore.
+      Verify that the previous (warning) *afr subvolume down* is not displayed
+      on UI anymore.
 
 
 Teardown
