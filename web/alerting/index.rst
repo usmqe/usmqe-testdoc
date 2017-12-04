@@ -25,7 +25,7 @@ The main upstream documentation related to alerting is:
   `Tendrl Server Installation`_ (search for step `Configure email/snmp source`
   there)
 
-Other upstream information related to alerting:
+Other information related to alerting:
 
 * https://github.com/Tendrl/node-agent/issues/665 (alert lifecycle
   documentation is missing)
@@ -33,6 +33,7 @@ Other upstream information related to alerting:
   alerting implementation)
 * https://github.com/Tendrl/ui/issues/663 (alerts vs notifications in Tednrl
   UI)
+* :rhbz:`1515662`
 
 .. test_defaults::
    :casecomponent: web

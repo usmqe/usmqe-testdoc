@@ -23,6 +23,8 @@
 .. _`Automatic File Replication`: http://docs.gluster.org/en/latest/Quick-Start-Guide/Architecture/#afrautomatic-file-replication-translator
 .. _`Geo Replication`: http://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/
 .. _`Gluster Glossary`: http://docs.gluster.org/en/latest/glossary
+.. _`Gluster BitRot Detection`: http://docs.gluster.org/en/latest/Administrator%20Guide/Managing%20Volumes/#bitrot-detection
+.. _`Split brain and the ways to deal with it`: http://docs.gluster.org/en/latest/Administrator%20Guide/Split%20brain%20and%20ways%20to%20deal%20with%20it/#split-brain
 
 .. Upstream Documentation for Related Projects
 
@@ -35,10 +37,14 @@
 .. _`test_teardown.snmp.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_teardown.snmp.yml
 .. _`test_setup.smtp.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_setup.smtp.yml
 .. _`test_teardown.smtp.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_teardown.smtp.yml
+.. _`test_setup.splitbrain.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_setup.splitbrain.yml
+.. _`test_teardown.splitbrain.yml`: https://github.com/usmqe/usmqe-setup/blob/master/test_teardown.splitbrain.yml
 
 .. Other references
 
 .. _`USM QE Team`: https://usmqe-tests.readthedocs.io/en/latest/usmqe_team.html
+.. _`volume_alpha_distrep_6x2`: https://github.com/usmqe/usmqe-setup/blob/master/gdeploy_config/volume_alpha_distrep_6x2.create.conf
+.. _`volume_beta_arbiter_2_plus_1x2`: https://github.com/usmqe/usmqe-setup/blob/master/gdeploy_config/volume_beta_arbiter_2_plus_1x2.create.conf
 .. _`volume_gama_disperse_4_plus_2x2`: https://github.com/usmqe/usmqe-setup/blob/master/gdeploy_config/volume_gama_disperse_4_plus_2x2.create.conf
 .. _`SNMP`: https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol
 .. _`SMTP`: https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol
