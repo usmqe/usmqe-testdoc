@@ -19,6 +19,13 @@ Based on:
 
 * `List of Alerts and Notifications in Tendrl`_
 * AFR stands for `Automatic File Replication`_
+* For the purpose of this test case, **subvolume** is assumed to correspond
+  to **replica set**. This understanding is based on output of ``gluster
+  get-state`` command executed on `volume_beta_arbiter_2_plus_1x2`_ volume,
+  where we see that that there are 6 subvolumes in the arbiter volume, which
+  corresponds to number of replica sets. We weren't able to find suitable
+  reference in gluster documentation which would either provide better
+  explanation or proved us wrong.
 
 Setup
 =====
