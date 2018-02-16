@@ -16,7 +16,7 @@ Setup
 
 #. Login user into Tendrl, see :doc:`/web/tendrl/login_positive`
 
-#. Import all clusters, see :doc:`/web/tendrl/cluster_import.rst`
+#. Import all clusters, see :doc:`/web/tendrl/cluster_import`
 
 Test Steps
 ==========
