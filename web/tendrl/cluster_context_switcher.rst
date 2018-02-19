@@ -71,7 +71,7 @@ Test Steps
 
 .. test_action::
    :step:
-       Go to ``Volumes``
+       Click on ``Volumes`` button in left panel.
    :result:
        List of volumes page is shown.
 
@@ -87,8 +87,7 @@ Test Steps
        | Click on ``Context switcher`` menu and select different cluster.
        | Repeat with all clusters.
    :result:
-       Current page is rendered again with volumes for currently 
-       selected cluster.
+       Current page is redirected to ``Hosts`` page for given cluster.
 
 .. test_action::
    :step:
@@ -106,11 +105,11 @@ Test Steps
    :step:
        Click on ``Context switcher`` menu and select different cluster.
    :result:
-       Current page is redirected to ``Volumes`` page for given cluster.
+       Current page is redirected to ``Hosts`` page for given cluster.
 
 .. test_action::
    :step:
-       Go to ``Tasks``
+       Click on ``Tasks`` button in left panel.
    :result:
        List of tasks page is shown.
 
@@ -126,12 +125,11 @@ Test Steps
        | Click on ``Context switcher`` menu and select different cluster.
        | Repeat with all clusters.
    :result:
-       Current page is rendered again with tasks for currently selected 
-       cluster.
+       Current page is redirected to ``Hosts`` page for given cluster.
 
 .. test_action::
    :step:
-       Go to ``Events``
+       Click on ``Events`` button in left panel.
    :result:
        List of events page is shown.
 
@@ -145,10 +143,10 @@ Test Steps
 .. test_action::
    :step:
        | Click on ``Context switcher`` menu and select different cluster.
+       | 
        | Repeat with all clusters.
    :result:
-       Current page is rendered again with events for currently selected
-       cluster.
+       Current page is redirected to ``Hosts`` page for given cluster.
 
 Teardown
 ========
