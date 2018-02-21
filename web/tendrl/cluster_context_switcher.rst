@@ -45,14 +45,6 @@ Test Steps
 
 .. test_action::
    :step:
-       | Click on ``Context switcher`` menu and select different cluster.
-       | Repeat with all clusters.
-   :result:
-       Current page is rendered again with hosts for currently selected
-       cluster.
-
-.. test_action::
-   :step:
        Click on listed hostname.
    :result:
        ``Brick Details`` page is shown.
@@ -62,12 +54,6 @@ Test Steps
        Check that correct cluster is still selected.
    :result:
        Correct ``cluster id`` is shown in context switcher.
-
-.. test_action::
-   :step:
-       Click on ``Context switcher`` menu and select different cluster.
-   :result:
-       Current page is redirected to ``Hosts`` page for given cluster.
 
 .. test_action::
    :step:
@@ -84,13 +70,6 @@ Test Steps
 
 .. test_action::
    :step:
-       | Click on ``Context switcher`` menu and select different cluster.
-       | Repeat with all clusters.
-   :result:
-       Current page is redirected to ``Hosts`` page for given cluster.
-
-.. test_action::
-   :step:
        Click on listed volume.
    :result:
        ``Brick Details`` page is shown.
@@ -100,12 +79,6 @@ Test Steps
        Check that correct cluster is still selected.
    :result:
        Correct ``cluster id`` is shown in context switcher.
-
-.. test_action::
-   :step:
-       Click on ``Context switcher`` menu and select different cluster.
-   :result:
-       Current page is redirected to ``Hosts`` page for given cluster.
 
 .. test_action::
    :step:
@@ -122,29 +95,35 @@ Test Steps
 
 .. test_action::
    :step:
-       | Click on ``Context switcher`` menu and select different cluster.
-       | Repeat with all clusters.
-   :result:
-       Current page is redirected to ``Hosts`` page for given cluster.
-
-.. test_action::
-   :step:
        Click on ``Events`` button in left panel.
    :result:
        List of events page is shown.
 
 .. test_action::
    :step:
-       Check that all events from cluster that is currently selected are presen
-       t in list of events.
+       Check that all events from cluster that is currently selected are
+       present in list of events.
    :result:
        All events are listed and no event is missing or is extra.
 
 .. test_action::
    :step:
+       Click on ``Context switcher`` menu and select ``All clusters`` item.
+   :result:
+       No cluster is selected and user is redirected on page with list of
+       clusters.
+
+.. test_action::
+   :step:
+       Repeat all previous test actions with all other clusters.
+   :result:
+       UI behaves as is expected and shows items related to selected context.
+
+.. test_action::
+   :step:
        | Click on ``Context switcher`` menu and select different cluster.
-       | 
-       | Repeat with all clusters.
+       | Repeat with all clusters and from all locations in UI:
+       | ``Hosts``, ``Volumes``, ``Tasks`` and ``Events``.
    :result:
        Current page is redirected to ``Hosts`` page for given cluster.
 
