@@ -38,6 +38,17 @@ Test Steps
 
 .. test_action::
     :step:
+        Wait for synchronization of imported cluster with Graphite.
+        Get cluster status from Graphite. Graphite API can be used:
+        ``curl -X GET http://[host]:10080/render/?target=tendrl.clusters.[cluster_id].status&format=json``
+        where [host] is address of server with Graphite data.
+    :result:
+        Received JSON is list with datapoints related to cluster health:
+        ``[{"target": "tendrl.clusters.[cluster-id].status","datapoints": [*list-of-datapoints*]}]``
+        Status of response is *200 OK*.
+
+.. test_action::
+    :step:
         Call ``cluster/[cluster_id]/unmanage`` API call.
     :result:
         In response is message:
@@ -64,6 +75,15 @@ Test Steps
 .. test_action::
     :step:
         Call `List Volumes`_ API call.
+    :result:
+        Received JSON is empty list ``[]``.
+        Status of response is *200 OK*.
+
+.. test_action::
+    :step:
+        Get cluster status from Graphite. Graphite API can be used:
+        ``curl -X GET http://[host]:10080/render/?target=tendrl.clusters.[cluster_id].status&format=json``
+        where [host] is address of server with Graphite data.
     :result:
         Received JSON is empty list ``[]``.
         Status of response is *200 OK*.
