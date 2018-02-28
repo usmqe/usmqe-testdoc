@@ -9,7 +9,8 @@ Description
 
 Change context of tendrl UI - show items in UI related to selected cluster.
 Context switcher is the dropdown menu rendered in masthead for each page
-except ``Clusters`` in UI.
+except ``Clusters`` in UI. Features and behaviour are described in 
+`Design document for Context Selector navigation`_
 
 Setup
 =====
