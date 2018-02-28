@@ -9,6 +9,7 @@
 .. _`Tendrl Project`: http://tendrl.org/
 .. _`Tendrl Wiki`: https://github.com/Tendrl/documentation/wiki
 .. _`Tendrl Package Installation Reference`:  https://github.com/Tendrl/documentation/wiki/Tendrl-release-v1.5.4-(install-guide)
+.. _`Design document for Context Selector navigation`: https://redhat.invisionapp.com/share/8QCOEVEY9#/screens/244820318
 .. _`Design document for Gluster file shares list`: https://redhat.invisionapp.com/share/BR8JDCGSQ#/screens/198417117
 
 .. Tendrl Upstream Documentation related to Alerting
