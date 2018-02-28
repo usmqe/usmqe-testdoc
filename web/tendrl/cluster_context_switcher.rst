@@ -33,7 +33,8 @@ Test Steps
 
 .. test_action::
    :step:
-       Click on the name of first imported cluster in the cluster list.
+       Click on the name of first imported cluster in the cluster list rendered
+       on ``All clusters`` page. Not from ``Context switcher`` drop down menu.
    :result:
        Page is redirected to ``Hosts`` page and list of hosts is shown.
 
@@ -116,7 +117,9 @@ Test Steps
 
 .. test_action::
    :step:
-       Repeat all previous test actions with all other clusters.
+       Repeat all previous test actions with all other clusters. Select them
+       from list rendered on page that is redirected from previous step. Not
+       from ``Context switcher`` drop down menu.
    :result:
        UI behaves as is expected and shows items related to selected context.
 
