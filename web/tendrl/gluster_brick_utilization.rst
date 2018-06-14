@@ -1,5 +1,5 @@
-Gluster brick status
-********************
+Gluster brick utilization
+*************************
 
 :authors:
           - fbalak@redhat.com
@@ -7,7 +7,7 @@ Gluster brick status
 Description
 ===========
 
-Check status of bricks in Tendrl UI.
+Check utilization of bricks in Tendrl UI.
 
 .. warning::
 
@@ -75,36 +75,36 @@ Test Steps
 
 .. test_action::
    :step:
-      Open terminal, connect to host selected in previous steps and run command:
+      Open terminal, connect to host selected in previous step and run command:
       
-      ``gluster volume status``
+      ``gluster volume info``
       
       Compare output of this command with information displayed in Tendrl UI
       in both browser windows.
    :result:
-      All bricks present in an output of the gluster command are listed in
-      Tendrl UI. No brick is missing or extraneous.
-
-      In the second browser, bricks should be listed in correct replica set.
-      This can be checked from ``gluster volume status`` command. Replica sets
-      are based on *replica count* for given volume. Hosts ordered by
-      ``gluster volume status`` and split by *replica count* form replica sets.
-
-      All bricks that have *Y* in *Online* column are marked as *started* in UI.
-
-      All bricks that have *N* in *Online* column are marked as *stopped* in UI.
-
-      For each status a correct symbol is displayed.
+      In Tendrl UI are listed all bricks that are in output of gluster command.
+      No brick is missing or is an extra.
 
 .. test_action::
    :step:
-      Gradually shut down all bricks:
-      Get PID of process that handles the brick with ``gluster volume status``,
-      then log into the machine where the brick is located and call
-      ``kill [PID]``.
+      In terminal execute:
+      
+      ``gluster volume status [VOLUME] detail``
+      
+      Compare output of this command with information displayed in Tendrl UI
+      in both browser windows.
    :result:
-      After each calling of ``kill [PID]`` is stopped a brick and it is
-      reflected in UI by symbol *stopped* next to displayed brick.
+      Utilization of bricks in Tendrl UI corresponds with informations
+      collected by the gluster command. Brick utilization could be computed
+      from metrics *Disk Space Free* and *Disk Space Free*. Utilization for all
+      bricks should be near 0% for all bricks at the moment.
+
+.. test_action::
+   :step:
+      In second browser window check value of utilization for replica set.
+   :result:
+      Utilization of replica set consists of percentage of sums of metrics
+      *Disk Space Free* and *Disk Space Free*.
 
 .. test_action::
    :step:
@@ -116,14 +116,23 @@ Test Steps
 
 .. test_action::
    :step:
-      On one of the nodes call:
-      ``gluster volume [VOLUME] start force``
+      Log into a client machine, where the volume is mounted. Try to fill the
+      volume with data:
+
+      ``for i in {1..N-1}; do dd if=/dev/zero of=/[MOUNT]/testfile$i bs=1G count=1; done``
+      
+      where ``N`` is capacity in GiB and ``[MOUNT]`` is directory with mounted
+      volume. Monitor changes with:
+      
+      ``gluster volume status [VOLUME] [HOST]:/[BRICK] detail``
+      
+      where ``[VOLUME]`` is name of volume, ``[HOST]`` is monitored machine and
+      ``[BRICK]`` is brick path.
    :result:
-      In UI are all bricks in *started* state.
+      In Tendrl UI is reflected change of utilization for all bricks.
 
 Teardown
 ========
-
 #. Log out
 
 #. Close browser
