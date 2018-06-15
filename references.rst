@@ -13,6 +13,10 @@
 .. _`Design document for Gluster file shares list`: https://redhat.invisionapp.com/share/BR8JDCGSQ#/screens/198417117
 .. _`Specification for cluster expansion`: https://github.com/Tendrl/specifications/pull/254
 
+.. Tendrl Upstream Issues
+
+.. _`upstream issue for cluster expansion`: https://github.com/Tendrl/commons/issues/805
+
 .. Tendrl Upstream Documentation related to Alerting
 
 .. _`Gluster Events APIs`: http://docs.gluster.org/en/latest/Administrator%20Guide/Events%20APIs/

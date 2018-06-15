@@ -2,12 +2,18 @@ Expand cluster
 **************
 
 :authors: 
-          - fbalak@redhat.com
+  - fbalak@redhat.com
+  - mbukatov@redhat.com
+:requirements:
+  - :rhbz:`1516417`
+  - :rhbz:`1559368`
 
 Description
 ===========
 
 Cluster expansion as described in `Specification for cluster expansion`_.
+
+See also `upstream issue for cluster expansion`_.
 
 Setup
 =====
@@ -65,6 +71,7 @@ Test Steps
 
 Teardown
 ========
+
 #. Log out
 
 #. Close browser
