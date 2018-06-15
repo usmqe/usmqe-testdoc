@@ -9,6 +9,12 @@ Multiuser - Cluster import
 Description
 ============
 
+.. warning::
+
+   Testcase is not clear enough, merged for archival purposes.
+
+   See https://github.com/usmqe/usmqe-testdoc/pull/7
+
 Try to import cluster twice. Testcase is tested with one (or two users) and
 with 2 different browser sessions (two different session IDs). Goal is to try to import
 cluster from *Import wizard*. User(s) should have permission to import cluster.
