@@ -6,6 +6,9 @@ This is a Sphinx_/Pylatest_ project with test case documents and other system
 testing related documentation for Tendrl_ upstream project, written in
 `reStructuredText syntax`_.
 
+This **repository was switched into read only mode** on 2018-06-15, and it's
+keep here for achival purposes only.
+
 Maintained by `USM QE Team`_.
 
 
