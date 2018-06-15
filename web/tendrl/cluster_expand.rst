@@ -57,17 +57,53 @@ Test Steps
 
 .. test_action::
    :step:
-       Check list of hosts in Tendrl UI.
+       Check list of hosts in Tendrl UI for given cluster.
    :result:
-       There are listed all hosts of expanded cluster.
+       There are listed all hosts of cluster. Original hosts are marked as *Up*
+       and new hosts are marked as *Unknown*. In above the cluster list at
+       right side is button *Expand Cluster*.
 
 .. test_action::
    :step:
-       Click on *Dashboard* next to hostname of newly added host. Repeat with
-       all new hosts.
+       Click on *Expand Cluster* button.
    :result:
-       Grafana *Hosts* dashboard for relevant host is displayed and populated
-       with data.
+       Popup with list of hosts to expand is shown. There should not be hosts
+       that are already managed.
+
+.. test_action::
+   :step:
+       Click on *Expand* button in expand popup.
+   :result:
+       New Cluster expansion task is created.
+
+.. test_action::
+   :step:
+       Go to list of clusters in Tendrl UI.
+   :result:
+       Status of cluster that is being expanded is *In-progress* and there
+       should be link to expansion job.
+
+.. test_action::
+   :step:
+       Click on expansion job link and wait until the status of job is
+       *finished*.
+   :result:
+       Page with expansion job progress is displayed. After a while it should
+       finish correctly and status of job should change from *processing* to
+       *finished*.
+
+.. test_action::
+   :step:
+       Go to list of clusters in Tendrl UI.
+   :result:
+       Status of cluster that is *Healthy* and number of hosts is number of
+       all hosts in cluster.
+
+.. test_action::
+   :step:
+       Check list of hosts in Tendrl UI for given cluster.
+   :result:
+       There are listed all hosts of cluster and all are marked as *Up*.
 
 Teardown
 ========
